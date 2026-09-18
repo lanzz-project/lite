@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>YOUR NAME APK — Download APK Custom Premium 2026</title>
+<meta name="description" content="YOUR NAME APK — website download APK custom dengan tampilan modern, premium unlocked, tanpa iklan, dan pengalaman download paling nyaman.">
+<meta name="theme-color" content="#050807">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="YOUR NAME APK — Download APK Custom Premium">
+<meta property="og:description" content="Premium Unlocked • No Ads • Super Cepat • Android 5.0+">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:#050807;--bg2:#080e0b;
+  --surface:#0b120f;--surface2:#101a15;--surface3:#0e1713;
+  --line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);
+  --text:#f7faf8;--text2:#c2cbc6;--muted:#8f9b94;
+  --green:#19e66b;--green2:#00a94f;--yellow:#ffd84d;--red:#ff6161;
+  --radius:24px;--radius-sm:14px;
+  --shadow:0 30px 90px rgba(0,0,0,.38);
+  --shadow-sm:0 14px 40px rgba(0,0,0,.28);
+  --grid:rgba(255,255,255,.025);
+  --glass:rgba(6,12,9,.75);
+  --glow1:rgba(25,230,107,.12);
+  --glow2:rgba(255,216,77,.08);
+  --chip:rgba(255,255,255,.045);
+  --on-green:#031007;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="light"]{
+  --bg:#eef4f0;--bg2:#e6eee9;
+  --surface:#ffffff;--surface2:#f7faf8;--surface3:#f1f6f3;
+  --line:rgba(4,26,13,.10);--line2:rgba(4,26,13,.20);
+  --text:#06130b;--text2:#31413a;--muted:#5d6f66;
+  --green:#04a94e;--green2:#02743a;--yellow:#c99700;--red:#d63b3b;
+  --shadow:0 24px 70px rgba(6,30,16,.13);
+  --shadow-sm:0 12px 34px rgba(6,30,16,.10);
+  --grid:rgba(4,26,13,.035);
+  --glass:rgba(255,255,255,.84);
+  --glow1:rgba(4,169,78,.10);
+  --glow2:rgba(201,151,0,.07);
+  --chip:rgba(4,26,13,.045);
+  --on-green:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:105px;-webkit-text-size-adjust:100%}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  background:
+    radial-gradient(circle at 12% 6%,var(--glow1),transparent 30%),
+    radial-gradient(circle at 88% 14%,var(--glow2),transparent 26%),
+    radial-gradient(circle at 50% 100%,rgba(25,230,107,.05),transparent 40%),
+    var(--bg);
+  color:var(--text);line-height:1.65;overflow-x:hidden;
+  transition:background-color .5s ease,color .35s ease;
+  min-height:100vh;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.9;z-index:0;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 50% 25%,#000 30%,transparent 82%);
+  -webkit-mask-image:radial-gradient(circle at 50% 25%,#000 30%,transparent 82%);
+}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+::selection{background:var(--green);color:var(--on-green)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:20px;border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--green2);background-clip:content-box}
+
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.i{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em}
+
+.container{width:min(1200px,calc(100% - 40px));margin-inline:auto}
+header,main,footer{position:relative;z-index:2}
+
+/* ============================================================
+   SCROLL PROGRESS + SPOTLIGHT
+   ============================================================ */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:2000;background:transparent;pointer-events:none}
+.scroll-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green2),var(--green),var(--yellow));box-shadow:0 0 18px rgba(25,230,107,.6);transition:width .1s linear}
+#spot{position:fixed;top:0;left:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;pointer-events:none;z-index:1;opacity:0;transition:opacity .6s ease;background:radial-gradient(circle,rgba(25,230,107,.10),transparent 62%)}
+[data-theme="light"] #spot{background:radial-gradient(circle,rgba(4,169,78,.09),transparent 62%)}
+#spot.on{opacity:1}
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+.topbar{position:sticky;top:0;z-index:1000;background:var(--glass);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border-bottom:1px solid var(--line);transition:box-shadow .3s ease,border-color .3s ease}
+.topbar.scrolled{box-shadow:0 12px 40px rgba(0,0,0,.28);border-color:var(--line2)}
+[data-theme="light"] .topbar.scrolled{box-shadow:0 12px 34px rgba(6,30,16,.08)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;transition:height .3s ease}
+.topbar.scrolled .nav{height:66px}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.5px;white-space:nowrap}
+.logo b{color:var(--green)}
+.logo-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),#0aa84e);color:var(--on-green);font-size:20px;box-shadow:0 0 32px rgba(25,230,107,.3),inset 0 -2px 0 rgba(0,0,0,.15);transition:transform .4s var(--ease)}
+.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.06)}
+.navlinks{display:flex;gap:4px;align-items:center}
+.navlinks a{position:relative;padding:9px 12px;font-size:13px;font-weight:700;color:var(--text2);border-radius:10px;transition:color .25s,background .25s}
+.navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.navlinks a:hover{color:var(--text);background:var(--chip)}
+.navlinks a:hover::after,.navlinks a.active::after{transform:scaleX(1)}
+.navlinks a.active{color:var(--green)}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--chip);display:grid;place-items:center;font-size:17px;color:var(--text2);transition:.25s var(--ease)}
+.icon-btn:hover{color:var(--green);border-color:var(--line2);transform:translateY(-2px)}
+.icon-btn:active{transform:scale(.94)}
+.menu-btn{display:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--chip);place-items:center;font-size:19px}
+.mobile-menu{display:none;padding:0 20px 20px;border-top:1px solid var(--line);background:var(--glass)}
+.mobile-menu.open{display:block;animation:slideDown .35s var(--ease)}
+.mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:14px 4px;font-size:14px;font-weight:700;color:var(--text2);border-bottom:1px solid var(--line)}
+.mobile-menu a:last-child{border-bottom:0}
+.mobile-menu a:hover{color:var(--green)}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:14px;font-weight:800;font-size:14px;border:1px solid var(--line);background:var(--chip);color:var(--text);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s ease,background .3s ease;white-space:nowrap;isolation:isolate}
+.btn .i{font-size:16px}
+.btn:hover{transform:translateY(-3px);border-color:var(--line2)}
+.btn:active{transform:translateY(-1px) scale(.985)}
+.btn-sm{padding:11px 16px;font-size:13px;border-radius:12px}
+.btn-lg{padding:17px 30px;font-size:15px;border-radius:16px}
+.primary{background:linear-gradient(135deg,var(--green),#0dbb59);color:var(--on-green);border-color:transparent;box-shadow:0 14px 40px rgba(25,230,107,.24)}
+.primary:hover{box-shadow:0 20px 55px rgba(25,230,107,.36)}
+.secondary{background:var(--chip)}
+.ghost{background:transparent}
+.btn .ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.42);animation:ripple .65s ease-out forwards;pointer-events:none;z-index:-1}
+[data-theme="light"] .btn .ripple{background:rgba(4,26,13,.14)}
+@keyframes ripple{to{transform:scale(2.6);opacity:0}}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease) var(--d,0s),transform .85s var(--ease) var(--d,0s)}
+.reveal.show{opacity:1;transform:none}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding:84px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 14px 8px 11px;border:1px solid rgba(25,230,107,.26);border-radius:999px;background:rgba(25,230,107,.07);color:var(--green);font-size:11.5px;font-weight:800;letter-spacing:.6px;margin-bottom:22px}
+[data-theme="light"] .eyebrow{border-color:rgba(4,169,78,.28);background:rgba(4,169,78,.07)}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+h1{font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(40px,5.6vw,74px);line-height:1.03;letter-spacing:-3.4px;max-width:820px;margin-bottom:22px;font-weight:700}
+.gradient{background:linear-gradient(100deg,var(--text) 8%,var(--green) 62%,var(--yellow) 108%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.hero-copy{font-size:16.5px;color:var(--muted);max-width:620px;margin-bottom:30px}
+.actions{display:flex;gap:13px;flex-wrap:wrap}
+.trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.trust span{display:flex;gap:7px;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--chip);color:var(--text2);font-size:11.5px;font-weight:700}
+.trust .i{color:var(--green);font-size:14px}
+
+/* device */
+.device-wrap{position:relative;min-height:560px;display:grid;place-items:center;perspective:1200px}
+.orb{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(25,230,107,.26),transparent 67%);filter:blur(10px);animation:orbPulse 6s ease-in-out infinite}
+.orb.b{width:300px;height:300px;background:radial-gradient(circle,rgba(255,216,77,.16),transparent 68%);top:20px;right:20px;animation-delay:-3s}
+@keyframes orbPulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
+.device-tilt{transform-style:preserve-3d;transition:transform .4s var(--ease)}
+.device{width:272px;height:520px;border:8px solid #1b2420;border-radius:40px;background:#08100c;box-shadow:0 40px 90px rgba(0,0,0,.62),0 0 70px rgba(25,230,107,.16),inset 0 0 0 1px rgba(255,255,255,.05);position:relative;z-index:2;overflow:hidden;transform:rotate(4deg);animation:float 6s ease-in-out infinite}
+[data-theme="light"] .device{border-color:#1d2a23}
+@keyframes float{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-14px)}}
+.device::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:94px;height:23px;border-radius:20px;background:#020403;z-index:5}
+.device::after{content:"";position:absolute;inset:0;border-radius:32px;pointer-events:none;z-index:6;background:linear-gradient(120deg,rgba(255,255,255,.10),transparent 35%,transparent 65%,rgba(255,255,255,.05))}
+.screen{height:100%;padding:46px 18px 18px;background:linear-gradient(160deg,#102218,#07100c);display:flex;flex-direction:column;gap:0}
+.screen-status{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#7f8f86;font-weight:700;margin-bottom:22px;padding:0 4px}
+.screen-status .sig{display:flex;gap:4px;align-items:center}
+.app-icon{width:78px;height:78px;border-radius:24px;margin:0 auto 18px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,var(--green),#067b3b);color:#041109;box-shadow:0 15px 44px rgba(25,230,107,.3)}
+.screen h3{text-align:center;font-size:19px;font-family:'Space Grotesk',sans-serif;color:#f2f7f4;letter-spacing:-.4px}
+.screen>p{text-align:center;color:#819087;font-size:11px;margin-top:3px}
+.mini-card{margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:13px 14px}
+.mini-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:11px;color:#9ba8a1}
+.mini-row+.mini-row{border-top:1px solid rgba(255,255,255,.05)}
+.status{color:var(--green);font-weight:800;letter-spacing:.4px}
+.mini-btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:14px;background:linear-gradient(135deg,var(--green),#0dbb59);color:#031007;font-weight:900;font-size:12.5px;letter-spacing:.6px}
+.floating{position:absolute;z-index:6;background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:16px;padding:12px 15px;box-shadow:var(--shadow);font-size:12px;font-weight:800;display:flex;gap:9px;align-items:center;color:var(--text);transition:transform .4s var(--ease)}
+.floating .i{font-size:16px}
+.floating:hover{transform:translateY(-4px) scale(1.03)}
+.f1{right:-6px;top:78px;animation:floatY 5s ease-in-out infinite}
+.f2{left:-10px;bottom:96px;animation:floatY 5.6s ease-in-out .8s infinite}
+.f3{right:24px;bottom:22px;animation:floatY 6.4s ease-in-out .4s infinite}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ============================================================
+   TICKER
+   ============================================================ */
+.ticker{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface3);overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:3;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.ticker-track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{display:flex;align-items:center;gap:10px;padding:16px 26px;font-size:12.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ticker-track span .i{color:var(--green);font-size:15px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}
+.stat{position:relative;overflow:hidden;padding:24px 22px;background:var(--surface);border:1px solid var(--line);border-radius:20px;transition:.35s var(--ease)}
+.stat:hover{transform:translateY(-6px);border-color:rgba(25,230,107,.32);box-shadow:var(--shadow-sm)}
+.stat::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--yellow));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.stat:hover::after{transform:scaleX(1)}
+.stat strong{display:flex;align-items:baseline;gap:2px;font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:700;letter-spacing:-1px;line-height:1.1}
+.stat strong i{font-style:normal;font-size:16px;color:var(--green)}
+.stat small{display:block;color:var(--muted);font-size:11.5px;font-weight:700;margin-top:5px;letter-spacing:.3px}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{padding:96px 0}
+.section-head{display:flex;justify-content:space-between;gap:34px;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:2.2px;font-weight:900;margin-bottom:12px}
+.kicker::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--green)}
+h2{font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(29px,3.8vw,45px);line-height:1.08;letter-spacing:-2px;font-weight:700}
+.section-desc{color:var(--muted);max-width:470px;font-size:14px}
+
+/* ============================================================
+   TABS + FEATURES
+   ============================================================ */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--chip);font-size:12.5px;font-weight:800;color:var(--text2);transition:.28s var(--ease)}
+.tab:hover{color:var(--text);border-color:var(--line2);transform:translateY(-2px)}
+.tab.active{background:linear-gradient(135deg,var(--green),#0dbb59);color:var(--on-green);border-color:transparent;box-shadow:0 10px 30px rgba(25,230,107,.25)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{position:relative;overflow:hidden;padding:27px;border-radius:var(--radius);background:linear-gradient(145deg,var(--chip),transparent 70%),var(--surface);border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s ease,box-shadow .4s var(--ease)}
+.feature::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(25,230,107,.12),transparent 45%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.feature:hover::before{opacity:1}
+.feature:hover{transform:translateY(-8px);border-color:rgba(25,230,107,.32);box-shadow:var(--shadow)}
+.feature.pop{animation:pop .5s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:none}}
+.icon{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:rgba(25,230,107,.09);color:var(--green);font-size:21px;margin-bottom:20px;border:1px solid rgba(25,230,107,.14);transition:transform .4s var(--ease)}
+.feature:hover .icon{transform:rotate(-8deg) scale(1.07)}
+.feature h3{font-size:16.5px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;letter-spacing:-.3px}
+.feature p{color:var(--muted);font-size:13px}
+.feature-tag{position:absolute;top:18px;right:18px;font-size:9.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(25,230,107,.1);color:var(--green);border:1px solid rgba(25,230,107,.18)}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shot{cursor:pointer;border-radius:22px;border:1px solid var(--line);background:var(--surface);padding:16px;transition:.4s var(--ease)}
+.shot:hover{transform:translateY(-8px);border-color:rgba(25,230,107,.32);box-shadow:var(--shadow)}
+.shot-frame{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#102218,#07100c);aspect-ratio:9/16;border:1px solid rgba(255,255,255,.07);padding:12px;display:flex;flex-direction:column;gap:8px}
+.shot:hover .shot-frame::after{opacity:1}
+.shot-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.45));opacity:0;transition:opacity .35s ease}
+.mk-top{display:flex;gap:5px;margin-bottom:4px}
+.mk-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.16)}
+.mk-dot.g{background:var(--green)}
+.mk-title{height:11px;width:62%;border-radius:6px;background:rgba(255,255,255,.14)}
+.mk-sub{height:8px;width:42%;border-radius:6px;background:rgba(255,255,255,.08)}
+.mk-hero{height:64px;border-radius:12px;background:linear-gradient(135deg,rgba(25,230,107,.28),rgba(25,230,107,.05));border:1px solid rgba(25,230,107,.18)}
+.mk-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mk-box{height:42px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06)}
+.mk-line{height:8px;border-radius:6px;background:rgba(255,255,255,.09)}
+.mk-line.s{width:70%}
+.mk-line.xs{width:45%}
+.mk-pill{height:22px;border-radius:999px;background:rgba(25,230,107,.18);border:1px solid rgba(25,230,107,.25)}
+.mk-spacer{flex:1}
+.shot-meta{margin-top:14px}
+.shot-meta b{display:block;font-size:13.5px;font-family:'Space Grotesk',sans-serif}
+.shot-meta small{color:var(--muted);font-size:11.5px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(2,5,4,.82);backdrop-filter:blur(14px)}
+[data-theme="light"] .lightbox{background:rgba(12,24,17,.6)}
+.lightbox.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lb-card{width:min(880px,100%);max-height:90vh;overflow:auto;background:var(--surface);border:1px solid var(--line2);border-radius:26px;padding:24px;display:grid;grid-template-columns:290px 1fr;gap:26px;box-shadow:var(--shadow);animation:popIn .4s var(--ease)}
+@keyframes popIn{from{opacity:0;transform:scale(.94) translateY(20px)}to{opacity:1;transform:none}}
+.lb-preview{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#102218,#07100c);aspect-ratio:9/16;padding:16px;display:flex;flex-direction:column;gap:9px}
+.lb-info h3{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:-.8px;margin-bottom:10px}
+.lb-info p{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+.lb-list{display:grid;gap:9px}
+.lb-list div{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--text2)}
+.lb-list .i{color:var(--green);font-size:15px;margin-top:3px}
+.lb-close{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:14px;border:1px solid var(--line2);background:var(--surface);display:grid;place-items:center;font-size:19px;transition:.25s}
+.lb-close:hover{color:var(--red);transform:rotate(90deg)}
+
+/* ============================================================
+   COMPARISON
+   ============================================================ */
+.table-wrap{overflow-x:auto;border-radius:24px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;min-width:620px}
+thead th{padding:20px 22px;text-align:left;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:900;border-bottom:1px solid var(--line)}
+thead th.hl{color:var(--green);background:rgba(25,230,107,.06)}
+tbody td{padding:17px 22px;font-size:13.5px;border-bottom:1px solid var(--line);color:var(--text2)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr{transition:background .25s ease}
+tbody tr:hover{background:var(--chip)}
+tbody td:first-child{color:var(--text);font-weight:700}
+td.hl{background:rgba(25,230,107,.045)}
+.ok{color:var(--green);font-size:17px}
+.no{color:var(--muted);font-size:17px;opacity:.6}
+.badge-cell{display:inline-flex;align-items:center;gap:8px}
+
+/* ============================================================
+   STEPS
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;transition:.4s var(--ease);overflow:hidden}
+.step:hover{transform:translateY(-8px);border-color:rgba(25,230,107,.3);box-shadow:var(--shadow)}
+.step-num{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:900;letter-spacing:1.4px;color:var(--green);margin-bottom:26px}
+.step-num b{display:grid;place-items:center;width:26px;height:26px;border-radius:9px;background:rgba(25,230,107,.12);border:1px solid rgba(25,230,107,.22);font-size:11px}
+.step h3{font-size:15.5px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif}
+.step p{font-size:12.5px;color:var(--muted)}
+.step-line{position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--green),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.step:hover .step-line{transform:scaleX(1)}
+
+/* ============================================================
+   DOWNLOAD
+   ============================================================ */
+.download{position:relative;overflow:hidden;padding:66px 44px;border-radius:32px;background:linear-gradient(135deg,#0e2518,#07100c);border:1px solid rgba(25,230,107,.22);box-shadow:var(--shadow)}
+[data-theme="light"] .download{background:linear-gradient(135deg,#e8f7ee,#f6fbf8)}
+.download::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(25,230,107,.18),transparent 65%);top:-220px;right:-160px;pointer-events:none}
+.download::after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,216,77,.12),transparent 68%);bottom:-190px;left:-120px;pointer-events:none}
+.download-inner{position:relative;z-index:2;display:flex;justify-content:space-between;gap:40px;align-items:center;flex-wrap:wrap}
+.download h2{max-width:620px}
+.download p{color:var(--muted);margin:15px 0 22px;font-size:14px;max-width:520px}
+.file-meta{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.file-meta span{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--text2);font-size:11.5px;font-weight:700;background:var(--chip)}
+.file-meta .i{color:var(--green);font-size:14px}
+.dl-panel{display:flex;flex-direction:column;gap:12px;min-width:290px}
+.dl-progress{opacity:0;max-height:0;overflow:hidden;transition:opacity .35s ease,max-height .35s ease}
+.dl-progress.active{opacity:1;max-height:80px}
+.dl-bar{height:8px;border-radius:999px;background:var(--chip);border:1px solid var(--line);overflow:hidden}
+.dl-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--green2),var(--green),var(--yellow));transition:width .2s linear;box-shadow:0 0 16px rgba(25,230,107,.5)}
+.dl-label{display:flex;justify-content:space-between;font-size:11.5px;font-weight:800;color:var(--muted);margin-top:8px}
+.dl-note{font-size:11.5px;color:var(--muted);display:flex;gap:7px;align-items:center}
+.dl-note .i{color:var(--green)}
+.mirrors{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
+
+/* ============================================================
+   CHANGELOG
+   ============================================================ */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--green),rgba(25,230,107,.05))}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-30px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--green);box-shadow:0 0 0 4px rgba(25,230,107,.12)}
+.tl-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.tl-head b{font-family:'Space Grotesk',sans-serif;font-size:17px}
+.tl-ver{font-size:11px;font-weight:900;padding:4px 10px;border-radius:999px;background:rgba(25,230,107,.1);color:var(--green);border:1px solid rgba(25,230,107,.2)}
+.tl-date{font-size:11.5px;color:var(--muted);font-weight:700}
+.tl-list{display:grid;gap:7px;margin-top:4px}
+.tl-list div{display:flex;gap:9px;font-size:13px;color:var(--text2)}
+.tl-list .i{color:var(--green);font-size:15px;margin-top:3px}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{max-width:880px;margin:auto}
+.faq-item{border-bottom:1px solid var(--line);transition:background .3s ease}
+.faq-item:first-child{border-top:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:14.5px;font-weight:800;color:var(--text);transition:color .25s}
+.faq-q:hover{color:var(--green)}
+.faq-q .i{color:var(--green);font-size:17px;transition:transform .35s var(--ease);flex:none}
+.faq-item.open .faq-q .i{transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:13.5px;transition:max-height .4s var(--ease),padding .3s ease;padding:0 40px 0 0}
+.faq-item.open .faq-a{padding-bottom:22px}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews-marquee{overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reviews-track{display:flex;gap:16px;width:max-content;animation:marquee 46s linear infinite}
+.reviews-marquee:hover .reviews-track{animation-play-state:paused}
+.review{width:340px;flex:none;padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:22px;transition:.35s var(--ease)}
+.review:hover{border-color:rgba(25,230,107,.3);transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+.stars{display:flex;gap:3px;color:var(--yellow);font-size:13px;margin-bottom:15px}
+.review p{font-size:13.5px;color:var(--text2);min-height:76px}
+.user{display:flex;gap:11px;align-items:center;margin-top:18px}
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),#078742);color:var(--on-green);font-weight:900;font-size:14px;flex:none}
+.user b{font-size:13.5px;display:block}
+.user small{display:block;color:var(--muted);font-size:10.5px}
+
+/* ============================================================
+   CTA / COMMUNITY
+   ============================================================ */
+.cta{position:relative;overflow:hidden;padding:56px 44px;border-radius:32px;border:1px solid var(--line);background:linear-gradient(135deg,var(--surface2),var(--surface));box-shadow:var(--shadow-sm)}
+.cta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center;position:relative;z-index:2}
+.cta h2{max-width:520px}
+.cta p{color:var(--muted);font-size:14px;margin-top:14px}
+.form{display:flex;gap:10px;flex-wrap:wrap}
+.field{flex:1;min-width:210px;position:relative;display:flex;align-items:center}
+.field .i{position:absolute;left:15px;color:var(--muted);font-size:16px;pointer-events:none}
+.field input{width:100%;padding:15px 16px 15px 44px;border-radius:14px;border:1px solid var(--line);background:var(--chip);color:var(--text);font-size:14px;outline:none;transition:.28s}
+.field input::placeholder{color:var(--muted)}
+.field input:focus{border-color:rgba(25,230,107,.45);box-shadow:0 0 0 4px rgba(25,230,107,.1)}
+.form-note{font-size:11.5px;color:var(--muted);margin-top:12px;display:flex;gap:7px;align-items:center}
+.form-note .i{color:var(--green)}
+.avatars-row{display:flex;align-items:center;gap:12px;margin-top:22px}
+.avatars-row .stack{display:flex}
+.avatars-row .stack .avatar{width:34px;height:34px;font-size:12px;border:2px solid var(--surface);margin-left:-10px}
+.avatars-row .stack .avatar:first-child{margin-left:0}
+.avatars-row small{color:var(--muted);font-size:11.5px;font-weight:700}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:40px;background:var(--bg2)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px}
+.footer-brand p{color:var(--muted);font-size:13px;margin:16px 0 20px;max-width:320px}
+.socials{display:flex;gap:9px}
+.socials a{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--chip);display:grid;place-items:center;font-size:16px;color:var(--text2);transition:.28s var(--ease)}
+.socials a:hover{color:var(--green);transform:translateY(-4px);border-color:rgba(25,230,107,.35)}
+.fcol h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--text);margin-bottom:16px;font-weight:900}
+.fcol a{display:block;color:var(--muted);font-size:13px;padding:6px 0;transition:color .25s,transform .25s}
+.fcol a:hover{color:var(--green);transform:translateX(4px)}
+.footer-bottom{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.footer-bottom .i{color:var(--green);font-size:14px;vertical-align:-2px}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toasts{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:4000;display:flex;flex-direction:column;gap:10px;align-items:center;pointer-events:none;width:min(420px,calc(100% - 32px))}
+.toast{display:flex;gap:11px;align-items:center;padding:13px 18px;border-radius:14px;background:var(--surface2);border:1px solid rgba(25,230,107,.32);box-shadow:var(--shadow);font-size:13px;font-weight:700;color:var(--text);opacity:0;transform:translateY(22px) scale(.96);transition:.4s var(--ease);pointer-events:auto;max-width:100%}
+.toast.show{opacity:1;transform:none}
+.toast-ic{width:28px;height:28px;border-radius:9px;background:rgba(25,230,107,.12);display:grid;place-items:center;color:var(--green);font-size:15px;flex:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1080px){
+  .navlinks{display:none}
+  .menu-btn{display:grid}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero{padding-top:58px}
+  .device-wrap{min-height:530px}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .lb-card{grid-template-columns:1fr;gap:20px}
+  .lb-preview{max-width:280px;margin:auto}
+}
+@media(max-width:820px){
+  .section{padding:76px 0}
+  .download{padding:48px 26px}
+  .download-inner{display:block}
+  .dl-panel{margin-top:26px;min-width:0}
+  .section-head{display:block}
+  .section-desc{margin-top:14px}
+}
+@media(max-width:640px){
+  .container{width:min(100% - 26px,1200px)}
+  h1{letter-spacing:-2.2px}
+  .hero-copy{font-size:15px}
+  .device{width:236px;height:452px;border-width:7px}
+  .device-wrap{min-height:470px}
+  .orb{width:300px;height:300px}
+  .orb.b{width:220px;height:220px}
+  .f1{right:-4px;top:44px;font-size:11px;padding:10px 12px}
+  .f2{left:-4px;bottom:70px;font-size:11px;padding:10px 12px}
+  .f3{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .features,.gallery,.steps{grid-template-columns:1fr}
+  .review{width:280px}
+  .footer-grid{grid-template-columns:1fr;gap:26px}
+  .actions .btn{flex:1}
+  .cta{padding:40px 24px}
+  .footer-bottom{display:block;text-align:center}
+  .footer-bottom>*+*{margin-top:8px}
+  .lb-close{top:12px;right:12px;width:38px;height:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SVG ICON SPRITE
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+<defs>
+<symbol id="i-robot" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="12.5" rx="4.5"/><path d="M12 4v4"/><circle cx="9.2" cy="14" r="1.3" fill="currentColor" stroke="none"/><circle cx="14.8" cy="14" r="1.3" fill="currentColor" stroke="none"/><path d="M9.6 17.6h4.8"/><path d="M3.5 12.5H2M22 12.5h-1.5"/><circle cx="12" cy="3" r="1.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4.5 19.5h15"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2.5L4.5 14h6.2l-1.2 7.5L19 9.5h-6.3l.8-7z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.2 3v6c0 4.6-3 7.8-7.2 9.3C7.8 19.8 4.8 16.6 4.8 12V6L12 3z"/><path d="M9.2 12.2l2 2 3.6-4"/></symbol>
+<symbol id="i-infinity" viewBox="0 0 24 24"><path d="M6.6 9.2a2.9 2.9 0 100 5.6c2.6 0 3.6-2.8 5.4-2.8s2.8 2.8 5.4 2.8a2.9 2.9 0 100-5.6c-2.6 0-3.6 2.8-5.4 2.8S9.2 9.2 6.6 9.2z"/></symbol>
+<symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M6.2 6.2l11.6 11.6"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M13.8 4.2c3.6.6 5.6 2.6 6.2 6.2l-5 5-6.4-6.4 5.2-4.8z"/><path d="M8.6 9l-4.2 1 3 3"/><path d="M15 15.4l-1 4.2-3-3"/><circle cx="14.6" cy="9.4" r="1.5"/><path d="M5.2 18.8c-.9 1.4-.5 2.9-.5 2.9s1.5.4 2.9-.5"/></symbol>
+<symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4.2" y="10" width="15.6" height="10.2" rx="3"/><path d="M8.2 10V7.2a4 4 0 017.4-2"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.2" y="10" width="15.6" height="10.2" rx="3"/><path d="M8.2 10V7.2a3.8 3.8 0 017.6 0V10"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M3.6 12h16.8"/><path d="M12 3.4c2.4 2.6 3.6 5.4 3.6 8.6s-1.2 6-3.6 8.6c-2.4-2.6-3.6-5.4-3.6-8.6S9.6 6 12 3.4z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.8 6.8"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.2v13.6M5.2 12h13.6"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.75 5.75 6.25.9-4.5 4.4 1.06 6.25L12 17.35 6.44 20.3 7.5 14.05 3 9.65l6.25-.9L12 3z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.4A8.4 8.4 0 019.6 4a8.6 8.6 0 1010.4 10.4z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11.2" height="11.2" rx="2.6"/><path d="M4.8 15.2V5.6a2 2 0 012-2h9.6"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="18" cy="18" r="2.6"/><path d="M8.3 10.8l7.4-3.6M8.3 13.2l7.4 3.6"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M6.2 3.4h7.4l4.6 4.6v12.6H6.2z"/><path d="M13.6 3.4V8h4.6"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path d="M5.6 10.2h12.8v7.4a2 2 0 01-2 2H7.6a2 2 0 01-2-2v-7.4z"/><path d="M8.4 10.2a3.6 3.6 0 017.2 0"/><path d="M8.6 6.6L7.4 4.6M15.4 6.6l1.2-2"/><circle cx="9.6" cy="13.6" r=".9" fill="currentColor" stroke="none"/><circle cx="14.4" cy="13.6" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 3l1.7 4.4L17 9l-4.3 1.6L11 15l-1.7-4.4L5 9l4.3-1.6L11 3z"/><path d="M18.4 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.2" cy="8.2" r="3.4"/><path d="M3.2 20c0-3.4 2.7-6.1 6-6.1s6 2.7 6 6.1"/><path d="M16.4 4.9a3.4 3.4 0 010 6.6"/><path d="M18.4 14.6c1.9.9 2.9 2.8 2.9 5.4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6.5 9.5l5.5 5.5 5.5-5.5"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.6 12h14.4"/><path d="M13.2 6l6 6-6 6"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="7.2" y="7.2" width="9.6" height="9.6" rx="2.4"/><path d="M10.2 3.4v3.8M13.8 3.4v3.8M10.2 16.8v3.8M13.8 16.8v3.8M3.4 10.2h3.8M3.4 13.8h3.8M16.8 10.2h3.8M16.8 13.8h3.8"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20.2 12a8.2 8.2 0 11-2.4-5.8"/><path d="M20.4 4.2v4.4h-4.4"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.4S3.6 15.6 3.6 9.9A4.4 4.4 0 0112 7.6a4.4 4.4 0 018.4 2.3c0 5.7-8.4 10.5-8.4 10.5z"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.4" y="8.4" width="17.2" height="12" rx="2.6"/><path d="M3.4 13h17.2M12 8.4v12"/><path d="M12 8.4S10.6 3.4 8.2 3.9 7.4 8.4 12 8.4zM12 8.4s1.4-5 3.8-4.5S16.6 8.4 12 8.4z"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.2"/><path d="M8.6 13.4L7 21l5-2.6L17 21l-1.6-7.6"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.6"/><path d="M12 13l3.6-3.6"/><path d="M4.4 13H3M21 13h-1.4"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M4.4 11.6a11 11 0 0115.2 0"/><path d="M7.8 15a6.2 6.2 0 018.4 0"/><circle cx="12" cy="18.6" r="1.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.2 18.4h9.6a4.2 4.2 0 00.4-8.4A6.2 6.2 0 005.5 11.4 3.6 3.6 0 007.2 18.4z"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-4.2 4L9 16"/><path d="M15 8l4.2 4L15 16"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="M16 16l4.4 4.4"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.4 16.2V11a5.6 5.6 0 1111.2 0v5.2l1.8 2.2H4.6l1.8-2.2z"/><path d="M10.2 20.4a2 2 0 003.6 0"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8.4 5.2l10.4 6.8-10.4 6.8V5.2z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20.2V3.8"/><path d="M4 20.2h16.2"/><rect x="7.4" y="12" width="3" height="5.4" rx="1"/><rect x="12.4" y="8" width="3" height="9.4" rx="1"/><rect x="17.4" y="14" width="3" height="3.4" rx="1"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3.4" y="4.6" width="17.2" height="14.8" rx="2.6"/><circle cx="8.6" cy="9.6" r="1.5"/><path d="M4.2 17l4.8-4 3.4 3 3.4-3.2 4.4 4.2"/></symbol>
+<symbol id="i-battery" viewBox="0 0 24 24"><rect x="2.6" y="7.4" width="16.4" height="9.2" rx="3"/><path d="M21.6 11v2"/><path d="M6.4 10.6v2.8M10.2 10.6v2.8M14 10.6v2.8"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.4l8.6 4.6-8.6 4.6L3.4 8l8.6-4.6z"/><path d="M3.4 12.6l8.6 4.6 8.6-4.6"/><path d="M3.4 16.6l8.6 4.6 8.6-4.6"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4"/><circle cx="12" cy="7.9" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3.4L3.2 10.6l7 2.6 2.6 7L21 3.4z"/><path d="M10.2 13.2l4-4"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3.4a8.6 8.6 0 000 17.2c1.4 0 2.2-.9 2.2-2 0-1.4-1.2-1.8-1.2-3 0-1 .8-1.8 1.8-1.8h1.6a4.2 4.2 0 004.2-4.2c0-3.5-3.9-6.2-8.6-6.2z"/><circle cx="8" cy="10.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="8" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4.4" width="18" height="15.2" rx="3"/><path d="M7.6 9.4l3 2.6-3 2.6"/><path d="M12.6 14.8h4"/></symbol>
+<symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14.6 8.6h2.6V5.4h-2.6c-2.2 0-3.8 1.6-3.8 3.8v1.8H8.2v3.2h2.6v6.4h3.2v-6.4h2.6l.6-3.2h-3.2V9.4c0-.5.3-.8.6-.8z"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21 4.4L2.8 11.6l5.4 1.8 1.8 5.6 3-3.8 5 3.6L21 4.4z"/><path d="M8.2 13.4l9.6-6.6"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><path d="M9.4 20.4v-3c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.5-.3-5.2-1.3-5.2-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.2 5.7.4.4.8 1.1.8 2.2v3.4"/></symbol>
+</defs>
+</svg>
+
+<div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+<div id="spot" aria-hidden="true"></div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="topbar" id="topbar">
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="YOUR NAME APK">
+      <span class="logo-mark"><svg class="i"><use href="#i-robot"></use></svg></span>
+      <span>YOUR NAME <b>APK</b></span>
+    </a>
+    <nav class="navlinks" id="navLinks" aria-label="Navigasi utama">
+      <a href="#fitur" data-spy="fitur">Fitur</a>
+      <a href="#galeri" data-spy="galeri">Galeri</a>
+      <a href="#banding" data-spy="banding">Banding</a>
+      <a href="#install" data-spy="install">Install</a>
+      <a href="#changelog" data-spy="changelog">Update</a>
+      <a href="#faq" data-spy="faq">FAQ</a>
+      <a href="#review" data-spy="review">Review</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Ganti tema" title="Ganti tema">
+        <svg class="i" id="themeIcon"><use href="#i-moon"></use></svg>
+      </button>
+      <button class="icon-btn" id="shareBtn" aria-label="Bagikan halaman" title="Bagikan">
+        <svg class="i"><use href="#i-share"></use></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">
+        <svg class="i" id="menuIcon"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#fitur">Fitur <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#galeri">Galeri <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#banding">Perbandingan <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#install">Cara Install <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#changelog">Update <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#faq">FAQ <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#review">Review <svg class="i"><use href="#i-arrow-right"></use></svg></a>
+    <a href="#download">Download <svg class="i"><use href="#i-download"></use></svg></a>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- ==========================================================
+       HERO
+       ========================================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> VERSI TERBARU 2026 · v5.2.1 MOD</div>
+        <h1>Download <span class="gradient"><br>YOUR NAME APK</span><br>lebih cepat &amp; simpel.</h1>
+        <p class="hero-copy">APK Custom dengan fitur premium unlocked. Tanpa iklan, unlimited, dan dirancang dengan pengalaman download yang lebih nyaman, stabil, serta ringan di semua perangkat Android.</p>
+        <div class="actions">
+          <a href="#download" class="btn primary btn-lg"><svg class="i"><use href="#i-download"></use></svg> Download Sekarang</a>
+          <a href="#fitur" class="btn secondary btn-lg"><svg class="i"><use href="#i-sparkles"></use></svg> Lihat Fitur</a>
+        </div>
+        <div class="trust">
+          <span><svg class="i"><use href="#i-check"></use></svg> Premium Unlocked</span>
+          <span><svg class="i"><use href="#i-shield"></use></svg> Security Check</span>
+          <span><svg class="i"><use href="#i-android"></use></svg> Android 5.0+</span>
+          <span><svg class="i"><use href="#i-refresh"></use></svg> Auto Update</span>
+        </div>
+      </div>
+
+      <div class="device-wrap reveal" id="deviceWrap">
+        <div class="orb"></div>
+        <div class="orb b"></div>
+
+        <div class="floating f1"><svg class="i" style="color:var(--yellow)"><use href="#i-bolt"></use></svg> Super Cepat</div>
+        <div class="floating f2"><svg class="i" style="color:var(--green)"><use href="#i-shield"></use></svg> 100% Aman</div>
+        <div class="floating f3"><svg class="i" style="color:var(--green)"><use href="#i-infinity"></use></svg> Unlimited</div>
+
+        <div class="device-tilt" id="deviceTilt">
+          <div class="device">
+            <div class="screen">
+              <div class="screen-status">
+                <span id="liveClock">00:00</span>
+                <span class="sig">
+                  <svg class="i" style="font-size:11px"><use href="#i-wifi"></use></svg>
+                  <svg class="i" style="font-size:11px"><use href="#i-battery"></use></svg>
+                </span>
+              </div>
+              <div class="app-icon"><svg class="i"><use href="#i-robot"></use></svg></div>
+              <h3>YOUR NAME APK</h3>
+              <p>Premium APK Experience</p>
+              <div class="mini-card">
+                <div class="mini-row"><span>Premium</span><span class="status">UNLOCKED</span></div>
+                <div class="mini-row"><span>Ads</span><span class="status">OFF</span></div>
+                <div class="mini-row"><span>Version</span><span>v5.2.1 MOD</span></div>
+                <div class="mini-row"><span>Android</span><span>5.0+</span></div>
+                <div class="mini-row"><span>Size</span><span>850 GB</span></div>
+              </div>
+              <div class="mini-btn"><svg class="i"><use href="#i-play"></use></svg> OPEN APP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       TICKER
+       ========================================================== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span><svg class="i"><use href="#i-infinity"></use></svg> Premium Unlocked</span>
+      <span><svg class="i"><use href="#i-ban"></use></svg> Tanpa Iklan</span>
+      <span><svg class="i"><use href="#i-bolt"></use></svg> Performa Ringan</span>
+      <span><svg class="i"><use href="#i-shield"></use></svg> Anti Banned</span>
+      <span><svg class="i"><use href="#i-globe"></use></svg> Multi Bahasa</span>
+      <span><svg class="i"><use href="#i-lock"></use></svg> Tanpa Root</span>
+      <span><svg class="i"><use href="#i-cloud"></use></svg> Cloud Backup</span>
+      <span><svg class="i"><use href="#i-gift"></use></svg> Semua Konten Terbuka</span>
+      <span><svg class="i"><use href="#i-refresh"></use></svg> Update Berkala</span>
+      <span><svg class="i"><use href="#i-battery"></use></svg> Hemat Baterai</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       STATS
+       ========================================================== -->
+  <section class="container">
+    <div class="stats">
+      <div class="stat reveal"><strong><span class="count" data-count="5.2" data-decimals="1">0</span><i>v</i></strong><small>Versi APK Terbaru</small></div>
+      <div class="stat reveal" style="--d:.06s"><strong><span class="count" data-count="850" data-decimals="0">0</span><i>GB</i></strong><small>Ukuran File</small></div>
+      <div class="stat reveal" style="--d:.12s"><strong><span class="count" data-count="2.4" data-decimals="1">0</span><i>M+</i></strong><small>Total Download</small></div>
+      <div class="stat reveal" style="--d:.18s"><strong><span class="count" data-count="4.9" data-decimals="1">0</span><i>/5</i></strong><small>Rating Pengguna</small></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       FITUR
+       ========================================================== -->
+  <section class="section" id="fitur">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Why choose us</div>
+          <h2>Semua <br>Yang kamu butuhkan.</h2>
+        </div>
+        <p class="section-desc">Tampilan baru, struktur lebih rapi, dan pengalaman pengguna yang dibuat terasa seperti landing page produk premium. Pilih kategori untuk melihat fitur yang paling relevan.</p>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="Filter fitur">
+        <button class="tab active" data-cat="all" role="tab" aria-selected="true">Semua Fitur</button>
+        <button class="tab" data-cat="performa" role="tab" aria-selected="false">Performa</button>
+        <button class="tab" data-cat="keamanan" role="tab" aria-selected="false">Keamanan</button>
+        <button class="tab" data-cat="konten" role="tab" aria-selected="false">Konten</button>
+        <button class="tab" data-cat="tampilan" role="tab" aria-selected="false">Tampilan</button>
+      </div>
+
+      <div class="features reveal" id="featureGrid">
+        <article class="feature" data-cat="konten">
+          <span class="feature-tag">Populer</span>
+          <div class="icon"><svg class="i"><use href="#i-infinity"></use></svg></div>
+          <h3>Unlimited Premium</h3>
+          <p>Semua fitur premium terbuka gratis tanpa batas pemakaian harian.</p>
+        </article>
+        <article class="feature" data-cat="tampilan">
+          <div class="icon"><svg class="i"><use href="#i-ban"></use></svg></div>
+          <h3>No Ads</h3>
+          <p>Tidak ada iklan pop-up, banner, maupun video yang mengganggu.</p>
+        </article>
+        <article class="feature" data-cat="performa">
+          <div class="icon"><svg class="i"><use href="#i-rocket"></use></svg></div>
+          <h3>Super Cepat</h3>
+          <p>Optimasi performa lebih ringan, startup cepat, dan bebas lag.</p>
+        </article>
+        <article class="feature" data-cat="konten">
+          <div class="icon"><svg class="i"><use href="#i-unlock"></use></svg></div>
+          <h3>Unlock All</h3>
+          <p>Semua konten terbuka dari awal tanpa perlu menyelesaikan misi.</p>
+        </article>
+        <article class="feature" data-cat="keamanan">
+          <div class="icon"><svg class="i"><use href="#i-shield"></use></svg></div>
+          <h3>Anti Banned</h3>
+          <p>Sudah dioptimasi agar aman digunakan untuk akun utama kamu.</p>
+        </article>
+        <article class="feature" data-cat="tampilan">
+          <div class="icon"><svg class="i"><use href="#i-globe"></use></svg></div>
+          <h3>Multi Bahasa</h3>
+          <p>Support 10+ bahasa termasuk Bahasa Indonesia secara penuh.</p>
+        </article>
+        <article class="feature" data-cat="performa">
+          <div class="icon"><svg class="i"><use href="#i-battery"></use></svg></div>
+          <h3>Hemat Baterai</h3>
+          <p>Manajemen resource lebih efisien sehingga baterai lebih tahan lama.</p>
+        </article>
+        <article class="feature" data-cat="keamanan">
+          <div class="icon"><svg class="i"><use href="#i-lock"></use></svg></div>
+          <h3>Tanpa Root</h3>
+          <p>Tidak perlu root atau modifikasi sistem. Install dan langsung pakai.</p>
+        </article>
+        <article class="feature" data-cat="performa">
+          <div class="icon"><svg class="i"><use href="#i-refresh"></use></svg></div>
+          <h3>Auto Update</h3>
+          <p>Notifikasi versi baru langsung muncul begitu rilis berikutnya siap.</p>
+        </article>
+        <article class="feature" data-cat="tampilan">
+          <div class="icon"><svg class="i"><use href="#i-palette"></use></svg></div>
+          <h3>Dark Mode OLED</h3>
+          <p>Tema gelap pekat yang nyaman di mata dan menghemat daya layar.</p>
+        </article>
+        <article class="feature" data-cat="keamanan">
+          <div class="icon"><svg class="i"><use href="#i-cloud"></use></svg></div>
+          <h3>Cloud Backup</h3>
+          <p>Simpan progres dan pengaturan kamu ke cloud dengan satu ketukan.</p>
+        </article>
+        <article class="feature" data-cat="konten">
+          <div class="icon"><svg class="i"><use href="#i-wifi"></use></svg></div>
+          <h3>Mode Offline</h3>
+          <p>Konten favorit tetap bisa diakses walau tanpa koneksi internet.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       GALERI
+       ========================================================== -->
+  <section class="section" id="galeri">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Interface preview</div>
+          <h2>Intip tampilannya.</h2>
+        </div>
+        <p class="section-desc">Ketuk salah satu preview untuk melihat detail tampilan antarmuka versi MOD terbaru.</p>
+      </div>
+
+      <div class="gallery reveal">
+        <div class="shot" data-title="Dashboard Utama" data-desc="Halaman utama dengan ringkasan status premium, performa, dan shortcut ke menu favorit." tabindex="0" role="button">
+          <div class="shot-frame">
+            <div class="mk-top"><span class="mk-dot g"></span><span class="mk-dot"></span><span class="mk-dot"></span></div>
+            <div class="mk-title"></div>
+            <div class="mk-sub"></div>
+            <div class="mk-hero"></div>
+            <div class="mk-grid"><div class="mk-box"></div><div class="mk-box"></div></div>
+            <div class="mk-line"></div>
+            <div class="mk-line s"></div>
+            <div class="mk-spacer"></div>
+            <div class="mk-pill"></div>
+          </div>
+          <div class="shot-meta"><b>Dashboard</b><small>Ringkasan status aplikasi</small></div>
+        </div>
+
+        <div class="shot" data-title="Premium Unlocked" data-desc="Halaman verifikasi premium yang otomatis aktif begitu aplikasi pertama kali dibuka." tabindex="0" role="button">
+          <div class="shot-frame">
+            <div class="mk-top"><span class="mk-dot g"></span><span class="mk-dot"></span><span class="mk-dot"></span></div>
+            <div class="mk-sub"></div>
+            <div class="mk-hero" style="height:96px"></div>
+            <div class="mk-line"></div>
+            <div class="mk-line s"></div>
+            <div class="mk-line xs"></div>
+            <div class="mk-spacer"></div>
+            <div class="mk-pill"></div>
+          </div>
+          <div class="shot-meta"><b>Premium</b><small>Status unlocked otomatis</small></div>
+        </div>
+
+        <div class="shot" data-title="Pengaturan Lanjutan" data-desc="Panel pengaturan lengkap untuk mengatur bahasa, tema, notifikasi, dan backup cloud." tabindex="0" role="button">
+          <div class="shot-frame">
+            <div class="mk-top"><span class="mk-dot g"></span><span class="mk-dot"></span><span class="mk-dot"></span></div>
+            <div class="mk-title"></div>
+            <div class="mk-line"></div>
+            <div class="mk-line s"></div>
+            <div class="mk-line"></div>
+            <div class="mk-line s"></div>
+            <div class="mk-line"></div>
+            <div class="mk-spacer"></div>
+            <div class="mk-box" style="height:26px"></div>
+          </div>
+          <div class="shot-meta"><b>Pengaturan</b><small>Kontrol penuh aplikasi</small></div>
+        </div>
+
+        <div class="shot" data-title="Statistik Performa" data-desc="Grafik performa real-time yang menampilkan penggunaan RAM, CPU, dan kecepatan render." tabindex="0" role="button">
+          <div class="shot-frame">
+            <div class="mk-top"><span class="mk-dot g"></span><span class="mk-dot"></span><span class="mk-dot"></span></div>
+            <div class="mk-sub"></div>
+            <div class="mk-grid"><div class="mk-box" style="height:56px"></div><div class="mk-box" style="height:56px"></div></div>
+            <div class="mk-hero" style="height:74px"></div>
+            <div class="mk-line"></div>
+            <div class="mk-line s"></div>
+            <div class="mk-spacer"></div>
+          </div>
+          <div class="shot-meta"><b>Statistik</b><small>Monitoring performa</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       PERBANDINGAN
+       ========================================================== -->
+  <section class="section" id="banding">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Comparison</div>
+          <h2>Versi biasa vs Versi MOD.</h2>
+        </div>
+        <p class="section-desc">Lihat perbedaan nyata antara aplikasi versi gratis dengan versi MOD yang kami sediakan.</p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Fitur</th>
+              <th>Versi Biasa</th>
+              <th class="hl">YOUR NAME APK MOD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fitur Premium</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Terkunci</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Unlocked</span></td>
+            </tr>
+            <tr>
+              <td>Iklan</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Banyak</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Tanpa Iklan</span></td>
+            </tr>
+            <tr>
+              <td>Kecepatan</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Standar</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Dioptimasi</span></td>
+            </tr>
+            <tr>
+              <td>Akses Konten</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Bertahap</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Semua Terbuka</span></td>
+            </tr>
+            <tr>
+              <td>Cloud Backup</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Berbayar</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Gratis</span></td>
+            </tr>
+            <tr>
+              <td>Multi Bahasa</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Terbatas</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> 10+ Bahasa</span></td>
+            </tr>
+            <tr>
+              <td>Perlu Root</td>
+              <td><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Tidak</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> Tidak</span></td>
+            </tr>
+            <tr>
+              <td>Harga</td>
+              <td><span class="badge-cell"><svg class="i no"><use href="#i-x"></use></svg> Berlangganan</span></td>
+              <td class="hl"><span class="badge-cell"><svg class="i ok"><use href="#i-check"></use></svg> 100% Gratis</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       INSTALL STEPS
+       ========================================================== -->
+  <section class="section" id="install">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Quick setup</div>
+          <h2>Install dalam 4 langkah.</h2>
+        </div>
+        <p class="section-desc">Proses dibuat singkat supaya pengguna langsung tahu apa yang harus dilakukan, dari download sampai aplikasi siap dipakai.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-line"></span>
+          <div class="step-num"><b>01</b> DOWNLOAD</div>
+          <h3>Download APK</h3>
+          <p>Klik tombol download dan tunggu sampai file APK selesai terunduh.</p>
+        </div>
+        <div class="step">
+          <span class="step-line"></span>
+          <div class="step-num"><b>02</b> SETTINGS</div>
+          <h3>Aktifkan Sumber Tidak Dikenal</h3>
+          <p>Buka Pengaturan › Keamanan › aktifkan “Sumber Tidak Dikenal”.</p>
+        </div>
+        <div class="step">
+          <span class="step-line"></span>
+          <div class="step-num"><b>03</b> INSTALL</div>
+          <h3>Install APK</h3>
+          <p>Buka file APK yang sudah di-download lalu klik tombol Install.</p>
+        </div>
+        <div class="step">
+          <span class="step-line"></span>
+          <div class="step-num"><b>04</b> DONE</div>
+          <h3>Selesai</h3>
+          <p>Buka aplikasi dan nikmati semua fitur premium tanpa batas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       DOWNLOAD
+       ========================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="download reveal" id="download">
+        <div class="download-inner">
+          <div>
+            <div class="kicker">Ready to download</div>
+            <h2>Ambil <br>YOUR NAME APK<br>Sekarang.</h2>
+            <p>File APK berukuran 850 GB dengan versi v5.2.1 MOD. Gunakan tombol di samping untuk memulai proses download.</p>
+            <div class="file-meta">
+              <span><svg class="i"><use href="#i-file"></use></svg> APK</span>
+              <span><svg class="i"><use href="#i-chart"></use></svg> 850 GB</span>
+              <span><svg class="i"><use href="#i-shield"></use></svg> Virus Scan Clean</span>
+              <span><svg class="i"><use href="#i-android"></use></svg> Android 5.0+</span>
+            </div>
+            <div class="mirrors">
+              <button class="btn ghost btn-sm" data-mirror="Server Utama"><svg class="i"><use href="#i-cloud"></use></svg> Server Utama</button>
+              <button class="btn ghost btn-sm" data-mirror="Server Mirror"><svg class="i"><use href="#i-layers"></use></svg> Mirror</button>
+              <button class="btn ghost btn-sm" id="copyBtn"><svg class="i"><use href="#i-copy"></use></svg> Copy Link</button>
+            </div>
+          </div>
+
+          <div class="dl-panel">
+            <a href="#" class="btn primary btn-lg" id="downloadBtn" style="width:100%">
+              <svg class="i"><use href="#i-download"></use></svg> Download APK
+            </a>
+            <div class="dl-progress" id="dlProgress">
+              <div class="dl-bar"><i id="dlFill"></i></div>
+              <div class="dl-label"><span id="dlLabel">Siap</span><span id="dlPct">0%</span></div>
+            </div>
+            <div class="dl-note"><svg class="i"><use href="#i-info"></use></svg> File otomatis terverifikasi sebelum diunduh.</div>
+            <div class="dl-note"><svg class="i"><use href="#i-clock"></use></svg> Estimasi waktu download: &lt; 1 menit.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       CHANGELOG
+       ========================================================== -->
+  <section class="section" id="changelog">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">What's new</div>
+          <h2>Riwayat update.</h2>
+        </div>
+        <p class="section-desc">Setiap versi selalu membawa perbaikan, optimasi, dan fitur baru agar pengalaman tetap stabil.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-head">
+            <b>Peningkatan Performa Besar</b>
+            <span class="tl-ver">v5.2.1</span>
+            <span class="tl-date">12 Februari 2026</span>
+          </div>
+          <div class="tl-list">
+            <div><svg class="i"><use href="#i-check"></use></svg> Optimasi render grafik hingga 32% lebih cepat.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Perbaikan bug pada mode offline.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Penyesuaian dark mode OLED agar lebih hemat daya.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <b>Cloud Backup &amp; Restore</b>
+            <span class="tl-ver">v5.2.0</span>
+            <span class="tl-date">28 Januari 2026</span>
+          </div>
+          <div class="tl-list">
+            <div><svg class="i"><use href="#i-check"></use></svg> Fitur backup otomatis ke cloud.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Restore pengaturan antar perangkat.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Antarmuka pengaturan baru yang lebih rapi.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <b>Multi Bahasa Diperluas</b>
+            <span class="tl-ver">v5.1.4</span>
+            <span class="tl-date">9 Januari 2026</span>
+          </div>
+          <div class="tl-list">
+            <div><svg class="i"><use href="#i-check"></use></svg> Dukungan 10+ bahasa termasuk Bahasa Indonesia.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Perbaikan penerjemahan pada menu utama.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Ukuran file lebih efisien.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <b>Rilis Perdana Versi MOD</b>
+            <span class="tl-ver">v5.0.0</span>
+            <span class="tl-date">20 Desember 2025</span>
+          </div>
+          <div class="tl-list">
+            <div><svg class="i"><use href="#i-check"></use></svg> Premium unlocked penuh tanpa batas.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Penghapusan seluruh iklan.</div>
+            <div><svg class="i"><use href="#i-check"></use></svg> Anti banned system pertama.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       FAQ
+       ========================================================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Support</div>
+          <h2>Pertanyaan umum.</h2>
+        </div>
+        <p class="section-desc">Beberapa pertanyaan yang paling sering ditanyakan pengguna sebelum mengunduh.</p>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-item">
+          <button class="faq-q">Apakah APK ini aman?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Aman 100%. File sudah kami scan dengan antivirus dan tidak ada virus atau malware. Setiap rilis juga melewati proses verifikasi checksum sebelum dipublikasikan.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah bisa di update?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Bisa. Setiap ada versi baru kami akan update di website ini. Cek bagian Riwayat Update untuk melihat versi terbaru dan daftar perubahannya.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Kenapa gagal install?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Pastikan sudah hapus versi lama dan aktifkan “Sumber Tidak Dikenal” di pengaturan. Jika masih gagal, cek ruang penyimpanan minimal 1TB.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah butuh root?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Tidak perlu root. APK ini bisa langsung digunakan di semua HP Android mulai dari versi 5.0 Lollipop.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah akun saya bisa terbanned?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Sistem anti banned sudah tertanam dan dioptimasi agar tetap aman. Meski begitu, gunakan dengan bijak dan hindari aktivitas yang mencurigakan.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bagaimana cara backup data saya?<svg class="i"><use href="#i-plus"></use></svg></button>
+          <div class="faq-a">Buka menu Pengaturan › Cloud Backup lalu aktifkan sinkronisasi otomatis. Data akan tersimpan aman dan bisa dipulihkan di perangkat lain.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       REVIEWS
+       ========================================================== -->
+  <section class="section" id="review">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Community</div>
+          <h2>Kata mereka.</h2>
+        </div>
+        <p class="section-desc">Ribuan pengguna sudah mencoba dan memberikan ulasan positif setiap harinya.</p>
+      </div>
+    </div>
+
+    <div class="reviews-marquee reveal">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Mantap banget, semua fitur kebuka. Gak ada iklan sama sekali.”</p><div class="user"><div class="avatar">B</div><div><b>Budi S</b><small>Verified user</small></div></div></div>
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Aplikasi paling recommended. Ringan dan gak lag di HP kentang.”</p><div class="user"><div class="avatar">S</div><div><b>Siti A</b><small>Verified user</small></div></div></div>
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Install mudah, langsung jalan. Makasih min!”</p><div class="user"><div class="avatar">A</div><div><b>Andi P</b><small>Verified user</small></div></div></div>
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Dark mode-nya enak banget di mata, baterai juga lebih awet.”</p><div class="user"><div class="avatar">R</div><div><b>Rina M</b><small>Verified user</small></div></div></div>
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Fitur cloud backup-nya nolongin banget pas ganti HP baru.”</p><div class="user"><div class="avatar">D</div><div><b>Dimas K</b><small>Verified user</small></div></div></div>
+        <div class="review"><div class="stars"><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg><svg class="i"><use href="#i-star"></use></svg></div><p>“Update-nya rutin, jadi selalu dapet versi terbaru tanpa ribet.”</p><div class="user"><div class="avatar">N</div><div><b>Nabila Z</b><small>Verified user</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       CTA / COMMUNITY
+       ========================================================== -->
+  <section class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="cta reveal">
+        <div class="cta-grid">
+          <div>
+            <div class="kicker">Join community</div>
+            <h2>Dapatkan<br>Notifikasi UPDATED<br>Lebih dulu.</h2>
+            <p>Masukkan email kamu dan kami akan mengabari setiap kali ada versi MOD terbaru dirilis. Gratis, tanpa spam.</p>
+            <div class="avatars-row">
+              <div class="stack">
+                <div class="avatar">B</div>
+                <div class="avatar">S</div>
+                <div class="avatar">A</div>
+                <div class="avatar">R</div>
+              </div>
+              <small>Bergabung dengan 2.4M+ pengguna lainnya</small>
+            </div>
+          </div>
+          <div>
+            <form class="form" id="notifyForm" novalidate>
+              <div class="field">
+                <svg class="i"><use href="#i-bell"></use></svg>
+                <input type="email" id="emailInput" placeholder="Masukkan email kamu" autocomplete="email" aria-label="Email">
+              </div>
+              <button type="submit" class="btn primary"><svg class="i"><use href="#i-send"></use></svg> Gabung</button>
+            </form>
+            <div class="form-note"><svg class="i"><use href="#i-shield"></use></svg> Email kamu aman dan tidak akan dibagikan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#home">
+          <span class="logo-mark"><svg class="i"><use href="#i-robot"></use></svg></span>
+          <span>YOUR NAME <b>APK</b></span>
+        </a>
+        <p>Website download APK custom dengan tampilan modern, fitur premium unlocked, dan pengalaman yang nyaman di semua perangkat.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg class="i"><use href="#i-facebook"></use></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="i"><use href="#i-instagram"></use></svg></a>
+          <a href="#" aria-label="Telegram"><svg class="i"><use href="#i-telegram"></use></svg></a>
+          <a href="#" aria-label="Github"><svg class="i"><use href="#i-github"></use></svg></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Navigasi</h4>
+        <a href="#home">Home</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#banding">Perbandingan</a>
+      </div>
+      <div class="fcol">
+        <h4>Sumber</h4>
+        <a href="#install">Cara Install</a>
+        <a href="#changelog">Riwayat Update</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Download APK</a>
+      </div>
+      <div class="fcol">
+        <h4>Informasi</h4>
+        <a href="#faq">Kebijakan Privasi</a>
+        <a href="#faq">Syarat &amp; Ketentuan</a>
+        <a href="#review">Ulasan Pengguna</a>
+        <a href="#download">Laporkan Masalah</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Lanzz Project. All Rights Reserved.</div>
+      <div>Premium APK Download Experience.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Preview tampilan">
+  <button class="lb-close" id="lbClose" aria-label="Tutup"><svg class="i"><use href="#i-close"></use></svg></button>
+  <div class="lb-card">
+    <div class="lb-preview" id="lbPreview"></div>
+    <div class="lb-info">
+      <h3 id="lbTitle">Preview</h3>
+      <p id="lbDesc"></p>
+      <div class="lb-list">
+        <div><svg class="i"><use href="#i-check"></use></svg> Tampilan bersih dan mudah dipahami</div>
+        <div><svg class="i"><use href="#i-check"></use></svg> Responsif di semua ukuran layar</div>
+        <div><svg class="i"><use href="#i-check"></use></svg> Navigasi cepat dengan satu tangan</div>
+        <div><svg class="i"><use href="#i-check"></use></svg> Mendukung dark mode OLED</div>
+      </div>
+      <div style="margin-top:22px">
+        <a href="#download" class="btn primary" id="lbDownload"><svg class="i"><use href="#i-download"></use></svg> Download Sekarang</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ==========================================================
+     TOAST SYSTEM
+     ========================================================== */
+  var toastWrap = $('#toasts');
+  function showToast(msg, iconId){
+    if(!toastWrap) return;
+    var t = document.createElement('div');
+    t.className = 'toast';
+    t.innerHTML = '<span class="toast-ic"><svg class="i"><use href="#' + (iconId||'i-check') + '"></use></svg></span><span>' + msg + '</span>';
+    toastWrap.appendChild(t);
+    while(toastWrap.children.length > 3){ toastWrap.removeChild(toastWrap.firstChild); }
+    requestAnimationFrame(function(){ t.classList.add('show'); });
+    setTimeout(function(){
+      t.classList.remove('show');
+      setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 420);
+    }, 2800);
+  }
+
+  /* ==========================================================
+     SCROLL PROGRESS + TOPBAR
+     ========================================================== */
+  var progressBar = $('#progressBar');
+  var topbar = $('#topbar');
+  var ticking = false;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+    if(progressBar) progressBar.style.width = p + '%';
+    if(topbar) topbar.classList.toggle('scrolled', window.scrollY > 12);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  /* ==========================================================
+     SPOTLIGHT
+     ========================================================== */
+  var spot = $('#spot');
+  if(spot && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var spotX = window.innerWidth/2, spotY = window.innerHeight/2, curX = spotX, curY = spotY;
+    window.addEventListener('mousemove', function(e){
+      spotX = e.clientX; spotY = e.clientY;
+      spot.classList.add('on');
+    }, {passive:true});
+    (function loop(){
+      curX += (spotX - curX) * 0.12;
+      curY += (spotY - curY) * 0.12;
+      spot.style.transform = 'translate3d(' + curX + 'px,' + curY + 'px,0)';
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('mouseleave', function(){ spot.classList.remove('on'); });
+  }
+
+  /* ==========================================================
+     THEME TOGGLE
+     ========================================================== */
+  var themeBtn = $('#themeBtn');
+  var themeIcon = $('#themeIcon');
+  var metaTheme = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(mode){
+    document.documentElement.setAttribute('data-theme', mode);
+    if(themeIcon){
+      themeIcon.innerHTML = '<use href="' + (mode === 'light' ? '#i-sun' : '#i-moon') + '"></use>';
+    }
+    if(metaTheme) metaTheme.setAttribute('content', mode === 'light' ? '#eef4f0' : '#050807');
+    try{ localStorage.setItem('ynapk-theme', mode); }catch(err){}
+  }
+  var savedTheme = 'dark';
+  try{ savedTheme = localStorage.getItem('ynapk-theme') || 'dark'; }catch(err){}
+  applyTheme(savedTheme);
+
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+      showToast(next === 'light' ? 'Tema terang diaktifkan' : 'Tema gelap diaktifkan', next === 'light' ? 'i-sun' : 'i-moon');
+    });
+  }
+
+  /* ==========================================================
+     MOBILE MENU
+     ========================================================== */
+  var menuBtn = $('#menuBtn');
+  var menuIcon = $('#menuIcon');
+  var mobileMenu = $('#mobileMenu');
+  function closeMenu(){
+    if(!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    if(menuBtn) menuBtn.setAttribute('aria-expanded','false');
+    if(menuIcon) menuIcon.innerHTML = '<use href="#i-menu"></use>';
+  }
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){
+      var open = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(menuIcon) menuIcon.innerHTML = '<use href="' + (open ? '#i-close' : '#i-menu') + '"></use>';
+    });
+    $$('.mobile-menu a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  /* ==========================================================
+     REVEAL ON SCROLL
+     ========================================================== */
+  var reveals = $$('.reveal');
+  if('IntersectionObserver' in window){
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          revObs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+    reveals.forEach(function(el){ revObs.observe(el); });
+    /* safety fallback */
+    setTimeout(function(){
+      reveals.forEach(function(el){ el.classList.add('show'); });
+    }, 3000);
+  } else {
+    reveals.forEach(function(el){ el.classList.add('show'); });
+  }
+
+  /* ==========================================================
+     COUNTERS
+     ========================================================== */
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count')) || 0;
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var dur = 1500;
+    var start = null;
+    function step(now){
+      if(start === null) start = now;
+      var t = Math.min((now - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = (target * eased).toFixed(dec);
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(dec);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = $$('.count');
+  if('IntersectionObserver' in window && counters.length){
+    var cntObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          animateCount(e.target);
+          cntObs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.5});
+    counters.forEach(function(el){ cntObs.observe(el); });
+  } else {
+    counters.forEach(function(el){
+      el.textContent = parseFloat(el.getAttribute('data-count') || 0).toFixed(parseInt(el.getAttribute('data-decimals')||'0',10));
+    });
+  }
+
+  /* ==========================================================
+     FEATURE TABS
+     ========================================================== */
+  var tabs = $$('.tab');
+  var features = $$('.feature');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+
+      var cat = tab.getAttribute('data-cat');
+      features.forEach(function(f){
+        var match = (cat === 'all') || (f.getAttribute('data-cat') === cat);
+        f.classList.remove('pop');
+        if(match){
+          f.style.display = '';
+          void f.offsetWidth;
+          f.classList.add('pop');
+        } else {
+          f.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* feature hover spotlight */
+  features.forEach(function(f){
+    f.addEventListener('mousemove', function(e){
+      var r = f.getBoundingClientRect();
+      f.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      f.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+
+  /* ==========================================================
+     LIGHTBOX
+     ========================================================== */
+  var lightbox = $('#lightbox');
+  var lbPreview = $('#lbPreview');
+  var lbTitle = $('#lbTitle');
+  var lbDesc = $('#lbDesc');
+  var lbClose = $('#lbClose');
+
+  function openLightbox(shot){
+    if(!lightbox) return;
+    var frame = shot.querySelector('.shot-frame');
+    lbPreview.innerHTML = frame ? frame.innerHTML : '';
+    lbTitle.textContent = shot.getAttribute('data-title') || 'Preview';
+    lbDesc.textContent = shot.getAttribute('data-desc') || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    if(!lightbox) return;
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  $$('.shot').forEach(function(s){
+    s.addEventListener('click', function(){ openLightbox(s); });
+    s.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(s); }
+    });
+  });
+  if(lbClose) lbClose.addEventListener('click', closeLightbox);
+  if(lightbox){
+    lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+  }
+  var lbDownload = $('#lbDownload');
+  if(lbDownload) lbDownload.addEventListener('click', closeLightbox);
+
+  /* ==========================================================
+     FAQ ACCORDION
+     ========================================================== */
+  var faqButtons = $$('.faq-q');
+  faqButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var answer = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+
+      $$('.faq-item').forEach(function(other){
+        other.classList.remove('open');
+        var a = other.querySelector('.faq-a');
+        if(a) a.style.maxHeight = '0px';
+      });
+
+      if(!isOpen && answer){
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+  window.addEventListener('resize', function(){
+    $$('.faq-item.open .faq-a').forEach(function(a){
+      a.style.maxHeight = a.scrollHeight + 'px';
+    });
+  });
+
+  /* ==========================================================
+     DEVICE TILT
+     ========================================================== */
+  var deviceWrap = $('#deviceWrap');
+  var deviceTilt = $('#deviceTilt');
+  if(deviceWrap && deviceTilt && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    deviceWrap.addEventListener('mousemove', function(e){
+      var r = deviceWrap.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      deviceTilt.style.transform = 'rotateY(' + (px * 16) + 'deg) rotateX(' + (-py * 14) + 'deg)';
+    });
+    deviceWrap.addEventListener('mouseleave', function(){
+      deviceTilt.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+
+  /* ==========================================================
+     LIVE CLOCK IN DEVICE
+     ========================================================== */
+  var liveClock = $('#liveClock');
+  function updateClock(){
+    if(!liveClock) return;
+    var d = new Date();
+    var h = String(d.getHours()).padStart(2,'0');
+    var m = String(d.getMinutes()).padStart(2,'0');
+    liveClock.textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 15000);
+
+  /* ==========================================================
+     BUTTON RIPPLE
+     ========================================================== */
+  $$('.btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var r = btn.getBoundingClientRect();
+      var size = Math.max(r.width, r.height);
+      var span = document.createElement('span');
+      span.className = 'ripple';
+      span.style.width = span.style.height = size + 'px';
+      span.style.left = (e.clientX - r.left - size/2) + 'px';
+      span.style.top = (e.clientY - r.top - size/2) + 'px';
+      btn.appendChild(span);
+      setTimeout(function(){ if(span.parentNode) span.parentNode.removeChild(span); }, 700);
+    });
+  });
+
+  /* ==========================================================
+     DOWNLOAD FLOW
+     ========================================================== */
+  var dlBtn = $('#downloadBtn');
+  var dlProgress = $('#dlProgress');
+  var dlFill = $('#dlFill');
+  var dlLabel = $('#dlLabel');
+  var dlPct = $('#dlPct');
+  var dlBusy = false;
+
+  if(dlBtn){
+    dlBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(dlBusy) return;
+      dlBusy = true;
+
+      var original = dlBtn.innerHTML;
+      dlBtn.style.pointerEvents = 'none';
+      dlBtn.style.opacity = '.85';
+
+      var n = 3;
+      dlBtn.innerHTML = '<svg class="i"><use href="#i-clock"></use></svg> Menyiapkan... ' + n;
+
+      var countdown = setInterval(function(){
+        n--;
+        if(n > 0){
+          dlBtn.innerHTML = '<svg class="i"><use href="#i-clock"></use></svg> Menyiapkan... ' + n;
+        } else {
+          clearInterval(countdown);
+          dlBtn.innerHTML = '<svg class="i"><use href="#i-refresh"></use></svg> Menghubungkan...';
+          if(dlProgress) dlProgress.classList.add('active');
+          if(dlLabel) dlLabel.textContent = 'Menghubungkan ke server';
+
+          var p = 0;
+          var pump = setInterval(function(){
+            p += Math.random() * 11 + 5;
+            if(p > 100) p = 100;
+            if(dlFill) dlFill.style.width = p + '%';
+            if(dlPct) dlPct.textContent = Math.floor(p) + '%';
+            if(dlLabel) dlLabel.textContent = p < 100 ? 'Mengunduh file...' : 'Selesai';
+
+            if(p >= 100){
+              clearInterval(pump);
+              showToast('Download dimulai! Cek notifikasi browser kamu.', 'i-download');
+              setTimeout(function(){
+                dlBtn.innerHTML = original;
+                dlBtn.style.pointerEvents = '';
+                dlBtn.style.opacity = '';
+                if(dlProgress) dlProgress.classList.remove('active');
+                if(dlFill) dlFill.style.width = '0%';
+                if(dlPct) dlPct.textContent = '0%';
+                if(dlLabel) dlLabel.textContent = 'Siap';
+                dlBusy = false;
+              }, 1600);
+            }
+          }, 170);
+        }
+      }, 720);
+    });
+  }
+
+  /* mirror buttons */
+  $$('[data-mirror]').forEach(function(b){
+    b.addEventListener('click', function(){
+      showToast('Beralih ke ' + b.getAttribute('data-mirror') + '.', 'i-layers');
+    });
+  });
+
+  /* ==========================================================
+     COPY + SHARE
+     ========================================================== */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      }catch(err){ reject(err); }
+    });
+  }
+
+  var copyBtn = $('#copyBtn');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      copyText(window.location.href).then(function(){
+        showToast('Link halaman berhasil disalin!', 'i-copy');
+      }).catch(function(){
+        showToast('Gagal menyalin link.', 'i-info');
+      });
+    });
+  }
+
+  var shareBtn = $('#shareBtn');
+  if(shareBtn){
+    shareBtn.addEventListener('click', function(){
+      var data = {
+        title: document.title,
+        text: 'Download YOUR NAME APK — Premium Unlocked, No Ads, Super Cepat!',
+        url: window.location.href
+      };
+      if(navigator.share){
+        navigator.share(data).catch(function(){});
+      } else {
+        copyText(window.location.href).then(function(){
+          showToast('Link disalin ke clipboard!', 'i-copy');
+        }).catch(function(){
+          showToast('Fitur share tidak tersedia.', 'i-info');
+        });
+      }
+    });
+  }
+
+  /* ==========================================================
+     NOTIFY FORM
+     ========================================================== */
+  var notifyForm = $('#notifyForm');
+  var emailInput = $('#emailInput');
+  if(notifyForm && emailInput){
+    notifyForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = emailInput.value.trim();
+      var valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
+      if(!valid){
+        showToast('Masukkan alamat email yang valid.', 'i-info');
+        emailInput.focus();
+        return;
+      }
+      showToast('Berhasil! Kamu akan dapat notifikasi update.', 'i-check');
+      emailInput.value = '';
+    });
+  }
+
+  /* ==========================================================
+     SCROLLSPY
+     ========================================================== */
+  var spyLinks = $$('[data-spy]');
+  var spySections = spyLinks.map(function(l){
+    return document.getElementById(l.getAttribute('data-spy'));
+  }).filter(Boolean);
+
+  if(spySections.length && 'IntersectionObserver' in window){
+    var spyObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          spyLinks.forEach(function(l){
+            l.classList.toggle('active', l.getAttribute('data-spy') === id);
+          });
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+    spySections.forEach(function(s){ spyObs.observe(s); });
+  }
+
+  /* ==========================================================
+     TICKER DUPLICATION (seamless marquee)
+     ========================================================== */
+  var tickerTrack = $('#tickerTrack');
+  if(tickerTrack){
+    tickerTrack.innerHTML += tickerTrack.innerHTML;
+  }
+  var reviewsTrack = $('#reviewsTrack');
+  if(reviewsTrack){
+    reviewsTrack.innerHTML += reviewsTrack.innerHTML;
+  }
+
+  /* ==========================================================
+     GLOBAL KEYBOARD
+     ========================================================== */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeLightbox();
+      closeMenu();
+    }
+  });
+
+  /* ==========================================================
+     WELCOME TOAST
+     ========================================================== */
+  setTimeout(function(){
+    showToast('Selamat datang di YOUR NAME APK v5.2.1', 'i-sparkles');
+  }, 1200);
+
+})();
+</script>
+</body>
+</html>

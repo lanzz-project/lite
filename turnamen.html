@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NAMA TURNAMEN KAMU 2026 — Arena Esport Mobile Legends, Free Fire, PUBG Mobile. Prize pool ratusan juta, live streaming, klasemen, dan pendaftaran online.">
+<meta name="theme-color" content="#070b14">
+<title>NAMA TURNAMEN KAMU 2026 — Esports Championship</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROOT VARIABLES & THEME
+============================================================ */
+:root{
+  --bg:#070b14;
+  --bg-2:#0b1220;
+  --card:#101827;
+  --card-2:#162033;
+  --text:#f8fafc;
+  --muted:#9fb0c9;
+  --gold:#f7c948;
+  --gold-2:#ffdf8a;
+  --red:#ef4444;
+  --green:#22c55e;
+  --blue:#38bdf8;
+  --purple:#a855f7;
+  --gray:#202b3d;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
+  --shadow:0 14px 40px rgba(0,0,0,.32);
+  --shadow-gold:0 14px 36px rgba(247,201,72,.14);
+  --radius:16px;
+  --radius-sm:10px;
+}
+body.light{
+  --bg:#eef2f9;
+  --bg-2:#ffffff;
+  --card:#ffffff;
+  --card-2:#f4f7fd;
+  --text:#0f172a;
+  --muted:#5b6b85;
+  --gray:#e2e8f0;
+  --border:rgba(15,23,42,.09);
+  --border-strong:rgba(15,23,42,.16);
+  --shadow:0 18px 45px rgba(15,23,42,.10);
+  --shadow-gold:0 18px 45px rgba(247,201,72,.25);
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Roboto',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+  transition:background .45s ease,color .45s ease;
+  -webkit-font-smoothing:antialiased;
+  font-size:14px;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+::selection{background:var(--gold);color:#000}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),#b98a12);border-radius:20px;border:2px solid var(--bg-2)}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-2)}
+
+/* ============================================================
+   BACKGROUND LAYERS
+============================================================ */
+#bgCanvas{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:-2;pointer-events:none;opacity:.75;
+}
+.aurora{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
+.aurora span{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:.30;
+  animation:auroraFloat 20s ease-in-out infinite;
+}
+.aurora span:nth-child(1){width:420px;height:420px;background:#f7c948;top:-120px;left:-100px}
+.aurora span:nth-child(2){width:380px;height:380px;background:#ef4444;top:32%;right:-140px;animation-delay:-6s}
+.aurora span:nth-child(3){width:340px;height:340px;background:#38bdf8;bottom:-120px;left:32%;animation-delay:-12s}
+body.light .aurora span{opacity:.16}
+@keyframes auroraFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(50px,-40px) scale(1.12)}
+  66%{transform:translate(-40px,45px) scale(.92)}
+}
+
+/* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+.scroll-progress{
+  position:fixed;top:0;left:0;width:100%;height:3px;z-index:1200;
+  background:transparent;pointer-events:none;
+}
+#scrollBar{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--red),var(--purple));
+  box-shadow:0 0 14px rgba(247,201,72,.65);
+  transition:width .12s linear;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(4,7,14,.74);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(247,201,72,.18);
+  transition:background .4s ease,box-shadow .4s ease;
+}
+body.light header{background:rgba(255,255,255,.82)}
+header.scrolled{box-shadow:0 14px 40px rgba(0,0,0,.35)}
+header .wrap{
+  max-width:1200px;margin:auto;padding:8px 14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.brand{
+  display:flex;align-items:center;gap:8px;text-decoration:none;
+  flex-shrink:0;
+}
+.brand-mark{
+  width:34px;height:34px;border-radius:10px;flex-shrink:0;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--gold),#b98a12);
+  color:#0b0b0b;font-size:14px;
+  box-shadow:0 5px 14px rgba(247,201,72,.32);
+  transition:.35s;
+}
+.brand:hover .brand-mark{transform:rotate(-10deg) scale(1.06)}
+.brand-text{
+  font-family:'Montserrat';font-weight:900;font-size:12.5px;
+  letter-spacing:.4px;line-height:1.1;color:var(--text);
+  display:flex;flex-direction:column;
+}
+.brand-text small{
+  font-size:7px;letter-spacing:1.8px;color:var(--gold);
+  font-weight:700;margin-top:2px;
+}
+nav{
+  display:flex;gap:1px;align-items:center;
+  flex:1;justify-content:center;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav a{
+  padding:6px 8px;border-radius:7px;
+  font-family:'Montserrat';font-size:9px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  position:relative;transition:.25s;white-space:nowrap;flex-shrink:0;
+}
+nav a:hover{color:var(--gold);background:rgba(247,201,72,.09)}
+nav a.active{color:var(--gold);background:rgba(247,201,72,.12)}
+nav a.active::after{
+  content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);
+  width:12px;height:2px;border-radius:2px;background:var(--gold);
+}
+.header-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.icon-btn{
+  width:32px;height:32px;border-radius:9px;
+  display:grid;place-items:center;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text);font-size:12px;transition:.3s;
+}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* ============================================================
+   TOPBAR
+============================================================ */
+.topbar{
+  max-width:1200px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:10px;flex-wrap:wrap;
+  padding:8px 16px;font-size:10px;color:var(--muted);
+  border-bottom:1px solid transparent;
+  letter-spacing:.3px;
+}
+.topbar b{color:var(--gold);font-weight:700}
+.topbar .tb-item{display:flex;align-items:center;gap:7px}
+.topbar i{color:var(--gold);font-size:11px}
+.tb-live{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:3px 11px;border-radius:20px;
+  background:rgba(239,68,68,.14);
+  border:1px solid rgba(239,68,68,.4);
+  color:#ff8080;font-weight:700;font-size:10px;letter-spacing:1px;
+}
+.tb-dot{
+  width:7px;height:7px;border-radius:50%;background:#ef4444;
+  animation:blink 1.2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.75)}}
+
+/* ============================================================
+   TICKER
+============================================================ */
+.ticker{
+  background:linear-gradient(90deg,rgba(247,201,72,.12),rgba(239,68,68,.08),rgba(247,201,72,.12));
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;position:relative;height:32px;display:flex;align-items:center;
+  margin-top:4px;
+}
+.ticker::before,.ticker::after{
+  content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;
+}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.ticker-track{
+  display:flex;gap:40px;white-space:nowrap;
+  animation:tickerMove 32s linear infinite;
+  font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}
+.ticker-track i{color:var(--gold);font-size:10px}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  position:relative;
+  min-height:clamp(480px,78vh,700px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:90px 16px 70px;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(247,201,72,.14),transparent 34%),
+    linear-gradient(180deg,rgba(4,7,14,.55),rgba(4,7,14,.92)),
+    url('https://placehold.co/1920x900/090d16/FFC107?text=NAMA+TURNAMEN+KAMU') center/cover no-repeat;
+  overflow:hidden;
+}
+body.light .hero{
+  background:
+    radial-gradient(circle at 50% 42%,rgba(247,201,72,.28),transparent 34%),
+    linear-gradient(180deg,rgba(255,255,255,.72),rgba(238,242,249,.96)),
+    url('https://placehold.co/1920x900/090d16/FFC107?text=NAMA+TURNAMEN+KAMU') center/cover no-repeat;
+}
+.hero::after{
+  content:'';position:absolute;inset:22px;border-radius:26px;
+  border:1px solid rgba(247,201,72,.14);pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:960px;width:100%}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:30px;margin-bottom:16px;
+  background:rgba(247,201,72,.1);
+  border:1px solid rgba(247,201,72,.32);
+  color:var(--gold);font-size:9.5px;font-weight:800;
+  letter-spacing:1.8px;text-transform:uppercase;
+  animation:fadeDown .8s both;
+}
+.hero h1{
+  font-family:'Montserrat';font-weight:900;
+  font-size:clamp(28px,6vw,64px);
+  line-height:1.05;letter-spacing:-2px;margin-bottom:12px;
+  background:linear-gradient(120deg,#fff 10%,var(--gold) 45%,#fff 80%);
+  background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fadeUp .9s both,shine 6s linear infinite;
+  text-shadow:0 0 60px rgba(247,201,72,.18);
+}
+body.light .hero h1{
+  background:linear-gradient(120deg,#0f172a 10%,#b98a12 45%,#0f172a 80%);
+  background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+@keyframes shine{to{background-position:220% center}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
+.hero-sub{
+  color:var(--muted);font-size:clamp(11px,1.3vw,13px);
+  letter-spacing:1.2px;text-transform:uppercase;font-weight:500;
+  margin-bottom:6px;animation:fadeUp 1.05s both;
+}
+.hero-games{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:4px;
+  animation:fadeUp 1.15s both;
+}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:24px;font-size:9.5px;font-weight:700;
+  letter-spacing:.9px;text-transform:uppercase;
+  background:var(--card);border:1px solid var(--border);color:var(--muted);
+  transition:.3s;
+}
+.hero-chip:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-chip i{color:var(--gold)}
+
+/* Countdown */
+.countdown{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  margin:24px 0 22px;animation:fadeUp 1.25s both;
+}
+.cd-box{
+  min-width:72px;padding:12px 8px 10px;border-radius:14px;
+  background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
+  border:1px solid rgba(247,201,72,.28);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 28px rgba(0,0,0,.22);
+  transition:.35s;position:relative;overflow:hidden;
+}
+.cd-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.7;
+}
+.cd-box:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:var(--shadow-gold)}
+.cd-num{
+  font-family:'Montserrat';font-weight:900;font-size:clamp(20px,3.5vw,30px);
+  color:var(--gold);line-height:1;letter-spacing:-1px;
+  text-shadow:0 0 20px rgba(247,201,72,.4);
+}
+.cd-lbl{
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin-top:6px;font-weight:700;
+}
+.hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1.35s both}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 22px;border-radius:11px;border:none;cursor:pointer;
+  font-family:'Montserrat';font-weight:800;font-size:11px;
+  letter-spacing:1px;text-transform:uppercase;text-decoration:none;
+  background:linear-gradient(135deg,var(--red),#b91c1c);
+  color:#fff;position:relative;overflow:hidden;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,filter .3s;
+  box-shadow:0 10px 24px rgba(239,68,68,.24);
+}
+.btn::before{
+  content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:skewX(-22deg);transition:left .65s ease;
+}
+.btn:hover::before{left:140%}
+.btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 42px rgba(239,68,68,.38)}
+.btn:active{transform:translateY(-1px) scale(.99)}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#c99a12);
+  color:#12100a;box-shadow:0 12px 28px rgba(247,201,72,.28);
+}
+.btn-gold:hover{box-shadow:0 18px 42px rgba(247,201,72,.42)}
+.btn-outline{
+  background:transparent;color:var(--gold);
+  border:1.5px solid rgba(247,201,72,.55);box-shadow:none;
+}
+.btn-outline:hover{background:var(--gold);color:#12100a;box-shadow:0 16px 40px rgba(247,201,72,.32)}
+.btn-ghost{
+  background:rgba(255,255,255,.05);color:var(--text);
+  border:1px solid var(--border-strong);box-shadow:none;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--gold);color:var(--gold)}
+.btn-sm{padding:8px 14px;font-size:9.5px;border-radius:9px}
+.btn-block{width:100%}
+
+/* ============================================================
+   SECTION LAYOUT
+============================================================ */
+.container{max-width:1200px;margin:auto;padding:0 16px}
+section.block{padding:52px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:24px;margin-bottom:10px;
+  background:rgba(247,201,72,.09);
+  border:1px solid rgba(247,201,72,.28);
+  color:var(--gold);font-size:9px;font-weight:800;
+  letter-spacing:1.8px;text-transform:uppercase;
+}
+.section-title{
+  font-family:'Montserrat';font-weight:900;
+  font-size:clamp(22px,3.8vw,34px);
+  letter-spacing:-1px;line-height:1.12;margin-bottom:10px;
+}
+.section-title span{
+  background:linear-gradient(120deg,var(--gold),#ff9d3c);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-desc{color:var(--muted);font-size:12px;max-width:560px;margin:auto}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+.reveal.d5{transition-delay:.4s}
+
+/* ============================================================
+   STATS
+============================================================ */
+.stats-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;margin-top:-32px;position:relative;z-index:5;
+}
+.stat-card{
+  background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 14px;text-align:center;
+  backdrop-filter:blur(14px);
+  box-shadow:var(--shadow);transition:.35s;
+}
+.stat-card:hover{transform:translateY(-5px);border-color:rgba(247,201,72,.45);box-shadow:var(--shadow-gold)}
+.stat-icon{
+  width:38px;height:38px;margin:0 auto 10px;border-radius:11px;
+  display:grid;place-items:center;font-size:15px;
+  background:rgba(247,201,72,.12);color:var(--gold);
+  border:1px solid rgba(247,201,72,.25);
+}
+.stat-num{
+  font-family:'Montserrat';font-weight:900;font-size:clamp(20px,3vw,28px);
+  color:var(--text);line-height:1;letter-spacing:-1px;
+}
+.stat-num small{font-size:.6em;color:var(--gold)}
+.stat-lbl{
+  font-size:8.5px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--muted);margin-top:7px;font-weight:700;
+}
+
+/* ============================================================
+   GAME CARDS
+============================================================ */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{
+  background:linear-gradient(150deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;position:relative;
+  box-shadow:var(--shadow);
+  transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;
+}
+.card:hover{border-color:rgba(247,201,72,.5);box-shadow:0 22px 55px rgba(0,0,0,.38),0 0 24px rgba(247,201,72,.08)}
+.card-media{position:relative;overflow:hidden;height:170px}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.card:hover .card-media img{transform:scale(1.12)}
+.card-media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 25%,rgba(7,11,20,.88));
+}
+.card-flag{
+  position:absolute;top:14px;left:14px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:6px 13px;border-radius:30px;
+  background:rgba(7,11,20,.72);backdrop-filter:blur(8px);
+  border:1px solid rgba(247,201,72,.4);
+  color:var(--gold);font-size:9.5px;font-weight:800;
+  letter-spacing:1.6px;text-transform:uppercase;
+}
+.card-slot{
+  position:absolute;top:14px;right:14px;z-index:3;
+  padding:6px 13px;border-radius:30px;
+  background:rgba(34,197,94,.16);border:1px solid rgba(34,197,94,.45);
+  color:#4ade80;font-size:9.5px;font-weight:800;letter-spacing:1.2px;
+}
+.card-slot.closed{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.45);color:#f87171}
+.card-body{padding:16px}
+.card-body h3{
+  font-family:'Montserrat';font-weight:800;font-size:15px;
+  margin-bottom:4px;letter-spacing:-.3px;
+}
+.card-genre{font-size:9.5px;color:var(--gold);letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.card-meta{display:grid;gap:7px;margin-bottom:12px}
+.meta-row{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px}
+.meta-row .k{color:var(--muted);display:flex;align-items:center;gap:6px}
+.meta-row .k i{color:var(--gold);width:12px;font-size:10px}
+.meta-row .v{font-weight:700;font-family:'Montserrat';font-size:11px}
+.card-prize{
+  font-family:'Montserrat';font-weight:900;font-size:16px;
+  color:var(--gold);letter-spacing:-.4px;
+}
+.card-progress{height:5px;border-radius:16px;background:var(--gray);overflow:hidden;margin:10px 0 12px}
+.card-progress i{
+  display:block;height:100%;border-radius:16px;
+  background:linear-gradient(90deg,var(--gold),var(--red));
+  width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1);
+}
+.card-actions{display:flex;gap:8px}
+.card-actions .btn{flex:1;padding:9px 12px;font-size:9.5px}
+
+/* ============================================================
+   PRIZE PODIUM
+============================================================ */
+.podium-wrap{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end;
+  margin-top:8px;
+}
+.podium-item{
+  border-radius:var(--radius);padding:16px 12px 0;text-align:center;
+  background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+  border:1px solid var(--border);overflow:hidden;position:relative;
+  transition:.4s cubic-bezier(.16,1,.3,1);
+}
+.podium-item:hover{transform:translateY(-6px)}
+.podium-item.first{border-color:rgba(247,201,72,.55);box-shadow:0 18px 45px rgba(247,201,72,.14)}
+.podium-item.second{border-color:rgba(203,213,225,.35)}
+.podium-item.third{border-color:rgba(217,119,6,.35)}
+.podium-crown{font-size:22px;color:var(--gold);margin-bottom:6px}
+.podium-item.second .podium-crown{color:#cbd5e1}
+.podium-item.third .podium-crown{color:#d97706}
+.podium-place{
+  font-family:'Montserrat';font-weight:900;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+  margin-bottom:6px;
+}
+.podium-team{
+  font-family:'Montserrat';font-weight:900;font-size:13px;
+  margin-bottom:5px;letter-spacing:-.2px;
+}
+.podium-prize{
+  font-family:'Montserrat';font-weight:900;font-size:15px;
+  color:var(--gold);margin-bottom:14px;
+}
+.podium-item.second .podium-prize{color:#cbd5e1}
+.podium-item.third .podium-prize{color:#e0a35a}
+.podium-base{
+  height:44px;border-radius:12px 12px 0 0;
+  background:linear-gradient(180deg,rgba(247,201,72,.22),transparent);
+  border-top:1px solid rgba(247,201,72,.35);
+}
+.podium-item.first .podium-base{height:76px}
+.podium-item.second .podium-base{height:52px;background:linear-gradient(180deg,rgba(203,213,225,.18),transparent);border-top-color:rgba(203,213,225,.3)}
+.podium-item.third .podium-base{height:32px;background:linear-gradient(180deg,rgba(217,119,6,.2),transparent);border-top-color:rgba(217,119,6,.32)}
+
+/* ============================================================
+   FILTER / TABS
+============================================================ */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  align-items:center;margin-bottom:22px;
+}
+.chip{
+  padding:9px 18px;border-radius:30px;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--muted);font-family:'Montserrat';font-weight:800;
+  font-size:10px;letter-spacing:1.4px;text-transform:uppercase;
+  transition:.28s;
+}
+.chip:hover{border-color:rgba(247,201,72,.45);color:var(--gold);transform:translateY(-2px)}
+.chip.active{
+  background:linear-gradient(135deg,var(--gold),#c99a12);
+  color:#12100a;border-color:transparent;
+  box-shadow:0 10px 26px rgba(247,201,72,.28);
+}
+.search-box{position:relative;min-width:220px}
+.search-box i{
+  position:absolute;left:15px;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:12px;pointer-events:none;
+}
+.search-box input{padding-left:40px!important}
+
+/* ============================================================
+   PANEL & TABLE
+============================================================ */
+.panel{
+  background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.014));
+  border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+}
+.panel-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap;
+}
+.panel-head h4{
+  font-family:'Montserrat';font-weight:800;font-size:13px;
+  letter-spacing:1px;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;
+}
+.panel-head h4 i{color:var(--gold)}
+.panel-body{padding:0}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:560px}
+table th,table td{padding:11px 14px;text-align:left;font-size:11.5px}
+table th{
+  font-family:'Montserrat';font-weight:800;font-size:9px;
+  letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--gold);background:rgba(247,201,72,.06);
+  border-bottom:1px solid var(--border);white-space:nowrap;
+}
+table td{border-bottom:1px solid var(--border);color:var(--text)}
+table tbody tr{transition:background .25s}
+table tbody tr:hover{background:rgba(247,201,72,.05)}
+table tbody tr:last-child td{border-bottom:none}
+.rank-badge{
+  display:inline-grid;place-items:center;
+  width:26px;height:26px;border-radius:9px;
+  font-family:'Montserrat';font-weight:900;font-size:11px;
+  background:var(--gray);color:var(--muted);
+}
+.rank-badge.r1{background:linear-gradient(135deg,var(--gold),#c99a12);color:#12100a}
+.rank-badge.r2{background:linear-gradient(135deg,#cbd5e1,#94a3b8);color:#0f172a}
+.rank-badge.r3{background:linear-gradient(135deg,#d97706,#92400e);color:#fff}
+.team-cell{display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Montserrat';font-size:12px}
+.team-avatar{
+  width:30px;height:30px;border-radius:9px;flex-shrink:0;
+  display:grid;place-items:center;font-size:11px;font-weight:900;
+  background:linear-gradient(145deg,rgba(247,201,72,.22),rgba(239,68,68,.18));
+  color:var(--gold);border:1px solid rgba(247,201,72,.25);
+  font-family:'Montserrat';
+}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 11px;border-radius:20px;
+  font-size:9.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+.badge-up{background:rgba(34,197,94,.14);color:#4ade80;border:1px solid rgba(34,197,94,.35)}
+.badge-live{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.4)}
+.badge-soon{background:rgba(247,201,72,.13);color:var(--gold);border:1px solid rgba(247,201,72,.35)}
+.badge-done{background:rgba(148,163,184,.13);color:#94a3b8;border:1px solid rgba(148,163,184,.3)}
+.game-pill{
+  display:inline-block;padding:3px 10px;border-radius:8px;
+  font-size:9.5px;font-weight:800;letter-spacing:1px;
+  background:var(--gray);color:var(--muted);
+}
+
+/* ============================================================
+   BRACKET
+============================================================ */
+.bracket{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;align-items:start;
+}
+.bracket-round h5{
+  font-family:'Montserrat';font-weight:900;font-size:10.5px;
+  letter-spacing:2.2px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;text-align:center;
+  padding-bottom:10px;border-bottom:1px dashed rgba(247,201,72,.25);
+}
+.match{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;margin-bottom:12px;
+  transition:.3s;cursor:default;
+}
+.match:hover{border-color:rgba(247,201,72,.45);transform:translateX(4px)}
+.match-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 15px;font-size:11.5px;font-weight:700;
+  font-family:'Montserrat';letter-spacing:.3px;
+}
+.match-row + .match-row{border-top:1px solid var(--border)}
+.match-row.win{background:rgba(34,197,94,.08);color:#4ade80}
+.match-row.lose{opacity:.5}
+.match-score{
+  font-family:'Montserrat';font-weight:900;font-size:12px;
+  padding:2px 9px;border-radius:7px;background:var(--gray);
+}
+.match-row.win .match-score{background:rgba(34,197,94,.2);color:#4ade80}
+
+/* ============================================================
+   ACCORDION
+============================================================ */
+.acc-item{
+  background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  border:1px solid var(--border);border-radius:16px;
+  margin-bottom:11px;overflow:hidden;transition:.3s;
+}
+.acc-item:hover{border-color:rgba(247,201,72,.35)}
+.acc-item.open{border-color:rgba(247,201,72,.5);box-shadow:0 14px 40px rgba(0,0,0,.22)}
+.acc-head{
+  width:100%;display:flex;align-items:center;gap:14px;
+  padding:17px 20px;background:transparent;border:none;cursor:pointer;
+  color:var(--text);text-align:left;font-family:'Montserrat';
+  font-weight:800;font-size:13px;letter-spacing:-.2px;
+  transition:.25s;
+}
+.acc-head:hover{color:var(--gold)}
+.acc-num{
+  width:30px;height:30px;border-radius:10px;flex-shrink:0;
+  display:grid;place-items:center;font-size:11.5px;font-weight:900;
+  background:rgba(247,201,72,.12);color:var(--gold);
+  border:1px solid rgba(247,201,72,.25);
+}
+.acc-title{flex:1}
+.acc-arrow{
+  color:var(--muted);font-size:12px;transition:transform .35s;
+}
+.acc-item.open .acc-arrow{transform:rotate(180deg);color:var(--gold)}
+.acc-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s cubic-bezier(.16,1,.3,1),padding .35s;
+  padding:0 20px;
+}
+.acc-item.open .acc-body{max-height:420px;padding:0 20px 20px}
+.acc-body p{color:var(--muted);font-size:12.5px;line-height:1.8}
+.acc-body p + p{margin-top:9px}
+.acc-body b{color:var(--text)}
+
+/* ============================================================
+   SPONSOR MARQUEE
+============================================================ */
+.sponsor-marquee{
+  overflow:hidden;position:relative;padding:8px 0;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.sponsor-track{
+  display:flex;gap:20px;width:max-content;
+  animation:sponsorScroll 34s linear infinite;
+}
+.sponsor-marquee:hover .sponsor-track{animation-play-state:paused}
+@keyframes sponsorScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.sponsor-logo{
+  width:200px;height:110px;flex-shrink:0;
+  display:grid;place-items:center;padding:16px;
+  background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid var(--border);border-radius:18px;
+  transition:.35s;filter:grayscale(100%);opacity:.72;
+}
+.sponsor-logo:hover{
+  filter:grayscale(0%);opacity:1;transform:translateY(-6px);
+  border-color:rgba(247,201,72,.5);box-shadow:var(--shadow-gold);
+}
+.sponsor-logo img{max-height:70px;object-fit:contain;width:auto}
+
+/* ============================================================
+   GALLERY
+============================================================ */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.gallery-item{
+  position:relative;overflow:hidden;border-radius:18px;
+  border:1px solid var(--border);cursor:pointer;
+  aspect-ratio:4/3;background:var(--card);
+  transition:.4s cubic-bezier(.16,1,.3,1);
+}
+.gallery-item:hover{transform:translateY(-6px);border-color:rgba(247,201,72,.5);box-shadow:0 22px 55px rgba(0,0,0,.35)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.gallery-item:hover img{transform:scale(1.16)}
+.gallery-item .overlay{
+  position:absolute;inset:auto 0 0 0;padding:16px 15px 14px;
+  background:linear-gradient(transparent,rgba(3,5,10,.94));
+  color:#fff;
+}
+.gallery-item .overlay b{
+  display:block;font-family:'Montserrat';font-weight:800;
+  font-size:12.5px;letter-spacing:-.2px;
+}
+.gallery-item .overlay small{
+  font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;
+}
+.gallery-zoom{
+  position:absolute;top:12px;right:12px;width:34px;height:34px;
+  border-radius:11px;display:grid;place-items:center;
+  background:rgba(3,5,10,.65);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.16);color:#fff;font-size:12px;
+  opacity:0;transform:translateY(-8px);transition:.35s;
+}
+.gallery-item:hover .gallery-zoom{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+   LIGHTBOX
+============================================================ */
+.lightbox{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(3,5,10,.94);backdrop-filter:blur(16px);
+  display:grid;place-items:center;padding:26px;
+  opacity:0;pointer-events:none;transition:.35s;
+}
+.lightbox.show{opacity:1;pointer-events:auto}
+.lightbox-inner{
+  max-width:1000px;width:100%;position:relative;
+  transform:scale(.92);transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.lightbox.show .lightbox-inner{transform:scale(1)}
+.lightbox img{
+  width:100%;max-height:74vh;object-fit:contain;border-radius:18px;
+  border:1px solid rgba(247,201,72,.28);
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+}
+.lightbox-cap{
+  text-align:center;margin-top:16px;color:#fff;
+  font-family:'Montserrat';font-weight:800;font-size:14px;letter-spacing:-.2px;
+}
+.lightbox-cap small{
+  display:block;color:var(--gold);font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;margin-top:6px;
+}
+.lb-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:46px;height:46px;border-radius:14px;
+  display:grid;place-items:center;cursor:pointer;
+  background:rgba(16,24,39,.9);border:1px solid var(--border-strong);
+  color:#fff;font-size:15px;transition:.3s;
+}
+.lb-btn:hover{background:var(--gold);color:#12100a;border-color:var(--gold)}
+.lb-prev{left:-10px}
+.lb-next{right:-10px}
+.lb-close{
+  position:absolute;top:-52px;right:0;
+  width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;cursor:pointer;
+  background:rgba(16,24,39,.9);border:1px solid var(--border-strong);
+  color:#fff;font-size:15px;transition:.3s;
+}
+.lb-close:hover{background:var(--red);border-color:var(--red);transform:rotate(90deg)}
+
+/* ============================================================
+   LIVE
+============================================================ */
+.live-box{
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(239,68,68,.5);
+  box-shadow:0 22px 60px rgba(0,0,0,.34);
+  background:var(--card);
+}
+.live-header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:13px 20px;flex-wrap:wrap;
+  background:linear-gradient(90deg,rgba(239,68,68,.9),rgba(185,28,28,.85));
+  color:#fff;
+}
+.live-left{display:flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:800;font-size:11.5px;letter-spacing:1px;text-transform:uppercase}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#fff;animation:blink 1.1s infinite}
+.live-viewers{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 13px;border-radius:30px;
+  background:rgba(0,0,0,.28);font-size:10px;font-weight:800;letter-spacing:.8px;
+}
+.live-tabs{display:flex;gap:8px;padding:14px 18px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.live-tab{
+  padding:9px 17px;border-radius:11px;cursor:pointer;
+  background:var(--card-2);border:1px solid var(--border);
+  color:var(--muted);font-family:'Montserrat';font-weight:800;
+  font-size:10px;letter-spacing:1.2px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;transition:.28s;
+}
+.live-tab:hover{color:var(--gold);border-color:rgba(247,201,72,.4)}
+.live-tab.active{background:linear-gradient(135deg,var(--red),#b91c1c);color:#fff;border-color:transparent;box-shadow:0 10px 26px rgba(239,68,68,.3)}
+.live-iframe{
+  width:100%;height:min(60vw,600px);border:none;display:block;background:#000;
+}
+.live-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:14px 20px;flex-wrap:wrap;
+  border-top:1px solid var(--border);font-size:11px;color:var(--muted);
+}
+.live-footer b{color:var(--gold)}
+
+/* ============================================================
+   FORM
+============================================================ */
+.form-panel{
+  background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.014));
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.form-panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--red),var(--purple));
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{
+  font-family:'Montserrat';font-weight:800;font-size:10px;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:7px;
+}
+.field label i{color:var(--gold);font-size:10px}
+.field label .req{color:var(--red)}
+input,select,textarea{
+  width:100%;padding:11px 14px;border-radius:var(--radius-sm);
+  background:var(--card-2);border:1px solid var(--border);
+  color:var(--text);font-family:'Roboto';font-size:12.5px;
+  transition:.3s;outline:none;
+}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.72}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(247,201,72,.1);
+  background:var(--card);
+}
+select{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f7c948' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 15px center;padding-right:42px;
+}
+textarea{resize:vertical;min-height:86px}
+.check-row{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:14px 16px;border-radius:var(--radius-sm);
+  background:var(--card-2);border:1px solid var(--border);
+  cursor:pointer;transition:.3s;
+}
+.check-row:hover{border-color:rgba(247,201,72,.4)}
+.check-row input{
+  width:19px;height:19px;flex-shrink:0;margin-top:2px;
+  accent-color:var(--gold);cursor:pointer;padding:0;
+}
+.check-row span{font-size:11.5px;color:var(--muted);line-height:1.6}
+.check-row span b{color:var(--text)}
+.form-note{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:14px 16px;border-radius:var(--radius-sm);
+  background:rgba(247,201,72,.07);
+  border:1px solid rgba(247,201,72,.22);
+  font-size:11.5px;color:var(--muted);line-height:1.65;
+}
+.form-note i{color:var(--gold);margin-top:3px}
+.field-error{font-size:10.5px;color:#f87171;display:none;font-weight:600}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--red)!important;box-shadow:0 0 0 4px rgba(239,68,68,.1)!important}
+.field.invalid .field-error{display:block}
+.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.form-actions .btn{flex:1;min-width:180px}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{
+  margin-top:52px;border-top:1px solid var(--border);
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.35));
+  padding:40px 16px 24px;
+}
+body.light footer{background:linear-gradient(180deg,transparent,rgba(15,23,42,.04))}
+.footer-grid{
+  max-width:1200px;margin:auto;
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:28px;
+}
+.footer-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.footer-brand .brand-mark{width:38px;height:38px;font-size:16px;border-radius:12px}
+.footer-brand b{font-family:'Montserrat';font-weight:900;font-size:13.5px;letter-spacing:.4px}
+.footer-col p{font-size:12px;color:var(--muted);line-height:1.85;max-width:320px}
+.footer-col h6{
+  font-family:'Montserrat';font-weight:900;font-size:10px;
+  letter-spacing:2.2px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;
+}
+.footer-links{list-style:none;display:grid;gap:10px}
+.footer-links a{
+  font-size:12px;color:var(--muted);text-decoration:none;
+  display:inline-flex;align-items:center;gap:9px;transition:.28s;
+}
+.footer-links a i{font-size:9px;color:var(--gold);opacity:.7;transition:.28s}
+.footer-links a:hover{color:var(--gold);transform:translateX(4px)}
+.footer-links a:hover i{opacity:1}
+.social-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.social-btn{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;font-size:14px;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--muted);text-decoration:none;transition:.3s;
+}
+.social-btn:hover{color:#12100a;background:var(--gold);border-color:var(--gold);transform:translateY(-4px) rotate(-6deg)}
+.footer-bottom{
+  max-width:1200px;margin:28px auto 0;padding-top:18px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted);
+}
+.footer-bottom b{color:var(--gold)}
+.footer-bottom .made{display:inline-flex;align-items:center;gap:7px}
+
+/* ============================================================
+   TOAST
+============================================================ */
+.toast{
+  position:fixed;top:22px;right:22px;z-index:3000;
+  display:flex;align-items:center;gap:13px;
+  padding:15px 20px;border-radius:15px;max-width:360px;
+  background:var(--card);border:1px solid var(--border-strong);
+  border-left:4px solid var(--gold);
+  box-shadow:0 22px 60px rgba(0,0,0,.45);
+  transform:translateX(120%);opacity:0;pointer-events:none;
+  transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .4s;
+}
+.toast.show{transform:translateX(0);opacity:1;pointer-events:auto}
+.toast.success{border-left-color:var(--green)}
+.toast.error{border-left-color:var(--red)}
+.toast.info{border-left-color:var(--blue)}
+.toast-icon{
+  width:38px;height:38px;border-radius:12px;flex-shrink:0;
+  display:grid;place-items:center;font-size:15px;
+  background:rgba(247,201,72,.13);color:var(--gold);
+}
+.toast.success .toast-icon{background:rgba(34,197,94,.14);color:#4ade80}
+.toast.error .toast-icon{background:rgba(239,68,68,.14);color:#f87171}
+.toast.info .toast-icon{background:rgba(56,189,248,.14);color:var(--blue)}
+.toast-text b{
+  display:block;font-family:'Montserrat';font-weight:800;
+  font-size:12px;margin-bottom:2px;letter-spacing:.2px;
+}
+.toast-text span{font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media(max-width:1150px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:1080px){
+  header .wrap{flex-wrap:wrap;row-gap:6px;column-gap:8px}
+  .brand{order:1}
+  .header-actions{order:2;margin-left:auto}
+  nav{
+    order:3;width:100%;flex:none;
+    justify-content:flex-start;padding:2px 0 0;
+    mask-image:linear-gradient(90deg,#000 85%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);
+  }
+  nav a{font-size:8.5px;padding:5px 7px}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .podium-wrap{grid-template-columns:1fr;gap:14px}
+  .podium-item.first{order:-1}
+  .podium-item.first .podium-base{height:56px}
+  .podium-item.second .podium-base{height:44px}
+  .podium-item.third .podium-base{height:32px}
+}
+@media(max-width:860px){
+  .hero{min-height:auto;padding:80px 14px 60px}
+  .hero::after{inset:10px;border-radius:16px}
+  .grid-3{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr;margin-top:-24px}
+  .footer-grid{grid-template-columns:1fr;gap:22px}
+  .footer-col p{max-width:none}
+  .lb-prev{left:4px}
+  .lb-next{right:4px}
+  .lb-btn{width:36px;height:36px;border-radius:10px}
+  .lb-close{top:auto;bottom:-50px;right:50%;transform:translateX(50%)}
+  .lb-close:hover{transform:translateX(50%) rotate(90deg)}
+  .toast{left:12px;right:12px;max-width:none;top:12px}
+  .brand-text{font-size:11.5px}
+  .brand-text small{font-size:6.5px;letter-spacing:1.5px}
+  .brand-mark{width:30px;height:30px;font-size:12px;border-radius:9px}
+  .icon-btn{width:30px;height:30px;border-radius:8px;font-size:11px}
+}
+@media(max-width:560px){
+  .container{padding:0 14px}
+  section.block{padding:52px 0}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .stat-card{padding:17px 12px}
+  .cd-box{min-width:72px;padding:12px 8px 10px;border-radius:15px}
+  .cd-lbl{font-size:8px;letter-spacing:1.6px}
+  .hero-cta .btn{width:100%}
+  .form-panel{padding:20px 16px}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:11px}
+  .gallery-item{border-radius:14px}
+  .gallery-item .overlay{padding:11px 10px}
+  .gallery-item .overlay b{font-size:10.5px}
+  .gallery-item .overlay small{font-size:8px;letter-spacing:1px}
+  .sponsor-logo{width:150px;height:92px;border-radius:14px}
+  .topbar{font-size:9.5px;padding:6px 12px;gap:6px}
+  .topbar .tb-hide{display:none}
+  header .wrap{padding:6px 12px}
+  nav a{font-size:8px;padding:4px 6px}
+  .panel-head{padding:14px 16px}
+  table th,table td{padding:12px 13px;font-size:11.5px}
+  .section-head{margin-bottom:30px}
+  .filter-bar{gap:7px}
+  .chip{padding:8px 14px;font-size:9px}
+  .search-box{min-width:100%;width:100%}
+  .form-actions .btn{min-width:100%}
+  .live-iframe{height:62vw}
+}
+@media(max-width:400px){
+  .stats-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BACKGROUND ============ -->
+<canvas id="bgCanvas"></canvas>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress"><div id="scrollBar"></div></div>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap">
+    <a href="#beranda" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-trophy"></i></span>
+      <span class="brand-text">
+        NAMA TURNAMEN KAMU
+        <small>ESPORTS CHAMPIONSHIP 2026</small>
+      </span>
+    </a>
+
+    <nav id="mainNav">
+      <a href="#game" class="nav-link">Game</a>
+      <a href="#hadiah" class="nav-link">Hadiah</a>
+      <a href="#jadwal" class="nav-link">Jadwal</a>
+      <a href="#bracket" class="nav-link">Bracket</a>
+      <a href="#leaderboard" class="nav-link">Klasemen</a>
+      <a href="#rules" class="nav-link">Rules</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#sponsor" class="nav-link">Sponsor</a>
+      <a href="#galeri" class="nav-link">Galeri</a>
+      <a href="#live" class="nav-link">Live</a>
+      <a href="#daftar" class="nav-link">Daftar</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Ganti tema" title="Ganti Tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="tb-item"><i class="fa-regular fa-calendar"></i><span id="date">—</span></div>
+  <div class="tb-item tb-hide"><i class="fa-regular fa-clock"></i><span id="clock">—</span> <b>WIB</b></div>
+  <div class="tb-item">
+    <span class="tb-live"><span class="tb-dot"></span> LIVE NOW</span>
+  </div>
+  <div class="tb-item tb-hide"><i class="fa-solid fa-earth-asia"></i> NAMA TURNAMEN KAMU 2026</div>
+</div>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span><i class="fa-solid fa-bullhorn"></i> Pendaftaran gelombang 2 dibuka — kuota terbatas!</span>
+    <span><i class="fa-solid fa-trophy"></i> Total prize pool Rp 255.000.000</span>
+    <span><i class="fa-solid fa-bolt"></i> Grand Final disiarkan live di YouTube</span>
+    <span><i class="fa-solid fa-shield-halved"></i> Anti-cheat aktif sepanjang turnamen</span>
+    <span><i class="fa-solid fa-gift"></i> Doorprize untuk 10 penonton beruntung</span>
+    <span><i class="fa-solid fa-bullhorn"></i> Pendaftaran gelombang 2 dibuka — kuota terbatas!</span>
+    <span><i class="fa-solid fa-trophy"></i> Total prize pool Rp 255.000.000</span>
+    <span><i class="fa-solid fa-bolt"></i> Grand Final disiarkan live di YouTube</span>
+    <span><i class="fa-solid fa-shield-halved"></i> Anti-cheat aktif sepanjang turnamen</span>
+    <span><i class="fa-solid fa-gift"></i> Doorprize untuk 10 penonton beruntung</span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="beranda">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-crown"></i> Season 2026 • Gelombang 2 Dibuka
+    </div>
+    <h1>NAMA <br>TURNAMEN KAMU 2026</h1>
+    <p class="hero-sub">Arena Pertarungan Terbesar Se-Indonesia</p>
+
+    <div class="hero-games">
+      <span class="hero-chip"><i class="fa-solid fa-gamepad"></i> Mobile Legends</span>
+      <span class="hero-chip"><i class="fa-solid fa-fire"></i> Free Fire</span>
+      <span class="hero-chip"><i class="fa-solid fa-crosshairs"></i> PUBG Mobile</span>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><div class="cd-num" id="cdD">00</div><div class="cd-lbl">Hari</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdH">00</div><div class="cd-lbl">Jam</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdM">00</div><div class="cd-lbl">Menit</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdS">00</div><div class="cd-lbl">Detik</div></div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#daftar" class="btn btn-gold"><i class="fa-solid fa-pen-to-square"></i> Daftar Sekarang</a>
+      <a href="#live" class="btn btn-outline"><i class="fa-solid fa-play"></i> Tonton Live</a>
+      <a href="#jadwal" class="btn btn-ghost"><i class="fa-regular fa-calendar-check"></i> Lihat Jadwal</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="container">
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="stat-num"><span data-count="512">0</span><small>+</small></div>
+      <div class="stat-lbl">Total Pemain</div>
+    </div>
+    <div class="stat-card reveal d1">
+      <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
+      <div class="stat-num"><span data-count="128">0</span></div>
+      <div class="stat-lbl">Tim Terdaftar</div>
+    </div>
+    <div class="stat-card reveal d2">
+      <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+      <div class="stat-num"><span data-count="255">0</span><small>JT</small></div>
+      <div class="stat-lbl">Total Prize Pool</div>
+    </div>
+    <div class="stat-card reveal d3">
+      <div class="stat-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+      <div class="stat-num"><span data-count="64">0</span></div>
+      <div class="stat-lbl">Jam Siaran Live</div>
+    </div>
+    <div class="stat-card reveal d4">
+      <div class="stat-icon"><i class="fa-solid fa-medal"></i></div>
+      <div class="stat-num"><span data-count="36">0</span></div>
+      <div class="stat-lbl">Total Match</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME ============ -->
+<section class="block" id="game">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-gamepad"></i> Cabang Pertandingan</span>
+      <h2 class="section-title">Pilih <span>Arena Mu</span></h2>
+      <p class="section-desc">Tiga cabang game mobile terpopuler dengan format kompetitif, sistem poin profesional, dan pengawasan anti-cheat berlapis.</p>
+    </div>
+
+    <div class="grid-3">
+      <!-- ML -->
+      <article class="card reveal tilt">
+        <div class="card-media">
+          <span class="card-flag"><i class="fa-solid fa-gamepad"></i> MOBA</span>
+          <span class="card-slot" id="slotML">Kuota 128 Tim</span>
+          <img src="https://placehold.co/600x400/000/FFC107?text=MOBILE+LEGENDS" alt="Mobile Legends">
+        </div>
+        <div class="card-body">
+          <h3>Mobile Legends: Bang Bang</h3>
+          <div class="card-genre">5 vs 5 • Double Elimination</div>
+          <div class="card-meta">
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-sack-dollar"></i> Prize Pool</span><span class="v card-prize">Rp 100 Jt</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-users"></i> Format Tim</span><span class="v">5 + 1 Cadangan</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-layer-group"></i> Sistem</span><span class="v">Bo3 / Bo5 Final</span></div>
+          </div>
+          <div class="card-progress"><i data-fill="86%"></i></div>
+          <div class="card-actions">
+            <button class="btn btn-sm js-daftar" data-game="Mobile Legends"><i class="fa-solid fa-pen-to-square"></i> Daftar</button>
+            <a href="#bracket" class="btn btn-sm btn-outline"><i class="fa-solid fa-sitemap"></i> Bracket</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- FF -->
+      <article class="card reveal d1 tilt">
+        <div class="card-media">
+          <span class="card-flag"><i class="fa-solid fa-fire"></i> BATTLE ROYALE</span>
+          <span class="card-slot" id="slotFF">Kuota 48 Tim</span>
+          <img src="https://placehold.co/600x400/000/FFC107?text=FREE+FIRE" alt="Free Fire">
+        </div>
+        <div class="card-body">
+          <h3>Free Fire</h3>
+          <div class="card-genre">Squad • Battle Royale</div>
+          <div class="card-meta">
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-sack-dollar"></i> Prize Pool</span><span class="v card-prize">Rp 75 Jt</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-users"></i> Format Tim</span><span class="v">4 + 1 Cadangan</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-layer-group"></i> Sistem</span><span class="v">6 Match Poin</span></div>
+          </div>
+          <div class="card-progress"><i data-fill="72%"></i></div>
+          <div class="card-actions">
+            <button class="btn btn-sm js-daftar" data-game="Free Fire"><i class="fa-solid fa-pen-to-square"></i> Daftar</button>
+            <a href="#bracket" class="btn btn-sm btn-outline"><i class="fa-solid fa-sitemap"></i> Bracket</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PUBG -->
+      <article class="card reveal d2 tilt">
+        <div class="card-media">
+          <span class="card-flag"><i class="fa-solid fa-crosshairs"></i> TPP</span>
+          <span class="card-slot closed" id="slotPUBG">Kuota Hampir Penuh</span>
+          <img src="https://placehold.co/600x400/000/FFC107?text=PUBG+MOBILE" alt="PUBG Mobile">
+        </div>
+        <div class="card-body">
+          <h3>PUBG Mobile</h3>
+          <div class="card-genre">Squad • Third Person</div>
+          <div class="card-meta">
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-sack-dollar"></i> Prize Pool</span><span class="v card-prize">Rp 80 Jt</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-users"></i> Format Tim</span><span class="v">4 + 1 Cadangan</span></div>
+            <div class="meta-row"><span class="k"><i class="fa-solid fa-layer-group"></i> Sistem</span><span class="v">6 Match Poin</span></div>
+          </div>
+          <div class="card-progress"><i data-fill="94%"></i></div>
+          <div class="card-actions">
+            <button class="btn btn-sm js-daftar" data-game="PUBG Mobile"><i class="fa-solid fa-pen-to-square"></i> Daftar</button>
+            <a href="#bracket" class="btn btn-sm btn-outline"><i class="fa-solid fa-sitemap"></i> Bracket</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HADIAH ============ -->
+<section class="block" id="hadiah">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-trophy"></i> Prize Pool</span>
+      <h2 class="section-title">Hadiah <span>Total Rp 255 Juta</span></h2>
+      <p class="section-desc">Pembagian hadiah transparan untuk seluruh cabang pertandingan. Pencairan maksimal 7×24 jam setelah grand final.</p>
+    </div>
+
+    <div class="podium-wrap">
+      <div class="podium-item second reveal d1">
+        <div class="podium-crown"><i class="fa-solid fa-medal"></i></div>
+        <div class="podium-place">Juara 2</div>
+        <div class="podium-team">Runner Up</div>
+        <div class="podium-prize">Rp 45.000.000</div>
+        <div class="podium-base"></div>
+      </div>
+
+      <div class="podium-item first reveal">
+        <div class="podium-crown"><i class="fa-solid fa-crown"></i></div>
+        <div class="podium-place">Juara 1</div>
+        <div class="podium-team">Grand Champion</div>
+        <div class="podium-prize">Rp 100.000.000</div>
+        <div class="podium-base"></div>
+      </div>
+
+      <div class="podium-item third reveal d2">
+        <div class="podium-crown"><i class="fa-solid fa-award"></i></div>
+        <div class="podium-place">Juara 3</div>
+        <div class="podium-team">Third Place</div>
+        <div class="podium-prize">Rp 30.000.000</div>
+        <div class="podium-base"></div>
+      </div>
+    </div>
+
+    <div class="panel reveal d3" style="margin-top:24px">
+      <div class="panel-head">
+        <h4><i class="fa-solid fa-list-check"></i> Rincian Penghargaan Tambahan</h4>
+        <span class="badge badge-soon"><i class="fa-solid fa-star"></i> Bonus Kategori</span>
+      </div>
+      <div class="panel-body table-scroll">
+        <table>
+          <thead>
+            <tr><th>Kategori</th><th>Keterangan</th><th>Hadiah</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>MVP Season</b></td><td>Pemain dengan rating tertinggi</td><td class="card-prize" style="font-size:14px">Rp 10.000.000</td></tr>
+            <tr><td><b>Best Support</b></td><td>Assist &amp; vision terbanyak</td><td class="card-prize" style="font-size:14px">Rp 5.000.000</td></tr>
+            <tr><td><b>Fastest Clear</b></td><td>Waktu menyelesaikan match tercepat</td><td class="card-prize" style="font-size:14px">Rp 5.000.000</td></tr>
+            <tr><td><b>Fair Play Award</b></td><td>Tim paling sportif sepanjang turnamen</td><td class="card-prize" style="font-size:14px">Rp 5.000.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JADWAL ============ -->
+<section class="block" id="jadwal">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-regular fa-calendar-days"></i> Timeline</span>
+      <h2 class="section-title">Jadwal <span>Pertandingan</span></h2>
+      <p class="section-desc">Semua waktu dalam WIB. Tim wajib hadir 30 menit sebelum match dimulai.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="chip active" data-filter="ALL">Semua</button>
+      <button class="chip" data-filter="ML">Mobile Legends</button>
+      <button class="chip" data-filter="FF">Free Fire</button>
+      <button class="chip" data-filter="PUBG">PUBG Mobile</button>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="scheduleSearch" placeholder="Cari tim / match...">
+      </div>
+    </div>
+
+    <div class="panel reveal d1">
+      <div class="panel-head">
+        <h4><i class="fa-solid fa-calendar-check"></i> Daftar Pertandingan</h4>
+        <span class="badge badge-soon" id="scheduleCount"><i class="fa-solid fa-filter"></i> 0 Match</span>
+      </div>
+      <div class="panel-body table-scroll">
+        <table>
+          <thead>
+            <tr><th>Tanggal</th><th>Game</th><th>Match</th><th>Waktu</th><th>Status</th></tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRACKET ============ -->
+<section class="block" id="bracket">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-sitemap"></i> Playoff</span>
+      <h2 class="section-title">Bracket <span>Grand Final</span></h2>
+      <p class="section-desc">Alur pertandingan babak gugur Mobile Legends: Bang Bang.</p>
+    </div>
+
+    <div class="bracket">
+      <div class="bracket-round reveal">
+        <h5>Quarter Final</h5>
+        <div class="match">
+          <div class="match-row win"><span>TIM ALPHA</span><span class="match-score">2</span></div>
+          <div class="match-row lose"><span>TIM OMEGA</span><span class="match-score">0</span></div>
+        </div>
+        <div class="match">
+          <div class="match-row win"><span>TIM BETA</span><span class="match-score">2</span></div>
+          <div class="match-row lose"><span>TIM SIGMA</span><span class="match-score">1</span></div>
+        </div>
+        <div class="match">
+          <div class="match-row win"><span>TIM GAMMA</span><span class="match-score">2</span></div>
+          <div class="match-row lose"><span>TIM ZETA</span><span class="match-score">1</span></div>
+        </div>
+        <div class="match">
+          <div class="match-row win"><span>TIM DELTA</span><span class="match-score">2</span></div>
+          <div class="match-row lose"><span>TIM THETA</span><span class="match-score">0</span></div>
+        </div>
+      </div>
+
+      <div class="bracket-round reveal d1">
+        <h5>Semi Final</h5>
+        <div class="match">
+          <div class="match-row win"><span>TIM ALPHA</span><span class="match-score">3</span></div>
+          <div class="match-row lose"><span>TIM BETA</span><span class="match-score">2</span></div>
+        </div>
+        <div class="match">
+          <div class="match-row win"><span>TIM GAMMA</span><span class="match-score">3</span></div>
+          <div class="match-row lose"><span>TIM DELTA</span><span class="match-score">1</span></div>
+        </div>
+      </div>
+
+      <div class="bracket-round reveal d2">
+        <h5>Grand Final</h5>
+        <div class="match">
+          <div class="match-row win"><span>TIM ALPHA</span><span class="match-score">4</span></div>
+          <div class="match-row lose"><span>TIM GAMMA</span><span class="match-score">2</span></div>
+        </div>
+        <div class="match" style="border-color:rgba(247,201,72,.5)">
+          <div class="match-row" style="background:rgba(247,201,72,.1);color:var(--gold)">
+            <span><i class="fa-solid fa-crown"></i> JUARA 1</span>
+            <span class="match-score" style="background:rgba(247,201,72,.2);color:var(--gold)">TIM ALPHA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERBOARD ============ -->
+<section class="block" id="leaderboard">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-ranking-star"></i> Klasemen</span>
+      <h2 class="section-title">Leaderboard <span>Grup</span></h2>
+      <p class="section-desc">Peringkat diperbarui otomatis setiap match selesai diverifikasi oleh panitia.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="chip active" data-board="ML">Mobile Legends</button>
+      <button class="chip" data-board="FF">Free Fire</button>
+      <button class="chip" data-board="PUBG">PUBG Mobile</button>
+    </div>
+
+    <div class="panel reveal d1">
+      <div class="panel-head">
+        <h4><i class="fa-solid fa-table-list"></i> Klasemen Sementara</h4>
+        <span class="badge badge-live"><span class="tb-dot"></span> Update Realtime</span>
+      </div>
+      <div class="panel-body table-scroll">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Tim</th><th>Game</th><th>M</th><th>W</th><th>L</th><th>Poin</th></tr>
+          </thead>
+          <tbody id="boardBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES ============ -->
+<section class="block" id="rules">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-scale-balanced"></i> Peraturan</span>
+      <h2 class="section-title">Rules <span>Turnamen</span></h2>
+      <p class="section-desc">Baca dengan teliti. Dengan mendaftar, seluruh tim dianggap telah menyetujui peraturan berikut.</p>
+    </div>
+
+    <div class="acc-list reveal d1" id="rulesAcc">
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">01</span>
+          <span class="acc-title">Pendaftaran &amp; Persyaratan Tim</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Komposisi:</b> 1 tim terdiri dari 5 pemain utama + 1 pemain cadangan (ML &amp; PUBG menyesuaikan format masing-masing cabang).</p>
+          <p><b>Wajib:</b> Follow akun Instagram resmi turnamen, join grup WhatsApp koordinasi, dan menggunakan nama tim yang tidak mengandung unsur SARA.</p>
+          <p><b>Biaya:</b> Pendaftaran gratis untuk gelombang pertama, dikenakan biaya admin untuk gelombang berikutnya.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">02</span>
+          <span class="acc-title">Teknis Pertandingan</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Server:</b> Menggunakan server resmi yang telah ditentukan panitia. Custom room dibuat oleh admin.</p>
+          <p><b>Dilarang keras:</b> Cheat, hack, bug abuse, teaming dengan tim lain, dan perilaku toxic.</p>
+          <p><b>Sanksi:</b> Jika terbukti melanggar, tim langsung didiskualifikasi tanpa pengembalian biaya pendaftaran.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">03</span>
+          <span class="acc-title">Jadwal &amp; Keterlambatan</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Kehadiran:</b> Tim wajib hadir di room paling lambat 30 menit sebelum match dimulai.</p>
+          <p><b>WO:</b> Keterlambatan lebih dari 15 menit dari jadwal akan dihitung Walk Out dan lawan dinyatakan menang.</p>
+          <p><b>Reschedule:</b> Perubahan jadwal hanya bisa diajukan maksimal 24 jam sebelum match dengan alasan kuat.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">04</span>
+          <span class="acc-title">Hadiah &amp; Pencairan</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Pemenang:</b> Juara 1, 2, dan 3 setiap cabang berhak atas hadiah sesuai rincian prize pool.</p>
+          <p><b>Pajak:</b> Pajak hadiah ditanggung oleh masing-masing pemenang sesuai peraturan yang berlaku.</p>
+          <p><b>Pencairan:</b> Dana ditransfer maksimal 7×24 jam setelah grand final selesai dan verifikasi data rampung.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">05</span>
+          <span class="acc-title">Keputusan Juri &amp; Sengketa</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Mutlak:</b> Keputusan panitia bersifat final dan tidak dapat diganggu gugat.</p>
+          <p><b>Protes:</b> Keberatan hanya dilayani maksimal 10 menit setelah match berakhir dengan menyertakan bukti rekaman.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num">06</span>
+          <span class="acc-title">Hak Siar &amp; Dokumentasi</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p><b>Broadcast:</b> Seluruh match dapat disiarkan ulang (rebroadcast) oleh panitia di kanal resmi.</p>
+          <p><b>Media:</b> Panitia berhak menggunakan foto dan video pertandingan untuk keperluan dokumentasi serta promosi turnamen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-regular fa-circle-question"></i> Bantuan</span>
+      <h2 class="section-title">Pertanyaan <span>Umum</span></h2>
+      <p class="section-desc">Belum menemukan jawaban? Hubungi panitia lewat WhatsApp di bagian pendaftaran.</p>
+    </div>
+
+    <div class="acc-list reveal d1" id="faqAcc">
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num"><i class="fa-solid fa-1"></i></span>
+          <span class="acc-title">Apakah pendaftaran turnamen ini gratis?</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p>Untuk gelombang pertama, pendaftaran <b>100% gratis</b>. Gelombang berikutnya dikenakan biaya administrasi sebesar Rp 50.000 per tim untuk menutup biaya server dan produksi siaran.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num"><i class="fa-solid fa-2"></i></span>
+          <span class="acc-title">Berapa lama proses verifikasi pendaftaran?</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p>Verifikasi dilakukan maksimal <b>1×24 jam</b> setelah formulir dikirim. Kamu akan menerima konfirmasi melalui WhatsApp dari admin resmi turnamen.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num"><i class="fa-solid fa-3"></i></span>
+          <span class="acc-title">Bolehkah mengganti pemain di tengah turnamen?</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p>Pergantian pemain hanya diperbolehkan dari daftar <b>pemain cadangan</b> yang sudah terdaftar, dan maksimal 2 kali sepanjang turnamen dengan pemberitahuan ke admin minimal 1 jam sebelum match.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num"><i class="fa-solid fa-4"></i></span>
+          <span class="acc-title">Bagaimana cara menonton pertandingan secara live?</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p>Semua match disiarkan langsung melalui kanal YouTube resmi turnamen. Cek bagian <b>Live Streaming</b> di halaman ini untuk menonton tanpa harus berpindah tab.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" type="button">
+          <span class="acc-num"><i class="fa-solid fa-5"></i></span>
+          <span class="acc-title">Apakah hadiah dikenakan potongan pajak?</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body">
+          <p>Ya. Pajak hadiah mengikuti peraturan perpajakan yang berlaku di Indonesia dan ditanggung oleh masing-masing pemenang.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPONSOR ============ -->
+<section class="block" id="sponsor">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-handshake"></i> Partner</span>
+      <h2 class="section-title">Sponsor <span>Resmi</span></h2>
+      <p class="section-desc">Turnamen ini terselenggara berkat dukungan brand-brand hebat berikut.</p>
+    </div>
+
+    <div class="sponsor-marquee reveal d1">
+      <div class="sponsor-track">
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+1" alt="Sponsor 1"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+2" alt="Sponsor 2"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+3" alt="Sponsor 3"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+4" alt="Sponsor 4"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+5" alt="Sponsor 5"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+6" alt="Sponsor 6"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+1" alt="Sponsor 1"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+2" alt="Sponsor 2"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+3" alt="Sponsor 3"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+4" alt="Sponsor 4"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+5" alt="Sponsor 5"></div>
+        <div class="sponsor-logo"><img src="https://placehold.co/300x140/FFC107/000?text=SPONSOR+6" alt="Sponsor 6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERI ============ -->
+<section class="block" id="galeri">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-regular fa-images"></i> Dokumentasi</span>
+      <h2 class="section-title">Galeri <span>Juara</span></h2>
+      <p class="section-desc">Momen terbaik dari edisi sebelumnya. Klik gambar untuk melihat versi besar.</p>
+    </div>
+
+    <div class="gallery-grid reveal d1" id="galleryGrid">
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=JUARA+1+2025" data-title="Juara 1 — TIM ALPHA" data-sub="Grand Final MLBB 2025">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=JUARA+1+2025" alt="Juara 1 2025">
+        <div class="overlay"><small>Juara 1</small><b>TIM ALPHA</b></div>
+      </div>
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=JUARA+2+2025" data-title="Juara 2 — TIM BETA" data-sub="Grand Final MLBB 2025">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=JUARA+2+2025" alt="Juara 2 2025">
+        <div class="overlay"><small>Juara 2</small><b>TIM BETA</b></div>
+      </div>
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=GRAND+FINAL" data-title="Grand Final 2025" data-sub="Panggung Utama">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=GRAND+FINAL" alt="Grand Final">
+        <div class="overlay"><small>Panggung</small><b>Grand Final 2025</b></div>
+      </div>
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=MVP+SEASON" data-title="MVP Season 2025" data-sub="Penghargaan Individu">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=MVP+SEASON" alt="MVP Season">
+        <div class="overlay"><small>Individu</small><b>MVP Season 2025</b></div>
+      </div>
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=FREE+FIRE+FINAL" data-title="Free Fire Grand Final" data-sub="Battle Royale Arena">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=FREE+FIRE+FINAL" alt="Free Fire Final">
+        <div class="overlay"><small>Free Fire</small><b>Grand Final FF</b></div>
+      </div>
+      <div class="gallery-item" data-img="https://placehold.co/1200x800/000/FFC107?text=PUBG+FINAL" data-title="PUBG Mobile Grand Final" data-sub="TPP Squad">
+        <span class="gallery-zoom"><i class="fa-solid fa-expand"></i></span>
+        <img src="https://placehold.co/600x450/000/FFC107?text=PUBG+FINAL" alt="PUBG Final">
+        <div class="overlay"><small>PUBG Mobile</small><b>Grand Final PUBG</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVE ============ -->
+<section class="block" id="live">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-tower-broadcast"></i> Siaran Langsung</span>
+      <h2 class="section-title">Live <span>Streaming</span></h2>
+      <p class="section-desc">Saksikan pertandingan secara langsung. Jadwal siaran mengikuti jadwal match yang berlangsung.</p>
+    </div>
+
+    <div class="live-box reveal d1">
+      <div class="live-header">
+        <div class="live-left"><span class="live-dot"></span> Sedang Live: Grand Final MLBB</div>
+        <span class="live-viewers"><i class="fa-solid fa-eye"></i> <span id="viewerCount">12.480</span> Penonton</span>
+      </div>
+
+      <div class="live-tabs">
+        <button class="live-tab active" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+          <i class="fa-brands fa-youtube"></i> Kanal Utama
+        </button>
+        <button class="live-tab" data-src="https://www.youtube.com/embed/ysz5S6PUM-U">
+          <i class="fa-solid fa-video"></i> Kanal Cadangan
+        </button>
+        <button class="live-tab" data-src="https://www.youtube.com/embed/aqz-KE-bpKQ">
+          <i class="fa-solid fa-camera-retro"></i> POV Player
+        </button>
+      </div>
+
+      <iframe class="live-iframe" id="liveFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Live Streaming Turnamen" allowfullscreen
+        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>
+
+      <div class="live-footer">
+        <span><i class="fa-solid fa-circle-info"></i> Kualitas siaran: <b>1080p60</b></span>
+        <span><i class="fa-solid fa-comments"></i> Chat dimoderasi panitia</span>
+        <span><i class="fa-solid fa-share-nodes"></i> Bagikan ke temanmu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAFTAR ============ -->
+<section class="block" id="daftar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag"><i class="fa-solid fa-pen-to-square"></i> Registrasi</span>
+      <h2 class="section-title">Form <span>Pendaftaran</span></h2>
+      <p class="section-desc">Isi data dengan lengkap dan benar. Data akan dikirim ke WhatsApp admin resmi turnamen.</p>
+    </div>
+
+    <div class="form-panel reveal d1">
+      <form id="regForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="namaTim"><i class="fa-solid fa-shield-halved"></i> Nama Tim <span class="req">*</span></label>
+            <input type="text" id="namaTim" name="namaTim" placeholder="Contoh: Garuda Esports" autocomplete="off" required>
+            <span class="field-error">Nama tim wajib diisi (min. 3 karakter).</span>
+          </div>
+
+          <div class="field">
+            <label for="namaKapten"><i class="fa-solid fa-user-tie"></i> Nama Kapten <span class="req">*</span></label>
+            <input type="text" id="namaKapten" name="namaKapten" placeholder="Nama lengkap kapten" autocomplete="off" required>
+            <span class="field-error">Nama kapten wajib diisi.</span>
+          </div>
+
+          <div class="field">
+            <label for="wa"><i class="fa-brands fa-whatsapp"></i> No. WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="wa" name="wa" placeholder="628xxxxxxxxxx" autocomplete="off" required>
+            <span class="field-error">Nomor WhatsApp tidak valid (contoh: 628123456789).</span>
+          </div>
+
+          <div class="field">
+            <label for="email"><i class="fa-regular fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="email@contoh.com" autocomplete="off">
+            <span class="field-error">Format email tidak valid.</span>
+          </div>
+
+          <div class="field">
+            <label for="gamePilih"><i class="fa-solid fa-gamepad"></i> Pilih Game <span class="req">*</span></label>
+            <select id="gamePilih" name="gamePilih" required>
+              <option value="">— Pilih Cabang —</option>
+              <option value="Mobile Legends">Mobile Legends: Bang Bang</option>
+              <option value="Free Fire">Free Fire</option>
+              <option value="PUBG Mobile">PUBG Mobile</option>
+            </select>
+            <span class="field-error">Silakan pilih salah satu game.</span>
+          </div>
+
+          <div class="field">
+            <label for="kota"><i class="fa-solid fa-location-dot"></i> Kota / Daerah</label>
+            <input type="text" id="kota" name="kota" placeholder="Contoh: Jakarta" autocomplete="off">
+            <span class="field-error">—</span>
+          </div>
+
+          <div class="field full">
+            <label for="anggota"><i class="fa-solid fa-users"></i> Daftar Anggota Tim</label>
+            <textarea id="anggota" name="anggota" rows="4" placeholder="1. Nama - ID&#10;2. Nama - ID&#10;3. Nama - ID&#10;4. Nama - ID&#10;5. Nama - ID&#10;6. Cadangan - ID"></textarea>
+            <span class="field-error">—</span>
+          </div>
+
+          <div class="field full">
+            <label for="catatan"><i class="fa-regular fa-note-sticky"></i> Catatan Tambahan</label>
+            <textarea id="catatan" name="catatan" rows="3" placeholder="Info tambahan untuk panitia (opsional)"></textarea>
+            <span class="field-error">—</span>
+          </div>
+
+          <div class="field full">
+            <label class="check-row" for="setuju" style="text-transform:none;letter-spacing:0;font-family:'Roboto';font-weight:400">
+              <input type="checkbox" id="setuju" required>
+              <span>Saya menyatakan seluruh data yang diisi <b>benar</b> dan tim kami <b>menyetujui seluruh peraturan turnamen</b> yang berlaku.</span>
+            </label>
+            <span class="field-error" id="setujuError">Kamu harus menyetujui peraturan turnamen.</span>
+          </div>
+
+          <div class="field full">
+            <div class="form-note">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Setelah menekan tombol kirim, kamu akan diarahkan ke WhatsApp admin dengan pesan otomatis berisi data pendaftaran. Pastikan nomor WhatsApp aktif.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top:20px">
+          <button type="submit" class="btn btn-gold"><i class="fa-solid fa-paper-plane"></i> Kirim Pendaftaran</button>
+          <button type="reset" class="btn btn-ghost"><i class="fa-solid fa-rotate-left"></i> Reset Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="brand-mark"><i class="fa-solid fa-trophy"></i></span>
+        <b>NAMA TURNAMEN KAMU</b>
+      </div>
+      <p>Arena esport tahunan yang mempertemukan tim terbaik dari seluruh Indonesia dalam tiga cabang game mobile paling kompetitif.</p>
+      <div class="social-row">
+        <a href="#beranda" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#beranda" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#beranda" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#beranda" class="social-btn" title="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="#beranda" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h6>Navigasi</h6>
+      <ul class="footer-links">
+        <li><a href="#game"><i class="fa-solid fa-chevron-right"></i> Cabang Game</a></li>
+        <li><a href="#hadiah"><i class="fa-solid fa-chevron-right"></i> Prize Pool</a></li>
+        <li><a href="#jadwal"><i class="fa-solid fa-chevron-right"></i> Jadwal Match</a></li>
+        <li><a href="#leaderboard"><i class="fa-solid fa-chevron-right"></i> Klasemen</a></li>
+        <li><a href="#bracket"><i class="fa-solid fa-chevron-right"></i> Bracket</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Informasi</h6>
+      <ul class="footer-links">
+        <li><a href="#rules"><i class="fa-solid fa-chevron-right"></i> Peraturan</a></li>
+        <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> FAQ</a></li>
+        <li><a href="#sponsor"><i class="fa-solid fa-chevron-right"></i> Sponsor</a></li>
+        <li><a href="#galeri"><i class="fa-solid fa-chevron-right"></i> Galeri</a></li>
+        <li><a href="#live"><i class="fa-solid fa-chevron-right"></i> Live Stream</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Kontak Panitia</h6>
+      <ul class="footer-links">
+        <li><a href="#daftar"><i class="fa-brands fa-whatsapp"></i> +62 812-3456-7890</a></li>
+        <li><a href="#daftar"><i class="fa-regular fa-envelope"></i> admin@namaturnamenkamu.id</a></li>
+        <li><a href="#daftar"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</a></li>
+        <li><a href="#live"><i class="fa-regular fa-clock"></i> Support 09.00 – 22.00 WIB</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 <b>NAMA TURNAMEN KAMU</b>. All Rights Reserved.</span>
+    <span class="made"><i class="fa-solid fa-code"></i> Built by <b>Lanzz Project</b></span>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lb-close" id="lbClose" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lbImg" src="" alt="Galeri">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lightbox-cap" id="lbCap">Judul<small>Subjudul</small></div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast">
+  <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+  <div class="toast-text">
+    <b id="toastTitle">Berhasil</b>
+    <span id="toastMsg">Pesan notifikasi.</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================================================
+     0. HELPERS
+  ============================================================ */
+  const $  = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================================================
+     1. TOAST SYSTEM
+  ============================================================ */
+  const toastEl   = $('#toast');
+  const toastIcon = $('.toast-icon i', toastEl);
+  const toastTtl  = $('#toastTitle');
+  const toastMsg  = $('#toastMsg');
+  let toastTimer  = null;
+
+  const TOAST_ICONS = {
+    success: 'fa-solid fa-circle-check',
+    error:   'fa-solid fa-circle-exclamation',
+    info:    'fa-solid fa-circle-info',
+    gold:    'fa-solid fa-trophy'
+  };
+
+  function showToast(title, message, type) {
+    type = type || 'gold';
+    toastEl.className = 'toast ' + type;
+    toastIcon.className = TOAST_ICONS[type] || TOAST_ICONS.gold;
+    toastTtl.textContent = title;
+    toastMsg.textContent = message;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 4200);
+  }
+
+  /* ============================================================
+     2. THEME
+  ============================================================ */
+  const body = document.body;
+  const themeBtn = $('#themeBtn');
+
+  try {
+    if (localStorage.getItem('ntk-theme') === 'light') body.classList.add('light');
+  } catch (e) { /* localStorage disabled */ }
+
+  function syncThemeIcon() {
+    const isLight = body.classList.contains('light');
+    themeBtn.innerHTML = isLight
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+    themeBtn.title = isLight ? 'Mode Gelap' : 'Mode Terang';
+  }
+  syncThemeIcon();
+
+  themeBtn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    try {
+      localStorage.setItem('ntk-theme', body.classList.contains('light') ? 'light' : 'dark');
+    } catch (e) {}
+    syncThemeIcon();
+    showToast('Tema Diubah', body.classList.contains('light')
+      ? 'Mode terang aktif.' : 'Mode gelap aktif.', 'info');
+  });
+
+  /* ============================================================
+     3. PARTICLE BACKGROUND
+  ============================================================ */
+  const canvas = $('#bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let W = 0, H = 0;
+
+  function resizeCanvas() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    const count = Math.max(28, Math.min(78, Math.floor(W / 20)));
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.7 + 0.6
+      });
+    }
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, W, H);
+    const isLight = body.classList.contains('light');
+    const dotColor  = isLight ? 'rgba(30,41,59,0.30)' : 'rgba(247,201,72,0.55)';
+    const lineColor = isLight ? 'rgba(30,41,59,0.07)' : 'rgba(247,201,72,0.09)';
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = dotColor;
+      ctx.fill();
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 118) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(drawParticles);
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+  if (!prefersReduced) drawParticles();
+  else ctx.clearRect(0, 0, W, H);
+
+  /* ============================================================
+     4. CLOCK & DATE
+  ============================================================ */
+  const dateEl = $('#date');
+  const clockEl = $('#clock');
+
+  const HARI = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  const BULAN = ['Januari','Februari','Maret','April','Mei','Juni','Juli',
+                 'Agustus','September','Oktober','November','Desember'];
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function updateTime() {
+    const now = new Date();
+    dateEl.textContent = HARI[now.getDay()] + ', ' + now.getDate() + ' ' +
+                         BULAN[now.getMonth()] + ' ' + now.getFullYear();
+    clockEl.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+
+  /* ============================================================
+     5. COUNTDOWN
+  ============================================================ */
+  const cdD = $('#cdD'), cdH = $('#cdH'), cdM = $('#cdM'), cdS = $('#cdS');
+
+  let targetTime = new Date('2026-12-20T19:00:00+07:00').getTime();
+  const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
+  while (targetTime < Date.now()) targetTime += YEAR_MS;
+
+  function updateCountdown() {
+    let diff = targetTime - Date.now();
+    if (diff < 0) diff = 0;
+
+    const totalSec = Math.floor(diff / 1000);
+    const d = Math.floor(totalSec / 86400);
+    const h = Math.floor((totalSec % 86400) / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+
+    cdD.textContent = pad(d);
+    cdH.textContent = pad(h);
+    cdM.textContent = pad(m);
+    cdS.textContent = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ============================================================
+     6. SCROLL PROGRESS + HEADER STATE
+  ============================================================ */
+  const scrollBar = $('#scrollBar');
+  const headerEl = $('#header');
+  let ticking = false;
+
+  function onScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollBar.style.width = pct + '%';
+
+    if (scrollTop > 30) headerEl.classList.add('scrolled');
+    else headerEl.classList.remove('scrolled');
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+  onScroll();
+
+  /* ============================================================
+     7. KEYBOARD (lightbox close)
+  ============================================================ */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* ============================================================
+     8. REVEAL ON SCROLL
+  ============================================================ */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  $$('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ============================================================
+     9. COUNTER ANIMATION
+  ============================================================ */
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    const duration = 1600;
+    const start = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString('id-ID');
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('id-ID');
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  $$('[data-count]').forEach(el => counterObserver.observe(el));
+
+  /* ============================================================
+     10. CARD PROGRESS FILL
+  ============================================================ */
+  const fillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        bar.style.width = bar.getAttribute('data-fill') || '0%';
+        fillObserver.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  $$('.card-progress i').forEach(el => fillObserver.observe(el));
+
+  /* ============================================================
+     11. CARD TILT EFFECT
+  ============================================================ */
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  if (!isTouch && !prefersReduced) {
+    $$('.tilt').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width  - 0.5;
+        const y = (e.clientY - rect.top)  / rect.height - 0.5;
+        card.style.transform =
+          'perspective(900px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ============================================================
+     12. ACTIVE NAV LINK ON SCROLL
+  ============================================================ */
+  const navLinks = $$('#mainNav a.nav-link');
+  const sections = navLinks
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === id);
+        });
+      }
+    });
+  }, { threshold: 0.28, rootMargin: '-100px 0px -45% 0px' });
+
+  sections.forEach(sec => navObserver.observe(sec));
+
+  /* ============================================================
+     13. SCHEDULE DATA + FILTER + SEARCH
+  ============================================================ */
+  const scheduleData = [
+    { date: '20 Agustus 2026', game: 'ML',    match: 'TIM ALPHA vs TIM OMEGA',   time: '19:00 WIB', status: 'done' },
+    { date: '20 Agustus 2026', game: 'ML',    match: 'TIM BETA vs TIM SIGMA',    time: '20:30 WIB', status: 'done' },
+    { date: '21 Agustus 2026', game: 'FF',    match: 'TIM C vs TIM D',           time: '20:00 WIB', status: 'live' },
+    { date: '21 Agustus 2026', game: 'FF',    match: 'TIM E vs TIM F',           time: '21:30 WIB', status: 'upcoming' },
+    { date: '22 Agustus 2026', game: 'PUBG',  match: 'TIM E vs TIM F',           time: '18:00 WIB', status: 'upcoming' },
+    { date: '22 Agustus 2026', game: 'PUBG',  match: 'TIM G vs TIM H',           time: '19:30 WIB', status: 'upcoming' },
+    { date: '23 Agustus 2026', game: 'ML',    match: 'TIM GAMMA vs TIM DELTA',   time: '19:00 WIB', status: 'upcoming' },
+    { date: '24 Agustus 2026', game: 'FF',    match: 'SEMI FINAL — GRUP A',      time: '20:00 WIB', status: 'upcoming' },
+    { date: '25 Agustus 2026', game: 'PUBG',  match: 'SEMI FINAL — GRUP B',      time: '18:30 WIB', status: 'upcoming' },
+    { date: '30 Agustus 2026', game: 'ML',    match: 'GRAND FINAL MLBB',         time: '19:00 WIB', status: 'upcoming' }
+  ];
+
+  const GAME_LABEL = {
+    ML:   'Mobile Legends',
+    FF:   'Free Fire',
+    PUBG: 'PUBG Mobile'
+  };
+
+  const STATUS_META = {
+    live:     { cls: 'badge-live', label: 'Live', txt: '<i class="fa-solid fa-tower-broadcast"></i> Live' },
+    upcoming: { cls: 'badge-soon', label: 'Upcoming', txt: '<i class="fa-regular fa-clock"></i> Upcoming' },
+    done:     { cls: 'badge-done', label: 'Selesai', txt: '<i class="fa-solid fa-check"></i> Selesai' }
+  };
+
+  const scheduleBody = $('#scheduleBody');
+  const scheduleCount = $('#scheduleCount');
+  const scheduleSearch = $('#scheduleSearch');
+  let activeFilter = 'ALL';
+
+  function renderSchedule() {
+    const keyword = (scheduleSearch.value || '').toLowerCase().trim();
+
+    const rows = scheduleData.filter(item => {
+      const okFilter = activeFilter === 'ALL' || item.game === activeFilter;
+      const haystack = (item.match + ' ' + item.date + ' ' + GAME_LABEL[item.game]).toLowerCase();
+      const okSearch = !keyword || haystack.indexOf(keyword) !== -1;
+      return okFilter && okSearch;
+    });
+
+    if (rows.length === 0) {
+      scheduleBody.innerHTML =
+        '<tr><td colspan="5" style="text-align:center;padding:34px;color:var(--muted)">' +
+        '<i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:8px"></i>' +
+        'Tidak ada pertandingan yang cocok.</td></tr>';
+    } else {
+      scheduleBody.innerHTML = rows.map(item => {
+        const st = STATUS_META[item.status] || STATUS_META.upcoming;
+        return '<tr>' +
+          '<td>' + item.date + '</td>' +
+          '<td><span class="game-pill">' + GAME_LABEL[item.game] + '</span></td>' +
+          '<td><b>' + item.match + '</b></td>' +
+          '<td>' + item.time + '</td>' +
+          '<td><span class="badge ' + st.cls + '">' + st.txt + '</span></td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    scheduleCount.innerHTML = '<i class="fa-solid fa-filter"></i> ' + rows.length + ' Match';
+  }
+
+  $$('.chip[data-filter]').forEach(chip => {
+    chip.addEventListener('click', () => {
+      $$('.chip[data-filter]').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilter = chip.getAttribute('data-filter');
+      renderSchedule();
+    });
+  });
+
+  scheduleSearch.addEventListener('input', renderSchedule);
+  renderSchedule();
+
+  /* ============================================================
+     14. LEADERBOARD DATA + TABS
+  ============================================================ */
+  const boardData = {
+    ML: [
+      { team: 'TIM ALPHA',  m: 10, w: 10, l: 0, p: 30 },
+      { team: 'TIM BETA',   m: 10, w: 9,  l: 1, p: 27 },
+      { team: 'TIM GAMMA',  m: 10, w: 8,  l: 2, p: 24 },
+      { team: 'TIM DELTA',  m: 10, w: 7,  l: 3, p: 21 },
+      { team: 'TIM OMEGA',  m: 10, w: 6,  l: 4, p: 18 },
+      { team: 'TIM SIGMA',  m: 10, w: 5,  l: 5, p: 15 },
+      { team: 'TIM ZETA',   m: 10, w: 4,  l: 6, p: 12 },
+      { team: 'TIM THETA',  m: 10, w: 3,  l: 7, p: 9 }
+    ],
+    FF: [
+      { team: 'TIM GAMMA',  m: 9, w: 8, l: 1, p: 24 },
+      { team: 'TIM FIRE',   m: 9, w: 7, l: 2, p: 21 },
+      { team: 'TIM BLAZE',  m: 9, w: 6, l: 3, p: 18 },
+      { team: 'TIM STORM',  m: 9, w: 5, l: 4, p: 15 },
+      { team: 'TIM NOVA',   m: 9, w: 4, l: 5, p: 12 },
+      { team: 'TIM PHOENIX',m: 9, w: 3, l: 6, p: 9 }
+    ],
+    PUBG: [
+      { team: 'TIM DELTA',  m: 9, w: 8, l: 1, p: 24 },
+      { team: 'TIM VIPER',  m: 9, w: 7, l: 2, p: 21 },
+      { team: 'TIM REAPER', m: 9, w: 6, l: 3, p: 18 },
+      { team: 'TIM GHOST',  m: 9, w: 5, l: 4, p: 15 },
+      { team: 'TIM RAPTOR', m: 9, w: 4, l: 5, p: 12 },
+      { team: 'TIM FALCON', m: 9, w: 3, l: 6, p: 9 }
+    ]
+  };
+
+  const boardBody = $('#boardBody');
+
+  function initials(name) {
+    const parts = name.replace('TIM ', '').split(' ');
+    return parts.map(p => p.charAt(0)).join('').substring(0, 2).toUpperCase();
+  }
+
+  function renderBoard(key) {
+    const rows = boardData[key] || [];
+    boardBody.innerHTML = rows.map((row, idx) => {
+      const rank = idx + 1;
+      const rankCls = rank <= 3 ? ' r' + rank : '';
+      return '<tr>' +
+        '<td><span class="rank-badge' + rankCls + '">' + rank + '</span></td>' +
+        '<td><div class="team-cell">' +
+          '<span class="team-avatar">' + initials(row.team) + '</span>' + row.team +
+        '</div></td>' +
+        '<td><span class="game-pill">' + GAME_LABEL[key] + '</span></td>' +
+        '<td>' + row.m + '</td>' +
+        '<td style="color:#4ade80;font-weight:700">' + row.w + '</td>' +
+        '<td style="color:#f87171;font-weight:700">' + row.l + '</td>' +
+        '<td><b style="color:var(--gold);font-family:Montserrat">' + row.p + '</b></td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  $$('.chip[data-board]').forEach(chip => {
+    chip.addEventListener('click', () => {
+      $$('.chip[data-board]').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderBoard(chip.getAttribute('data-board'));
+    });
+  });
+
+  renderBoard('ML');
+
+  /* ============================================================
+     15. ACCORDIONS (RULES & FAQ)
+  ============================================================ */
+  $$('.acc-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const item = head.parentElement;
+      const group = item.parentElement;
+      const isOpen = item.classList.contains('open');
+
+      // Tutup semua item dalam grup yang sama
+      Array.from(group.children).forEach(child => child.classList.remove('open'));
+
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* ============================================================
+     16. GALLERY LIGHTBOX
+  ============================================================ */
+  const galleryItems = $$('.gallery-item');
+  const lightbox = $('#lightbox');
+  const lbImg = $('#lbImg');
+  const lbCap = $('#lbCap');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    lbImg.src = item.getAttribute('data-img');
+    lbCap.innerHTML = item.getAttribute('data-title') +
+                      '<small>' + item.getAttribute('data-sub') + '</small>';
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  galleryItems.forEach((item, idx) => {
+    item.addEventListener('click', () => openLightbox(idx));
+  });
+
+  $('#lbClose').addEventListener('click', closeLightbox);
+  $('#lbPrev').addEventListener('click', (e) => { e.stopPropagation(); openLightbox(currentIndex - 1); });
+  $('#lbNext').addEventListener('click', (e) => { e.stopPropagation(); openLightbox(currentIndex + 1); });
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('show')) return;
+    if (e.key === 'ArrowLeft')  openLightbox(currentIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
+  });
+
+  /* ============================================================
+     17. LIVE STREAM TABS
+  ============================================================ */
+  const liveFrame = $('#liveFrame');
+  const liveTabs = $$('.live-tab');
+
+  liveTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      liveTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const src = tab.getAttribute('data-src');
+      if (src && liveFrame.getAttribute('src') !== src) {
+        liveFrame.setAttribute('src', src);
+      }
+    });
+  });
+
+  /* Simulasi jumlah penonton */
+  const viewerEl = $('#viewerCount');
+  let viewers = 12480;
+  setInterval(() => {
+    viewers += Math.floor(Math.random() * 120) - 45;
+    if (viewers < 8000) viewers = 8000;
+    if (viewers > 30000) viewers = 30000;
+    viewerEl.textContent = viewers.toLocaleString('id-ID');
+  }, 3200);
+
+  /* ============================================================
+     18. QUICK REGISTER BUTTONS (GAME CARDS)
+  ============================================================ */
+  $$('.js-daftar').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const game = btn.getAttribute('data-game');
+      const select = $('#gamePilih');
+
+      select.value = game;
+      select.dispatchEvent(new Event('change'));
+
+      document.getElementById('daftar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      showToast('Game Dipilih', 'Form pendaftaran diisi otomatis untuk ' + game + '.', 'info');
+
+      setTimeout(() => {
+        const field = $('#namaTim');
+        if (field) field.focus({ preventScroll: true });
+      }, 700);
+    });
+  });
+
+  /* ============================================================
+     19. FORM VALIDATION + SUBMIT
+  ============================================================ */
+  const regForm = $('#regForm');
+  const WA_NUMBER = '6281234567890';
+
+  function setInvalid(input, invalid) {
+    const field = input.closest('.field');
+    if (field) field.classList.toggle('invalid', invalid);
+  }
+
+  function validateField(input) {
+    const id = input.id;
+    const value = (input.value || '').trim();
+    let valid = true;
+
+    if (id === 'namaTim')      valid = value.length >= 3;
+    if (id === 'namaKapten')   valid = value.length >= 3;
+    if (id === 'wa')           valid = /^[0-9+\-\s()]{9,18}$/.test(value);
+    if (id === 'email')        valid = value === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (id === 'gamePilih')    valid = value !== '';
+    if (id === 'setuju')       valid = input.checked;
+
+    setInvalid(input, !valid);
+    return valid;
+  }
+
+  /* Validasi langsung saat mengetik / berubah */
+  ['namaTim', 'namaKapten', 'wa', 'email', 'gamePilih'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('blur', () => validateField(el));
+    el.addEventListener('input', () => {
+      if (el.closest('.field').classList.contains('invalid')) validateField(el);
+    });
+    el.addEventListener('change', () => {
+      if (el.closest('.field').classList.contains('invalid')) validateField(el);
+    });
+  });
+
+  const setujuEl = $('#setuju');
+  setujuEl.addEventListener('change', () => {
+    const wrap = setujuEl.closest('.field');
+    if (wrap) wrap.classList.toggle('invalid', !setujuEl.checked);
+  });
+
+  /* Prefill dari tombol card */
+  $('#gamePilih').addEventListener('change', function () {
+    setInvalid(this, false);
+  });
+
+  regForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const fields = ['namaTim', 'namaKapten', 'wa', 'email', 'gamePilih'];
+    let allValid = true;
+    let firstInvalid = null;
+
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const ok = validateField(el);
+      if (!ok) {
+        allValid = false;
+        if (!firstInvalid) firstInvalid = el;
+      }
+    });
+
+    if (!setujuEl.checked) {
+      allValid = false;
+      const wrap = setujuEl.closest('.field');
+      if (wrap) wrap.classList.add('invalid');
+      if (!firstInvalid) firstInvalid = setujuEl;
+    }
+
+    if (!allValid) {
+      showToast('Data Belum Lengkap', 'Periksa kembali kolom yang ditandai merah.', 'error');
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => firstInvalid.focus({ preventScroll: true }), 420);
+      }
+      return;
+    }
+
+    const namaTim    = $('#namaTim').value.trim();
+    const namaKapten = $('#namaKapten').value.trim();
+    const wa         = $('#wa').value.trim();
+    const email      = $('#email').value.trim() || '-';
+    const game       = $('#gamePilih').value;
+    const kota       = $('#kota').value.trim() || '-';
+    const anggota    = $('#anggota').value.trim() || '-';
+    const catatan    = $('#catatan').value.trim() || '-';
+
+    const pesan =
+      '*PENDAFTARAN NAMA TURNAMEN KAMU 2026*\n' +
+      '================================\n' +
+      '*Nama Tim*     : ' + namaTim + '\n' +
+      '*Kapten*       : ' + namaKapten + '\n' +
+      '*WhatsApp*     : ' + wa + '\n' +
+      '*Email*        : ' + email + '\n' +
+      '*Cabang Game*  : ' + game + '\n' +
+      '*Kota/Daerah*  : ' + kota + '\n' +
+      '--------------------------------\n' +
+      '*Anggota Tim*  :\n' + anggota + '\n' +
+      '--------------------------------\n' +
+      '*Catatan*      : ' + catatan + '\n' +
+      '================================\n' +
+      'Mohon konfirmasi pendaftaran tim kami. Terima kasih!';
+
+    const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(pesan);
+
+    window.open(url, '_blank', 'noopener');
+
+    showToast('Pendaftaran Terkirim', 'Tim ' + namaTim + ' berhasil dikirim ke WhatsApp admin.', 'success');
+
+    regForm.reset();
+    $$('.field.invalid').forEach(f => f.classList.remove('invalid'));
+    $$('.card-progress i').forEach(bar => { bar.style.width = '0'; });
+  });
+
+  /* Reset form -> bersihkan error state */
+  regForm.addEventListener('reset', () => {
+    $$('.field.invalid').forEach(f => f.classList.remove('invalid'));
+  });
+
+  /* ============================================================
+     20. SMOOTH ANCHOR SCROLL (fallback + offset)
+  ============================================================ */
+  $$('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+
+      const headerH = headerEl.offsetHeight + 14;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
+
+  /* ============================================================
+     21. WELCOME TOAST
+  ============================================================ */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      showToast('Selamat Datang!', 'Turnamen 2026 sedang dibuka. Daftarkan timmu sekarang.', 'gold');
+    }, 900);
+  });
+
+})();
+</script>
+</body>
+</html>

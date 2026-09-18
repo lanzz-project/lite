@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Your Name Vila — Resort & Accommodation mewah di tepi Pantai Sawarna, Banten. Private pool, ocean view, dan pengalaman menginap tak terlupakan.">
+<meta name="theme-color" content="#0F172A">
+<title>YOUR NAME VILA | Resort & Accommodation</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<!-- FontAwesome & AOS CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<!-- Lightbox CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+:root{
+    --gold-primary:#D4AF37;
+    --gold-light:#F4E8C1;
+    --gold-dark:#AA820A;
+    --brown-earth:#8B4513;
+    --dark-navy:#0F172A;
+    --navy-soft:#1E293B;
+
+    --bg-body:#FAFAF7;
+    --bg-alt:#F3F1EA;
+    --bg-elev:#FFFFFF;
+    --card-bg:#FFFFFF;
+
+    --text-main:#1E293B;
+    --text-soft:#475569;
+    --text-muted:#64748B;
+
+    --border-soft:rgba(15,23,42,.08);
+    --border-gold:rgba(212,175,55,.28);
+
+    --shadow-xs:0 2px 6px rgba(15,23,42,.05);
+    --shadow-soft:0 10px 30px -5px rgba(0,0,0,.05), 0 8px 10px -6px rgba(0,0,0,.05);
+    --shadow-md:0 18px 40px -18px rgba(15,23,42,.28);
+    --shadow-hover:0 26px 50px -18px rgba(212,175,55,.42);
+    --shadow-gold:0 14px 34px -10px rgba(212,175,55,.55);
+
+    --radius-xl:30px;
+    --radius-lg:24px;
+    --radius-md:16px;
+    --radius-sm:10px;
+
+    --transition:all .38s cubic-bezier(.4,0,.2,1);
+    --transition-fast:all .2s cubic-bezier(.4,0,.2,1);
+    --transition-bounce:all .5s cubic-bezier(.34,1.56,.64,1);
+
+    --nav-h:76px;
+    --grad-gold:linear-gradient(135deg,#D4AF37 0%,#B8860B 55%,#8B4513 100%);
+    --grad-navy:linear-gradient(135deg,#0F172A 0%,#1E293B 60%,#243044 100%);
+}
+
+html[data-theme="dark"]{
+    --bg-body:#070C17;
+    --bg-alt:#0C1424;
+    --bg-elev:#111B2E;
+    --card-bg:#111B2E;
+
+    --text-main:#E8EEF7;
+    --text-soft:#B4C0D3;
+    --text-muted:#8A99B0;
+
+    --border-soft:rgba(255,255,255,.09);
+    --border-gold:rgba(212,175,55,.38);
+
+    --shadow-soft:0 10px 30px -8px rgba(0,0,0,.6);
+    --shadow-md:0 20px 44px -20px rgba(0,0,0,.75);
+    --shadow-hover:0 26px 54px -18px rgba(212,175,55,.4);
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*,*::before,*::after{
+    margin:0;padding:0;box-sizing:border-box;
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+}
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+body{
+    background-color:var(--bg-body);
+    color:var(--text-main);
+    line-height:1.65;
+    overflow-x:hidden;
+    transition:background-color .5s ease,color .5s ease;
+    -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit;}
+button{cursor:pointer;border:none;background:none;}
+ul{list-style:none;}
+::selection{background:var(--gold-primary);color:#fff;}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--bg-alt);}
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,var(--gold-primary),var(--brown-earth));
+    border-radius:10px;border:2px solid var(--bg-alt);
+}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-dark);}
+
+/* ============================================================
+   BACKGROUND LAYERS
+============================================================ */
+#particles-js{
+    position:fixed;inset:0;width:100%;height:100%;
+    z-index:-2;pointer-events:none;opacity:.55;
+    transition:opacity .5s ease;
+}
+html[data-theme="dark"] #particles-js{opacity:.35;}
+
+.bg-aurora{
+    position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;
+}
+.bg-aurora span{
+    position:absolute;border-radius:50%;filter:blur(90px);opacity:.30;
+    animation:auroraFloat 22s ease-in-out infinite alternate;
+}
+.bg-aurora span:nth-child(1){
+    width:520px;height:520px;top:-160px;left:-140px;
+    background:radial-gradient(circle,#D4AF37 0%,transparent 70%);
+}
+.bg-aurora span:nth-child(2){
+    width:460px;height:460px;bottom:-180px;right:-120px;
+    background:radial-gradient(circle,#8B4513 0%,transparent 70%);
+    animation-delay:-7s;
+}
+.bg-aurora span:nth-child(3){
+    width:380px;height:380px;top:42%;left:52%;
+    background:radial-gradient(circle,#F4E8C1 0%,transparent 70%);
+    animation-delay:-13s;
+}
+html[data-theme="dark"] .bg-aurora span{opacity:.16;}
+@keyframes auroraFloat{
+    0%{transform:translate3d(0,0,0) scale(1);}
+    50%{transform:translate3d(60px,-50px,0) scale(1.14);}
+    100%{transform:translate3d(-40px,50px,0) scale(.94);}
+}
+
+/* Cursor glow (desktop only) */
+.cursor-glow{
+    position:fixed;width:340px;height:340px;border-radius:50%;
+    pointer-events:none;z-index:1;opacity:0;
+    background:radial-gradient(circle,rgba(212,175,55,.13) 0%,transparent 68%);
+    transform:translate(-50%,-50%);
+    transition:opacity .4s ease;
+    will-change:transform;
+}
+@media (hover:hover) and (pointer:fine){ .cursor-glow{opacity:1;} }
+
+/* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+.scroll-progress{
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:var(--grad-gold);z-index:3000;
+    box-shadow:0 0 14px rgba(212,175,55,.75);
+    transition:width .1s linear;
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+.navbar{
+    position:fixed;top:0;left:0;width:100%;z-index:2000;
+    padding:18px 5%;
+    display:flex;justify-content:space-between;align-items:center;
+    transition:var(--transition);
+    gap:16px;
+}
+.navbar.scrolled{
+    background:color-mix(in srgb,var(--bg-elev) 82%,transparent);
+    backdrop-filter:blur(18px) saturate(180%);
+    -webkit-backdrop-filter:blur(18px) saturate(180%);
+    padding:11px 5%;
+    box-shadow:0 6px 34px rgba(0,0,0,.10);
+    border-bottom:1px solid var(--border-soft);
+}
+@supports not (background: color-mix(in srgb, red 50%, blue)){
+    .navbar.scrolled{background:rgba(255,255,255,.86);}
+    html[data-theme="dark"] .navbar.scrolled{background:rgba(17,27,46,.88);}
+}
+
+.logo{
+    font-family:'Playfair Display',serif;font-weight:800;font-size:19px;
+    letter-spacing:1px;color:#fff;display:flex;align-items:center;gap:10px;
+    transition:var(--transition);white-space:nowrap;flex-shrink:0;
+}
+.navbar.scrolled .logo{color:var(--brown-earth);}
+html[data-theme="dark"] .navbar.scrolled .logo{color:var(--gold-light);}
+.logo-mark{
+    width:38px;height:38px;border-radius:12px;flex-shrink:0;
+    display:grid;place-items:center;color:#fff;font-size:16px;
+    background:var(--grad-gold);
+    box-shadow:0 6px 18px rgba(212,175,55,.4);
+    transition:var(--transition-bounce);
+}
+.logo:hover .logo-mark{transform:rotate(-10deg) scale(1.08);}
+.logo-text{display:flex;flex-direction:column;line-height:1;}
+.logo-text small{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:8.5px;letter-spacing:2.6px;font-weight:600;
+    opacity:.7;margin-top:3px;
+}
+
+.nav-links{
+    display:flex;gap:6px;align-items:center;
+}
+.nav-links > li > a{
+    color:rgba(255,255,255,.9);
+    font-size:12.5px;font-weight:600;letter-spacing:.4px;
+    padding:9px 13px;border-radius:10px;
+    transition:var(--transition);position:relative;display:inline-block;
+}
+.navbar.scrolled .nav-links > li > a{color:var(--text-soft);}
+.nav-links > li > a::after{
+    content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
+    width:0;height:2px;border-radius:2px;background:var(--gold-primary);
+    transition:width .35s cubic-bezier(.4,0,.2,1);
+}
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after{width:20px;}
+.nav-links > li > a:hover,
+.nav-links > li > a.active{color:var(--gold-primary)!important;}
+.nav-links > li > a.active{background:rgba(212,175,55,.10);}
+
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+
+.btn-booking-nav{
+    background:var(--grad-gold);color:#fff!important;
+    padding:10px 22px;border-radius:50px;
+    font-size:11.5px!important;font-weight:700!important;
+    letter-spacing:.6px;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:8px;
+    box-shadow:0 8px 22px rgba(212,175,55,.35);
+    transition:var(--transition);white-space:nowrap;
+}
+.btn-booking-nav:hover{transform:translateY(-3px);box-shadow:var(--shadow-gold);}
+.btn-booking-nav::after{display:none!important;}
+
+.icon-btn{
+    width:40px;height:40px;border-radius:50%;
+    display:grid;place-items:center;font-size:14px;
+    color:#fff;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    backdrop-filter:blur(8px);
+    transition:var(--transition);
+}
+.navbar.scrolled .icon-btn{
+    color:var(--text-soft);
+    background:var(--bg-alt);
+    border-color:var(--border-soft);
+}
+.icon-btn:hover{
+    background:var(--gold-primary)!important;color:#fff!important;
+    transform:translateY(-2px) rotate(8deg);
+    border-color:transparent!important;
+}
+
+.mobile-toggle{
+    display:none;font-size:20px;color:#fff;cursor:pointer;
+    width:42px;height:42px;border-radius:12px;
+    place-items:center;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.2);
+    transition:var(--transition);
+}
+.navbar.scrolled .mobile-toggle{
+    color:var(--text-main);background:var(--bg-alt);border-color:var(--border-soft);
+}
+.mobile-toggle:active{transform:scale(.93);}
+
+.nav-backdrop{
+    position:fixed;inset:0;background:rgba(7,12,23,.6);
+    backdrop-filter:blur(4px);z-index:1990;
+    opacity:0;visibility:hidden;transition:var(--transition);
+}
+.nav-backdrop.show{opacity:1;visibility:visible;}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+    min-height:100vh;
+    min-height:100svh;
+    padding:calc(var(--nav-h) + 60px) 22px 90px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;color:#fff;position:relative;overflow:hidden;
+    background:
+        linear-gradient(180deg,rgba(15,23,42,.62) 0%,rgba(15,23,42,.55) 42%,rgba(15,23,42,.88) 100%),
+        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070') center/cover no-repeat;
+}
+.hero::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 110%,rgba(212,175,55,.28) 0%,transparent 58%);
+    pointer-events:none;
+}
+.hero::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center,#000 0%,transparent 72%);
+    -webkit-mask-image:radial-gradient(ellipse at center,#000 0%,transparent 72%);
+}
+.hero-content{max-width:900px;position:relative;z-index:3;}
+
+.hero-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.55);
+    color:var(--gold-light);
+    padding:8px 20px;border-radius:40px;
+    font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+    margin-bottom:24px;backdrop-filter:blur(8px);
+    box-shadow:0 0 26px rgba(212,175,55,.22);
+}
+.hero-badge .pulse-dot{
+    width:7px;height:7px;border-radius:50%;background:#4ADE80;
+    box-shadow:0 0 0 0 rgba(74,222,128,.7);
+    animation:pulseDot 2s infinite;
+}
+@keyframes pulseDot{
+    0%{box-shadow:0 0 0 0 rgba(74,222,128,.7);}
+    70%{box-shadow:0 0 0 10px rgba(74,222,128,0);}
+    100%{box-shadow:0 0 0 0 rgba(74,222,128,0);}
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(34px,5.2vw,68px);
+    font-weight:800;line-height:1.12;margin-bottom:20px;
+    text-shadow:0 6px 32px rgba(0,0,0,.5);
+}
+.hero h1 .accent{
+    background:linear-gradient(120deg,#F4E8C1,#D4AF37 40%,#F4E8C1 80%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:220% auto;
+    animation:shimmer 4.5s linear infinite;
+}
+@keyframes shimmer{to{background-position:220% center;}}
+
+.type-wrap{
+    display:inline-block;min-height:1.2em;
+    color:var(--gold-light);
+    border-right:3px solid var(--gold-primary);
+    padding-right:5px;
+    animation:caret .85s step-end infinite;
+}
+@keyframes caret{50%{border-color:transparent;}}
+
+.hero p.hero-desc{
+    font-size:clamp(13.5px,1.7vw,17px);
+    color:rgba(255,255,255,.86);
+    margin:0 auto 34px;max-width:660px;font-weight:300;
+}
+
+.hero-btns{
+    display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+    margin-bottom:44px;
+}
+
+.btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px 34px;border-radius:50px;
+    font-size:13px;font-weight:700;letter-spacing:.4px;
+    transition:var(--transition);position:relative;overflow:hidden;
+    white-space:nowrap;
+}
+.btn-primary{
+    background:var(--grad-gold);color:#fff;
+    box-shadow:0 12px 32px rgba(212,175,55,.42);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow-gold);}
+.btn-ghost{
+    background:rgba(255,255,255,.10);color:#fff;
+    border:1.5px solid rgba(255,255,255,.42);
+    backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{
+    background:#fff;color:var(--dark-navy);
+    transform:translateY(-3px);
+    border-color:#fff;
+}
+.btn .ripple{
+    position:absolute;border-radius:50%;transform:scale(0);
+    background:rgba(255,255,255,.45);pointer-events:none;
+    animation:rippleAnim .65s ease-out;
+}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0;}}
+
+.hero-mini-stats{
+    display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+}
+.mini-stat{
+    display:flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.16);
+    backdrop-filter:blur(12px);
+    padding:10px 18px;border-radius:14px;
+    font-size:12px;font-weight:600;color:rgba(255,255,255,.94);
+    transition:var(--transition);
+}
+.mini-stat:hover{
+    background:rgba(212,175,55,.2);
+    border-color:rgba(212,175,55,.5);
+    transform:translateY(-3px);
+}
+.mini-stat i{color:var(--gold-primary);font-size:14px;}
+
+.scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    z-index:3;color:rgba(255,255,255,.68);font-size:11px;
+    letter-spacing:2px;text-transform:uppercase;font-weight:600;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    animation:cueFloat 2.4s ease-in-out infinite;
+}
+.scroll-cue .mouse{
+    width:22px;height:34px;border:2px solid rgba(255,255,255,.5);
+    border-radius:14px;position:relative;
+}
+.scroll-cue .mouse::after{
+    content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+    width:3px;height:7px;border-radius:2px;background:var(--gold-primary);
+    animation:mouseWheel 1.6s infinite;
+}
+@keyframes mouseWheel{0%{opacity:0;transform:translate(-50%,0);}40%{opacity:1;}100%{opacity:0;transform:translate(-50%,12px);}}
+@keyframes cueFloat{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-7px);}}
+
+/* ============================================================
+   GENERIC SECTION
+============================================================ */
+.container{
+    max-width:1240px;margin:0 auto;padding:96px 24px;
+}
+section[id]{scroll-margin-top:96px;}
+
+.section-header{
+    text-align:center;max-width:680px;margin:0 auto 54px;
+}
+.section-subtitle{
+    color:var(--gold-primary);font-size:11.5px;font-weight:800;
+    letter-spacing:2.6px;text-transform:uppercase;
+    margin-bottom:10px;display:inline-flex;align-items:center;gap:9px;
+}
+.section-subtitle::before,
+.section-subtitle::after{
+    content:'';width:26px;height:1.5px;background:var(--gold-primary);opacity:.6;
+}
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(26px,3.6vw,40px);
+    font-weight:800;color:var(--text-main);line-height:1.22;
+}
+html[data-theme="dark"] .section-title{color:var(--gold-light);}
+.section-title::after{
+    content:'';display:block;width:56px;height:3px;border-radius:3px;
+    background:var(--grad-gold);margin:16px auto 0;
+}
+.section-desc{
+    margin-top:16px;font-size:14px;color:var(--text-muted);line-height:1.8;
+}
+
+/* ============================================================
+   STATS STRIP
+============================================================ */
+.stats-strip{
+    margin-top:-64px;position:relative;z-index:12;
+    background:var(--card-bg);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-md);
+    padding:34px 26px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+    overflow:hidden;
+}
+.stats-strip::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--grad-gold);
+}
+.stat-item{text-align:center;position:relative;padding:6px 8px;}
+.stat-item:not(:last-child)::after{
+    content:'';position:absolute;right:-9px;top:18%;height:64%;width:1px;
+    background:var(--border-soft);
+}
+.stat-item i{
+    font-size:19px;color:var(--gold-primary);margin-bottom:10px;display:block;
+}
+.stat-num{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(22px,3vw,34px);font-weight:800;
+    color:var(--text-main);line-height:1;
+}
+html[data-theme="dark"] .stat-num{color:var(--gold-light);}
+.stat-label{
+    font-size:10.5px;color:var(--text-muted);font-weight:700;
+    text-transform:uppercase;letter-spacing:1.2px;margin-top:8px;
+}
+
+/* ============================================================
+   FACILITIES
+============================================================ */
+.facilities-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+    gap:22px;
+}
+.fac-item{
+    background:var(--card-bg);
+    padding:32px 24px;border-radius:var(--radius-md);
+    text-align:center;
+    box-shadow:var(--shadow-soft);
+    border:1px solid var(--border-soft);
+    transition:var(--transition);
+    position:relative;overflow:hidden;
+}
+.fac-item::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--grad-gold);transform:scaleX(0);transform-origin:left;
+    transition:transform .45s cubic-bezier(.4,0,.2,1);
+}
+.fac-item:hover::before{transform:scaleX(1);}
+.fac-item:hover{
+    transform:translateY(-9px);
+    box-shadow:var(--shadow-hover);
+    border-color:var(--border-gold);
+}
+.fac-icon{
+    width:62px;height:62px;border-radius:20px;margin:0 auto 18px;
+    display:grid;place-items:center;font-size:24px;color:var(--gold-dark);
+    background:linear-gradient(140deg,rgba(212,175,55,.18),rgba(139,69,19,.10));
+    border:1px solid var(--border-gold);
+    transition:var(--transition-bounce);
+}
+.fac-item:hover .fac-icon{
+    transform:translateY(-4px) rotate(-8deg) scale(1.08);
+    background:var(--grad-gold);color:#fff;
+    box-shadow:0 12px 26px rgba(212,175,55,.42);
+}
+.fac-item h4{font-size:15px;font-weight:700;color:var(--text-main);margin-bottom:8px;}
+.fac-item p{font-size:12.3px;color:var(--text-muted);line-height:1.7;}
+
+/* ============================================================
+   FILTER TABS
+============================================================ */
+.filter-bar{
+    display:flex;gap:9px;justify-content:center;flex-wrap:wrap;
+    margin-bottom:38px;
+}
+.filter-btn{
+    padding:9px 20px;border-radius:40px;
+    font-size:12px;font-weight:700;letter-spacing:.4px;
+    background:var(--bg-elev);color:var(--text-muted);
+    border:1px solid var(--border-soft);
+    transition:var(--transition);
+    display:inline-flex;align-items:center;gap:7px;
+}
+.filter-btn:hover{
+    color:var(--gold-dark);border-color:var(--border-gold);
+    transform:translateY(-2px);
+}
+.filter-btn.active{
+    background:var(--grad-gold);color:#fff;border-color:transparent;
+    box-shadow:0 10px 24px rgba(212,175,55,.35);
+}
+.filter-btn i{font-size:11px;}
+
+/* ============================================================
+   ROOM CARDS
+============================================================ */
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+    gap:28px;
+}
+.room-card{
+    background:var(--card-bg);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    transition:var(--transition);
+    cursor:pointer;
+    border:2px solid transparent;
+    position:relative;
+    display:flex;flex-direction:column;
+}
+.room-card:hover{
+    transform:translateY(-10px);
+    box-shadow:var(--shadow-hover);
+}
+.room-card.active{
+    border-color:var(--gold-primary);
+    box-shadow:0 0 0 4px rgba(212,175,55,.13),var(--shadow-hover);
+}
+.room-card.hide{display:none;}
+
+.badge-selected{
+    position:absolute;top:14px;right:14px;z-index:4;
+    background:var(--grad-gold);color:#fff;
+    font-size:9.5px;font-weight:800;letter-spacing:.9px;
+    padding:6px 13px;border-radius:20px;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:6px;
+    opacity:0;transform:translateY(-8px) scale(.85);
+    transition:var(--transition-bounce);
+    box-shadow:0 8px 18px rgba(212,175,55,.45);
+}
+.room-card.active .badge-selected{opacity:1;transform:translateY(0) scale(1);}
+
+.badge-tag{
+    position:absolute;top:14px;left:14px;z-index:4;
+    background:rgba(15,23,42,.78);color:#fff;
+    backdrop-filter:blur(8px);
+    font-size:9.5px;font-weight:800;letter-spacing:.9px;
+    padding:6px 13px;border-radius:20px;text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.18);
+}
+.badge-tag.hot{background:linear-gradient(135deg,#EF4444,#B91C1C);border-color:transparent;}
+
+.fav-btn{
+    position:absolute;bottom:14px;right:14px;z-index:4;
+    width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;font-size:15px;
+    background:rgba(255,255,255,.9);color:#64748B;
+    box-shadow:0 6px 16px rgba(0,0,0,.16);
+    transition:var(--transition-bounce);
+}
+.fav-btn:hover{transform:scale(1.14);}
+.fav-btn.active{background:linear-gradient(135deg,#EF4444,#B91C1C);color:#fff;}
+.fav-btn.active i{font-weight:900;}
+
+.room-img-wrapper{
+    position:relative;overflow:hidden;height:236px;background:var(--bg-alt);
+}
+.room-card img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.4,0,.2,1);
+}
+.room-card:hover img{transform:scale(1.09);}
+.room-img-wrapper::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 45%,rgba(15,23,42,.55) 100%);
+    opacity:.75;transition:var(--transition);
+}
+.room-card:hover .room-img-wrapper::after{opacity:.95;}
+
+.room-info{
+    padding:22px;display:flex;flex-direction:column;flex-grow:1;
+}
+.room-meta{
+    display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;
+}
+.room-meta span{
+    font-size:10.5px;font-weight:700;color:var(--text-muted);
+    display:inline-flex;align-items:center;gap:5px;
+    background:var(--bg-alt);padding:4px 10px;border-radius:20px;
+}
+.room-meta i{color:var(--gold-primary);font-size:10px;}
+
+.room-info h3{
+    font-family:'Playfair Display',serif;
+    font-size:19.5px;font-weight:700;color:var(--text-main);
+    margin-bottom:8px;line-height:1.3;
+}
+.room-info p{
+    font-size:12.6px;color:var(--text-muted);
+    margin-bottom:18px;flex-grow:1;line-height:1.72;
+}
+.room-rating{
+    display:flex;align-items:center;gap:6px;margin-bottom:14px;
+    font-size:11.5px;font-weight:700;color:var(--text-soft);
+}
+.room-rating .stars{color:var(--gold-primary);font-size:11px;letter-spacing:1px;}
+
+.room-footer{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    border-top:1px solid var(--border-soft);padding-top:15px;
+}
+.price{
+    color:var(--brown-earth);font-size:18px;font-weight:800;
+    line-height:1.1;display:flex;flex-direction:column;
+}
+html[data-theme="dark"] .price{color:var(--gold-primary);}
+.price span{font-size:10.5px;color:var(--text-muted);font-weight:500;margin-top:2px;}
+
+.room-actions{display:flex;align-items:center;gap:7px;}
+.btn-icon{
+    width:34px;height:34px;border-radius:50%;
+    display:grid;place-items:center;font-size:13px;
+    background:var(--bg-alt);color:var(--text-muted);
+    transition:var(--transition);
+}
+.btn-icon:hover{
+    background:var(--dark-navy);color:#fff;transform:translateY(-2px);
+}
+.btn-select-room{
+    background:rgba(212,175,55,.12);
+    color:var(--gold-dark);border:1px solid var(--border-gold);
+    padding:9px 17px;border-radius:30px;
+    font-size:11.5px;font-weight:800;letter-spacing:.3px;
+    transition:var(--transition);white-space:nowrap;
+}
+.room-card.active .btn-select-room,
+.room-card:hover .btn-select-room{
+    background:var(--grad-gold);color:#fff;border-color:transparent;
+    box-shadow:0 8px 18px rgba(212,175,55,.35);
+}
+
+.empty-state{
+    grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);
+}
+.empty-state i{font-size:38px;color:var(--gold-primary);margin-bottom:14px;display:block;opacity:.6;}
+
+/* ============================================================
+   BOOKING SECTION
+============================================================ */
+.booking-section{
+    background:var(--card-bg);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-md);
+    padding:40px;
+    border:1px solid var(--border-gold);
+    position:relative;overflow:hidden;
+}
+.booking-section::before{
+    content:'';position:absolute;top:-120px;right:-120px;
+    width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);
+    pointer-events:none;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+    position:relative;z-index:2;
+}
+.form-group{display:flex;flex-direction:column;position:relative;}
+.form-group label{
+    font-size:11px;font-weight:800;color:var(--text-main);
+    margin-bottom:8px;text-transform:uppercase;letter-spacing:.7px;
+    display:flex;align-items:center;gap:7px;
+}
+.form-group label i{color:var(--gold-primary);font-size:11.5px;}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-sm);
+    font-size:13px;color:var(--text-main);
+    background:var(--bg-alt);
+    transition:var(--transition);
+    outline:none;
+}
+.form-group textarea{resize:vertical;min-height:88px;line-height:1.6;}
+.form-group select{
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    background-size:15px;
+    padding-right:42px;
+    cursor:pointer;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--gold-primary);
+    background:var(--bg-elev);
+    box-shadow:0 0 0 4px rgba(212,175,55,.14);
+}
+.form-group input.invalid,
+.form-group select.invalid{
+    border-color:#EF4444;
+    box-shadow:0 0 0 4px rgba(239,68,68,.12);
+    animation:shake .42s ease;
+}
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-6px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(4px);}
+}
+
+.field-hint{
+    font-size:10.5px;color:var(--text-muted);margin-top:6px;
+    display:flex;align-items:center;gap:5px;min-height:14px;
+}
+.field-hint.error{color:#EF4444;font-weight:600;}
+
+/* Promo row */
+.promo-row{
+    display:flex;gap:10px;margin-top:6px;
+}
+.promo-row input{flex:1;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+.btn-apply{
+    padding:0 22px;border-radius:var(--radius-sm);
+    background:var(--dark-navy);color:#fff;
+    font-size:12px;font-weight:800;letter-spacing:.5px;
+    transition:var(--transition);white-space:nowrap;
+}
+.btn-apply:hover{background:var(--gold-primary);transform:translateY(-2px);}
+
+.promo-chips{
+    display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;
+}
+.promo-chip{
+    font-size:10.5px;font-weight:800;letter-spacing:.6px;
+    padding:5px 12px;border-radius:20px;
+    background:rgba(212,175,55,.12);color:var(--gold-dark);
+    border:1px dashed var(--border-gold);
+    transition:var(--transition);
+}
+.promo-chip:hover{background:var(--grad-gold);color:#fff;border-style:solid;transform:translateY(-2px);}
+
+/* Total box */
+.total-box{
+    background:var(--grad-navy);
+    color:#fff;
+    padding:26px 28px;
+    border-radius:var(--radius-lg);
+    margin:26px 0;
+    border-left:5px solid var(--gold-primary);
+    position:relative;overflow:hidden;
+}
+.total-box::after{
+    content:'';position:absolute;bottom:-60px;right:-40px;
+    width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.16),transparent 68%);
+    pointer-events:none;
+}
+.total-line{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:8px 0;font-size:12.8px;color:rgba(255,255,255,.72);
+    border-bottom:1px dashed rgba(255,255,255,.10);
+    position:relative;z-index:2;
+}
+.total-line:last-child{border-bottom:none;}
+.total-line b{color:#fff;font-weight:700;text-align:right;}
+.total-line.discount b{color:#4ADE80;}
+.total-line.grand{
+    margin-top:10px;padding-top:16px;
+    border-top:1.5px solid rgba(212,175,55,.4);
+    border-bottom:none;
+}
+.total-line.grand span{
+    font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;
+    color:var(--gold-light);
+}
+.total-line.grand h4{
+    font-size:clamp(19px,2.6vw,25px);color:var(--gold-primary);font-weight:800;
+    font-family:'Playfair Display',serif;
+}
+.total-note{
+    font-size:10.5px;color:rgba(255,255,255,.45);margin-top:12px;
+    display:flex;align-items:center;gap:7px;position:relative;z-index:2;
+}
+
+.form-actions{
+    display:flex;gap:12px;flex-wrap:wrap;
+}
+.btn-submit-wa{
+    flex:1;min-width:220px;
+    padding:16px;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    color:#fff;border-radius:50px;
+    font-size:14px;font-weight:800;letter-spacing:.4px;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    transition:var(--transition);
+    box-shadow:0 10px 26px rgba(37,211,102,.32);
+    position:relative;overflow:hidden;
+}
+.btn-submit-wa:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(37,211,102,.45);}
+.btn-submit-wa:active{transform:translateY(-1px) scale(.99);}
+.btn-reset{
+    padding:16px 26px;border-radius:50px;
+    background:var(--bg-alt);color:var(--text-muted);
+    font-size:13px;font-weight:800;
+    border:1px solid var(--border-soft);
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    transition:var(--transition);
+}
+.btn-reset:hover{background:#EF4444;color:#fff;border-color:transparent;transform:translateY(-3px);}
+
+/* ============================================================
+   GALLERY
+============================================================ */
+.galeri-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:16px;
+}
+.galeri-item{
+    position:relative;border-radius:var(--radius-md);
+    overflow:hidden;height:222px;
+    box-shadow:var(--shadow-soft);
+    transition:var(--transition);
+    display:block;
+}
+.galeri-item.hide{display:none;}
+.galeri-item:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-hover);
+}
+.galeri-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.4,0,.2,1);
+}
+.galeri-item:hover img{transform:scale(1.12);}
+.galeri-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.72));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:12px;opacity:0;transition:var(--transition);
+}
+.galeri-item:hover .galeri-overlay{opacity:1;}
+.galeri-overlay i{
+    color:#fff;font-size:17px;
+    background:var(--grad-gold);
+    width:48px;height:48px;border-radius:50%;
+    display:grid;place-items:center;
+    box-shadow:0 10px 24px rgba(212,175,55,.5);
+    transform:scale(.7);transition:var(--transition-bounce);
+}
+.galeri-item:hover .galeri-overlay i{transform:scale(1);}
+.galeri-cap{
+    color:#fff;font-size:12px;font-weight:700;letter-spacing:.6px;
+    text-align:center;padding:0 14px;
+    transform:translateY(10px);opacity:0;
+    transition:var(--transition);
+}
+.galeri-item:hover .galeri-cap{transform:translateY(0);opacity:1;}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.testi-wrap{
+    position:relative;
+    background:var(--card-bg);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-soft);
+    padding:46px 34px 34px;
+    overflow:hidden;
+}
+.testi-wrap::before{
+    content:'\201C';
+    position:absolute;top:-30px;left:26px;
+    font-family:'Playfair Display',serif;
+    font-size:170px;color:var(--gold-primary);opacity:.10;line-height:1;
+    pointer-events:none;
+}
+.testi-track{
+    display:flex;
+    transition:transform .65s cubic-bezier(.4,0,.2,1);
+    will-change:transform;
+}
+.testi-slide{
+    min-width:100%;
+    padding:0 6px;
+    text-align:center;
+}
+.testi-stars{color:var(--gold-primary);font-size:15px;letter-spacing:3px;margin-bottom:18px;}
+.testi-text{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(15px,2vw,20px);
+    font-style:italic;color:var(--text-soft);
+    line-height:1.72;margin-bottom:26px;
+    max-width:760px;margin-inline:auto;
+}
+.testi-person{
+    display:flex;align-items:center;justify-content:center;gap:13px;
+}
+.testi-avatar{
+    width:52px;height:52px;border-radius:50%;object-fit:cover;
+    border:2.5px solid var(--gold-primary);
+    box-shadow:0 6px 16px rgba(212,175,55,.3);
+}
+.testi-info{text-align:left;}
+.testi-info h5{font-size:13.5px;font-weight:800;color:var(--text-main);}
+.testi-info span{font-size:11px;color:var(--text-muted);}
+
+.testi-nav{
+    display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;
+}
+.testi-arrow{
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;font-size:13px;
+    background:var(--bg-alt);color:var(--text-muted);
+    border:1px solid var(--border-soft);
+    transition:var(--transition);
+}
+.testi-arrow:hover{background:var(--grad-gold);color:#fff;transform:translateY(-2px);border-color:transparent;}
+.testi-dots{display:flex;gap:8px;}
+.testi-dot{
+    width:8px;height:8px;border-radius:20px;
+    background:var(--border-soft);transition:var(--transition);
+}
+.testi-dot.active{width:26px;background:var(--grad-gold);}
+
+/* ============================================================
+   FAQ
+============================================================ */
+.faq-list{
+    max-width:850px;margin:0 auto;
+    display:flex;flex-direction:column;gap:12px;
+}
+.faq-item{
+    background:var(--card-bg);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    transition:var(--transition);
+}
+.faq-item.open{
+    border-color:var(--border-gold);
+    box-shadow:0 14px 34px -18px rgba(212,175,55,.5);
+}
+.faq-q{
+    width:100%;text-align:left;
+    padding:20px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-size:13.8px;font-weight:700;color:var(--text-main);
+    transition:var(--transition);
+}
+.faq-q:hover{color:var(--gold-dark);}
+.faq-q .faq-ico{
+    width:28px;height:28px;border-radius:50%;flex-shrink:0;
+    display:grid;place-items:center;font-size:11px;
+    background:rgba(212,175,55,.14);color:var(--gold-dark);
+    transition:var(--transition-bounce);
+}
+.faq-item.open .faq-q .faq-ico{
+    background:var(--grad-gold);color:#fff;transform:rotate(135deg);
+}
+.faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height .45s cubic-bezier(.4,0,.2,1);
+}
+.faq-a-inner{
+    padding:0 22px 22px;
+    font-size:13px;color:var(--text-muted);line-height:1.85;
+    border-top:1px dashed var(--border-soft);
+    padding-top:16px;margin:0 22px 20px;
+    padding-left:0;padding-right:0;
+}
+
+/* ============================================================
+   LOCATION
+============================================================ */
+.location-card{
+    background:var(--card-bg);
+    border-radius:var(--radius-xl);
+    padding:30px;
+    box-shadow:var(--shadow-soft);
+    border:1px solid var(--border-soft);
+    display:grid;
+    grid-template-columns:1fr 1.55fr;
+    gap:30px;align-items:stretch;
+}
+.location-info{
+    display:flex;flex-direction:column;gap:6px;justify-content:center;
+}
+.loc-item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:15px;border-radius:var(--radius-md);
+    transition:var(--transition);
+}
+.loc-item:hover{background:var(--bg-alt);transform:translateX(5px);}
+.loc-item i{
+    color:var(--gold-primary);font-size:16px;
+    width:40px;height:40px;border-radius:12px;flex-shrink:0;
+    display:grid;place-items:center;
+    background:rgba(212,175,55,.12);
+    border:1px solid var(--border-gold);
+}
+.loc-item b{
+    display:block;font-size:11px;text-transform:uppercase;
+    letter-spacing:1.1px;color:var(--gold-dark);margin-bottom:4px;
+}
+html[data-theme="dark"] .loc-item b{color:var(--gold-primary);}
+.loc-item span{font-size:12.8px;color:var(--text-soft);line-height:1.65;}
+
+.map-box{
+    border-radius:var(--radius-md);overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    min-height:320px;position:relative;
+    border:1px solid var(--border-soft);
+}
+.map-box iframe{width:100%;height:100%;border:0;display:block;filter:saturate(1.05);}
+html[data-theme="dark"] .map-box iframe{filter:invert(.9) hue-rotate(180deg) saturate(.8);}
+
+/* ============================================================
+   CTA
+============================================================ */
+.cta-home{
+    text-align:center;
+    margin-top:80px;
+    padding:62px 30px;
+    background:var(--grad-navy);
+    border-radius:var(--radius-xl);
+    color:#fff;position:relative;overflow:hidden;
+    border:1px solid rgba(212,175,55,.22);
+}
+.cta-home::before{
+    content:'';position:absolute;top:-50%;right:-10%;
+    width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.2),transparent 70%);
+    pointer-events:none;
+}
+.cta-home::after{
+    content:'';position:absolute;bottom:-60%;left:-8%;
+    width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(139,69,19,.28),transparent 70%);
+    pointer-events:none;
+}
+.cta-home h3{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(22px,3.2vw,32px);
+    margin-bottom:12px;position:relative;z-index:2;
+}
+.cta-home p{
+    color:rgba(255,255,255,.74);font-size:13.5px;
+    margin-bottom:28px;position:relative;z-index:2;
+    max-width:600px;margin-inline:auto;
+}
+.cta-btns{
+    display:flex;gap:13px;justify-content:center;flex-wrap:wrap;
+    position:relative;z-index:2;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{
+    background:var(--dark-navy);
+    color:rgba(255,255,255,.6);
+    padding:52px 22px 26px;
+    font-size:12px;
+    border-top:1px solid rgba(255,255,255,.06);
+    position:relative;overflow:hidden;
+}
+footer::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--grad-gold);opacity:.7;
+}
+.footer-inner{
+    max-width:1240px;margin:0 auto;
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;
+    text-align:left;padding-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+.footer-brand .logo{color:#fff;margin-bottom:14px;}
+.footer-brand p{font-size:12.3px;line-height:1.8;color:rgba(255,255,255,.55);max-width:330px;}
+.footer-col h6{
+    color:var(--gold-primary);font-size:11px;font-weight:800;
+    letter-spacing:1.8px;text-transform:uppercase;margin-bottom:16px;
+}
+.footer-col a{
+    display:block;font-size:12.5px;color:rgba(255,255,255,.58);
+    padding:6px 0;transition:var(--transition);
+}
+.footer-col a:hover{color:var(--gold-primary);transform:translateX(5px);}
+.footer-social{display:flex;gap:10px;margin-top:18px;}
+.footer-social a{
+    width:36px;height:36px;border-radius:50%;
+    display:grid;place-items:center;font-size:13px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1);
+    color:rgba(255,255,255,.7);
+    transition:var(--transition);
+}
+.footer-social a:hover{
+    background:var(--grad-gold);color:#fff;
+    transform:translateY(-4px);border-color:transparent;
+    box-shadow:0 10px 22px rgba(212,175,55,.4);
+}
+.footer-bottom{
+    text-align:center;padding-top:24px;font-size:11.8px;
+    color:rgba(255,255,255,.5);line-height:1.9;
+}
+.footer-bottom b{color:var(--gold-primary);}
+
+/* ============================================================
+   FLOATING UI
+============================================================ */
+.float-stack{
+    position:fixed;right:22px;bottom:24px;z-index:1500;
+    display:flex;flex-direction:column;gap:12px;align-items:flex-end;
+}
+.float-btn{
+    width:50px;height:50px;border-radius:50%;
+    display:grid;place-items:center;font-size:18px;color:#fff;
+    box-shadow:0 12px 28px rgba(0,0,0,.24);
+    transition:var(--transition-bounce);
+    position:relative;
+}
+.float-btn:hover{transform:translateY(-5px) scale(1.07);}
+#waFloat{
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    box-shadow:0 12px 28px rgba(37,211,102,.42);
+}
+#waFloat::after{
+    content:'';position:absolute;inset:0;border-radius:50%;
+    border:2px solid rgba(37,211,102,.55);
+    animation:waPing 2.2s ease-out infinite;
+}
+@keyframes waPing{
+    0%{transform:scale(1);opacity:.9;}
+    100%{transform:scale(1.7);opacity:0;}
+}
+#backToTop{
+    background:var(--grad-gold);
+    opacity:0;visibility:hidden;transform:translateY(14px);
+    font-size:16px;
+}
+#backToTop.show{opacity:1;visibility:visible;transform:translateY(0);}
+.float-tip{
+    position:absolute;right:60px;top:50%;transform:translateY(-50%) translateX(6px);
+    background:var(--dark-navy);color:#fff;
+    font-size:11px;font-weight:700;white-space:nowrap;
+    padding:7px 13px;border-radius:9px;
+    opacity:0;pointer-events:none;transition:var(--transition);
+    border:1px solid rgba(212,175,55,.3);
+}
+.float-btn:hover .float-tip{opacity:1;transform:translateY(-50%) translateX(0);}
+
+/* ============================================================
+   TOAST
+============================================================ */
+.toast{
+    position:fixed;bottom:30px;left:50%;
+    transform:translateX(-50%) translateY(120px);
+    background:rgba(15,23,42,.94);
+    color:#fff;padding:14px 24px;border-radius:50px;
+    font-size:12.5px;font-weight:600;
+    border:1px solid var(--gold-primary);
+    opacity:0;transition:all .45s cubic-bezier(.68,-.55,.265,1.55);
+    z-index:2600;max-width:calc(100% - 40px);
+    box-shadow:0 16px 40px rgba(0,0,0,.4);
+    backdrop-filter:blur(12px);
+    display:flex;align-items:center;gap:10px;
+    text-align:left;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast i{color:var(--gold-primary);font-size:15px;flex-shrink:0;}
+.toast.success{border-color:#25D366;}
+.toast.success i{color:#25D366;}
+.toast.error{border-color:#EF4444;}
+.toast.error i{color:#EF4444;}
+
+/* ============================================================
+   MODAL
+============================================================ */
+.modal{
+    position:fixed;inset:0;z-index:2400;
+    display:flex;align-items:center;justify-content:center;
+    padding:22px;
+    opacity:0;visibility:hidden;transition:var(--transition);
+}
+.modal.show{opacity:1;visibility:visible;}
+.modal-backdrop{
+    position:absolute;inset:0;
+    background:rgba(7,12,23,.72);
+    backdrop-filter:blur(7px);
+}
+.modal-panel{
+    position:relative;z-index:2;
+    background:var(--card-bg);
+    border-radius:var(--radius-xl);
+    width:100%;max-width:880px;max-height:90vh;
+    overflow:hidden auto;
+    box-shadow:0 40px 90px rgba(0,0,0,.5);
+    transform:translateY(24px) scale(.96);
+    transition:var(--transition-bounce);
+    display:grid;grid-template-columns:1fr 1fr;
+    border:1px solid var(--border-gold);
+}
+.modal.show .modal-panel{transform:translateY(0) scale(1);}
+.modal-close{
+    position:absolute;top:14px;right:14px;z-index:5;
+    width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;font-size:14px;
+    background:rgba(255,255,255,.92);color:var(--dark-navy);
+    box-shadow:0 6px 16px rgba(0,0,0,.2);
+    transition:var(--transition);
+}
+.modal-close:hover{background:#EF4444;color:#fff;transform:rotate(90deg);}
+.modal-img{position:relative;min-height:280px;background:var(--bg-alt);}
+.modal-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.modal-body{padding:34px 30px;display:flex;flex-direction:column;}
+.modal-body h3{
+    font-family:'Playfair Display',serif;
+    font-size:24px;font-weight:800;color:var(--text-main);margin-bottom:8px;
+}
+.modal-price{
+    font-size:20px;font-weight:800;color:var(--brown-earth);
+    margin-bottom:16px;font-family:'Playfair Display',serif;
+}
+html[data-theme="dark"] .modal-price{color:var(--gold-primary);}
+.modal-price span{font-size:11.5px;color:var(--text-muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;}
+.modal-body > p{font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:20px;}
+.modal-features{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;
+}
+.modal-features li{
+    font-size:12px;color:var(--text-soft);
+    display:flex;align-items:center;gap:8px;
+}
+.modal-features li i{color:var(--gold-primary);font-size:11px;}
+.modal-cta{margin-top:auto;}
+.modal-cta .btn{width:100%;}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width:1100px){
+    .modal-panel{grid-template-columns:1fr;max-width:520px;}
+    .modal-img{min-height:230px;position:relative;height:230px;}
+    .modal-img img{position:relative;}
+}
+
+@media (max-width:992px){
+    .mobile-toggle{display:grid;}
+    .nav-links{
+        position:fixed;top:0;right:-100%;
+        width:min(320px,84%);
+        height:100vh;height:100svh;
+        background:var(--grad-navy);
+        flex-direction:column;
+        justify-content:center;
+        align-items:stretch;
+        gap:6px;
+        padding:80px 26px 40px;
+        transition:right .45s cubic-bezier(.4,0,.2,1);
+        box-shadow:-14px 0 50px rgba(0,0,0,.5);
+        z-index:1995;
+        overflow-y:auto;
+    }
+    .nav-links.active{right:0;}
+    .nav-links > li > a{
+        color:#fff!important;font-size:14.5px;
+        padding:14px 16px;border-radius:12px;
+        display:flex;align-items:center;
+        border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .nav-links > li > a::after{display:none;}
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active{
+        background:rgba(212,175,55,.14);
+    }
+    .nav-links .btn-booking-nav{
+        margin-top:16px;justify-content:center;
+        padding:14px;font-size:13px!important;
+    }
+    .nav-actions{display:none;}
+    .stats-strip{grid-template-columns:repeat(2,1fr);}
+    .stat-item:nth-child(2)::after{display:none;}
+    .location-card{grid-template-columns:1fr;}
+    .map-box{min-height:280px;height:280px;}
+    .footer-inner{grid-template-columns:1fr 1fr;}
+    .footer-brand{grid-column:1/-1;}
+}
+
+@media (max-width:768px){
+    .container{padding:72px 18px;}
+    .booking-section{padding:26px 20px;}
+    .total-box{padding:22px 20px;}
+    .form-actions{flex-direction:column;}
+    .btn-reset{width:100%;}
+    .hero{background-attachment:scroll;}
+    .testi-wrap{padding:38px 20px 28px;}
+    .cta-home{padding:48px 22px;}
+    .card-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:560px){
+    .container{padding:62px 16px;}
+    .stats-strip{
+        grid-template-columns:1fr 1fr;
+        padding:24px 16px;gap:12px;
+        margin-top:-48px;
+        border-radius:var(--radius-lg);
+    }
+    .stat-item::after{display:none!important;}
+    .stat-num{font-size:22px;}
+    .facilities-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .fac-item{padding:24px 16px;}
+    .fac-icon{width:52px;height:52px;font-size:20px;border-radius:16px;}
+    .fac-item h4{font-size:13.5px;}
+    .fac-item p{font-size:11.3px;}
+    .galeri-grid{grid-template-columns:1fr 1fr;gap:11px;}
+    .galeri-item{height:150px;}
+    .filter-bar{gap:7px;}
+    .filter-btn{padding:8px 15px;font-size:11px;}
+    .float-stack{right:14px;bottom:16px;}
+    .float-btn{width:46px;height:46px;font-size:16px;}
+    .float-tip{display:none;}
+    .modal-features{grid-template-columns:1fr;}
+    .hero-btns .btn{padding:14px 26px;font-size:12.5px;width:100%;max-width:290px;}
+    .hero-mini-stats{gap:9px;}
+    .mini-stat{padding:8px 14px;font-size:11px;}
+    .footer-inner{grid-template-columns:1fr;gap:26px;text-align:center;}
+    .footer-brand p{margin-inline:auto;}
+    .footer-social{justify-content:center;}
+    .footer-col a:hover{transform:translateX(0);}
+    .toast{font-size:11.5px;padding:12px 18px;}
+}
+
+@media (max-width:380px){
+    .facilities-grid{grid-template-columns:1fr;}
+    .galeri-grid{grid-template-columns:1fr;}
+    .stats-strip{grid-template-columns:1fr;}
+}
+
+@media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        animation-duration:.001ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.001ms!important;
+        scroll-behavior:auto!important;
+    }
+}
+</style>
+
+<style id="inline-svg-icons">
+/* Real inline SVG icons: no font/mask fallback and no square placeholders. */
+.fa-inline-svg{
+  display:inline-block!important;
+  width:1em!important;
+  height:1em!important;
+  line-height:1!important;
+  vertical-align:-.125em;
+  overflow:visible;
+  flex:none;
+  fill:currentColor;
+}
+.fa-inline-svg path{fill:currentColor;}
+</style>
+
+
+<script id="inline-svg-icon-loader">
+(function(){
+  var ICONS={'fa-brands fa-facebook-f':'icon-fa-brands-fa-facebook-f','fa-brands fa-instagram':'icon-fa-brands-fa-instagram','fa-brands fa-tiktok':'icon-fa-brands-fa-tiktok','fa-brands fa-whatsapp':'icon-fa-brands-fa-whatsapp','fa-brands fa-youtube':'icon-fa-brands-fa-youtube','fa-regular fa-calendar-minus':'icon-fa-regular-fa-calendar-minus','fa-regular fa-calendar-plus':'icon-fa-regular-fa-calendar-plus','fa-regular fa-clock':'icon-fa-regular-fa-clock','fa-regular fa-envelope':'icon-fa-regular-fa-envelope','fa-regular fa-heart':'icon-fa-regular-fa-heart','fa-regular fa-note-sticky':'icon-fa-regular-fa-note-sticky','fa-regular fa-user':'icon-fa-regular-fa-user','fa-solid fa-arrow-up':'icon-fa-solid-fa-arrow-up','fa-solid fa-award':'icon-fa-solid-fa-award','fa-solid fa-bars':'icon-fa-solid-fa-bars','fa-solid fa-bed':'icon-fa-solid-fa-bed','fa-solid fa-bell':'icon-fa-solid-fa-bell','fa-solid fa-calendar-check':'icon-fa-solid-fa-calendar-check','fa-solid fa-campground':'icon-fa-solid-fa-campground','fa-solid fa-check':'icon-fa-solid-fa-check','fa-solid fa-chevron-left':'icon-fa-solid-fa-chevron-left','fa-solid fa-chevron-right':'icon-fa-solid-fa-chevron-right','fa-solid fa-circle-check':'icon-fa-solid-fa-circle-check','fa-solid fa-circle-exclamation':'icon-fa-solid-fa-circle-exclamation','fa-solid fa-circle-info':'icon-fa-solid-fa-circle-info','fa-solid fa-face-smile':'icon-fa-solid-fa-face-smile','fa-solid fa-fire-flame-curved':'icon-fa-solid-fa-fire-flame-curved','fa-solid fa-heart':'icon-fa-solid-fa-heart','fa-solid fa-hotel':'icon-fa-solid-fa-hotel','fa-solid fa-house-chimney':'icon-fa-solid-fa-house-chimney','fa-solid fa-images':'icon-fa-solid-fa-images','fa-solid fa-layer-group':'icon-fa-solid-fa-layer-group','fa-solid fa-location-dot':'icon-fa-solid-fa-location-dot','fa-solid fa-magnifying-glass':'icon-fa-solid-fa-magnifying-glass','fa-solid fa-magnifying-glass-plus':'icon-fa-solid-fa-magnifying-glass-plus','fa-solid fa-moon':'icon-fa-solid-fa-moon','fa-solid fa-motorcycle':'icon-fa-solid-fa-motorcycle','fa-solid fa-plus':'icon-fa-solid-fa-plus','fa-solid fa-rotate-left':'icon-fa-solid-fa-rotate-left','fa-solid fa-ruler-combined':'icon-fa-solid-fa-ruler-combined','fa-solid fa-shield-halved':'icon-fa-solid-fa-shield-halved','fa-solid fa-snowflake':'icon-fa-solid-fa-snowflake','fa-solid fa-spa':'icon-fa-solid-fa-spa','fa-solid fa-square-parking':'icon-fa-solid-fa-square-parking','fa-solid fa-star':'icon-fa-solid-fa-star','fa-solid fa-sun':'icon-fa-solid-fa-sun','fa-solid fa-tags':'icon-fa-solid-fa-tags','fa-solid fa-umbrella-beach':'icon-fa-solid-fa-umbrella-beach','fa-solid fa-user-group':'icon-fa-solid-fa-user-group','fa-solid fa-users':'icon-fa-solid-fa-users','fa-solid fa-utensils':'icon-fa-solid-fa-utensils','fa-solid fa-water-ladder':'icon-fa-solid-fa-water-ladder','fa-solid fa-wifi':'icon-fa-solid-fa-wifi','fa-solid fa-xmark':'icon-fa-solid-fa-xmark'};
+  function convert(root){
+    if(!root || root.nodeType!==1 && root.nodeType!==9) return;
+    var nodes=[];
+    if(root.matches && root.matches('i.fa-solid,i.fa-regular,i.fa-brands')) nodes.push(root);
+    if(root.querySelectorAll) nodes=nodes.concat(Array.prototype.slice.call(root.querySelectorAll('i.fa-solid,i.fa-regular,i.fa-brands')));
+    nodes.forEach(function(i){
+      var classes=Array.prototype.slice.call(i.classList);
+      var key=classes.filter(function(c){return c==='fa-solid'||c==='fa-regular'||c==='fa-brands';})[0];
+      var name=classes.filter(function(c){return /^fa-[\w-]+$/.test(c)&&c!=='fa-solid'&&c!=='fa-regular'&&c!=='fa-brands';})[0];
+      var id=key&&name&&ICONS[key+' '+name];
+      if(!id || i.dataset.inlineSvgDone==='1') return;
+      var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      classes.forEach(function(c){svg.classList.add(c);});
+      svg.classList.add('fa-inline-svg');
+      svg.setAttribute('aria-hidden','true');
+      svg.setAttribute('focusable','false');
+      svg.dataset.inlineSvgDone='1';
+      svg.style.cssText=i.style.cssText;
+      var use=document.createElementNS('http://www.w3.org/2000/svg','use');
+      use.setAttribute('href','#'+id);
+      use.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href','#'+id);
+      svg.appendChild(use);
+      Array.prototype.slice.call(i.attributes).forEach(function(a){
+        if(a.name!=='class' && a.name!=='style' && a.name!=='data-inline-svg-done' && a.name!=='aria-hidden') svg.setAttribute(a.name,a.value);
+      });
+      if(i.getAttribute('title')) svg.setAttribute('title',i.getAttribute('title'));
+      if(i.parentNode) i.parentNode.replaceChild(svg,i);
+    });
+  }
+  function start(){
+    convert(document);
+    var obs=new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        Array.prototype.slice.call(m.addedNodes).forEach(convert);
+      });
+    });
+    if(document.body) obs.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
+
+</head>
+<body>
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<div class="bg-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div id="particles-js" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <i class="fa-solid fa-bell" id="toastIcon"></i>
+    <span id="toastMsg">Selamat Datang di Your Name Vila</span>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="navbar" id="navbar">
+    <a href="#home" class="logo" aria-label="Your Name Vila">
+        <span class="logo-mark"><i class="fa-solid fa-umbrella-beach"></i></span>
+        <span class="logo-text">
+            YOUR NAME VILA
+            <small>PARADISE</small>
+        </span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+        <li><a href="#kamar">Kamar &amp; Vila</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontak">Lokasi</a></li>
+        <li><a href="#booking" class="btn-booking-nav"><i class="fa-solid fa-calendar-check"></i> Booking</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Ganti tema" title="Ganti Tema">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#booking" class="btn-booking-nav"><i class="fa-solid fa-calendar-check"></i> Booking</a>
+    </div>
+
+    <button class="mobile-toggle" id="menuToggle" aria-label="Buka menu">
+        <i class="fa-solid fa-bars" id="menuIcon"></i>
+    </button>
+</nav>
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-badge" data-aos="fade-down" data-aos-duration="900">
+            <span class="pulse-dot"></span> Luxury Coastal Resort &amp; Villa
+        </span>
+
+        <h1 data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="100">
+            Pengalaman Terbaik <b>Menginap <br>
+            <span class="accent">di Tepi Pantai Sawarna</span>
+        </h1>
+
+        <p class="hero-desc" data-aos="fade-up" data-aos-delay="220">
+            Rasakan kemewahan vila tepi pantai dengan
+            <span class="type-wrap" id="typeWrap"></span>
+        </p>
+
+        <div class="hero-btns" data-aos="fade-up" data-aos-delay="320">
+            <a href="#booking" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Pesan Sekarang</a>
+            <a href="#kamar" class="btn btn-ghost"><i class="fa-solid fa-bed"></i> Lihat Kamar</a>
+        </div>
+
+        <div class="hero-mini-stats" data-aos="fade-up" data-aos-delay="420">
+            <div class="mini-stat"><i class="fa-solid fa-star"></i> Rating 4.9/5.0</div>
+            <div class="mini-stat"><i class="fa-solid fa-water-ladder"></i> Private Pool</div>
+            <div class="mini-stat"><i class="fa-solid fa-shield-halved"></i> Keamanan 24 Jam</div>
+        </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+        <div class="mouse"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- ============ STATS STRIP ============ -->
+    <section class="stats-strip" data-aos="fade-up" aria-label="Statistik Vila">
+        <div class="stat-item">
+            <i class="fa-solid fa-bed"></i>
+            <div class="stat-num" data-count="24" data-suffix="+">0</div>
+            <div class="stat-label">Kamar &amp; Vila</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-face-smile"></i>
+            <div class="stat-num" data-count="1850" data-suffix="+">0</div>
+            <div class="stat-label">Tamu Bahagia</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-star"></i>
+            <div class="stat-num" data-count="49" data-suffix="" data-divide="10">0</div>
+            <div class="stat-label">Rating Kepuasan</div>
+        </div>
+        <div class="stat-item">
+            <i class="fa-solid fa-award"></i>
+            <div class="stat-num" data-count="8" data-suffix=" Thn">0</div>
+            <div class="stat-label">Pengalaman</div>
+        </div>
+    </section>
+
+    <!-- ============ FASILITAS ============ -->
+    <section id="fasilitas" style="margin-top:96px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Kenyamanan Utama</span>
+            <h2 class="section-title">Fasilitas Unggulan</h2>
+            <p class="section-desc">Setiap sudut vila dirancang untuk menghadirkan kenyamanan maksimal bagi Anda dan keluarga.</p>
+        </div>
+
+        <div class="facilities-grid">
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="50">
+                <div class="fac-icon"><i class="fa-solid fa-water-ladder"></i></div>
+                <h4>Private Pool</h4>
+                <p>Kolam renang pribadi dengan pemandangan langsung ke pantai.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="fac-icon"><i class="fa-solid fa-wifi"></i></div>
+                <h4>High-Speed Wi-Fi</h4>
+                <p>Koneksi internet cepat gratis di seluruh area vila.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="fac-icon"><i class="fa-solid fa-utensils"></i></div>
+                <h4>Free Breakfast</h4>
+                <p>Sajian sarapan lezat dari koki berpengalaman tiap pagi.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="fac-icon"><i class="fa-solid fa-square-parking"></i></div>
+                <h4>Parkir Luas &amp; Aman</h4>
+                <p>Area parkir pribadi gratis yang dipantau CCTV 24 jam.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="250">
+                <div class="fac-icon"><i class="fa-solid fa-snowflake"></i></div>
+                <h4>AC &amp; Air Panas</h4>
+                <p>Pendingin ruangan dan pemanas air di setiap kamar mandi.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="fac-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                <h4>BBQ &amp; Firepit</h4>
+                <p>Area barbekyu tepi pantai lengkap dengan peralatan memanggang.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="350">
+                <div class="fac-icon"><i class="fa-solid fa-spa"></i></div>
+                <h4>Spa &amp; Massage</h4>
+                <p>Layanan pijat tradisional oleh terapis profesional bersertifikat.</p>
+            </div>
+            <div class="fac-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="fac-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                <h4>Sewa Motor &amp; ATV</h4>
+                <p>Jelajahi pesisir Sawarna dengan kendaraan yang kami sediakan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ KAMAR ============ -->
+    <section id="kamar" style="margin-top:100px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Akomodasi</span>
+            <h2 class="section-title">Pilih Kamar &amp; Vila</h2>
+            <p class="section-desc">Klik kartu untuk memilih, atau tekan ikon info untuk melihat detail lengkap unit.</p>
+        </div>
+
+        <div class="filter-bar" data-aos="fade-up" data-aos-delay="80">
+            <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Semua</button>
+            <button class="filter-btn" data-filter="kamar"><i class="fa-solid fa-bed"></i> Kamar</button>
+            <button class="filter-btn" data-filter="vila"><i class="fa-solid fa-house-chimney"></i> Vila</button>
+            <button class="filter-btn" data-filter="glamping"><i class="fa-solid fa-campground"></i> Glamping</button>
+        </div>
+
+        <div class="card-grid" id="roomGrid">
+
+            <!-- Room 1 -->
+            <div class="room-card"
+                 data-harga="750000"
+                 data-nama="Deluxe Ocean View"
+                 data-kategori="kamar"
+                 data-rating="4.9"
+                 data-kapasitas="2 Dewasa + 1 Anak"
+                 data-luas="32 m²"
+                 data-img="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070"
+                 data-desc="Kamar luas bermaterial kayu hangat dengan balkon pribadi yang menghadap langsung ke lautan luas. Dilengkapi AC, Smart TV, dan Kamar Mandi Dalam."
+                 data-fasilitas="Balkon Pribadi,Smart TV 43 Inch,AC & Air Panas,Mini Bar,Kopi & Teh Gratis,Safe Deposit Box"
+                 data-aos="fade-up" data-aos-delay="60">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag">Best Seller</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070" alt="Deluxe Ocean View" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 2-3 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 32 m²</span>
+                    </div>
+                    <h3>Deluxe Ocean View</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>4.9 (218 ulasan)</span>
+                    </div>
+                    <p>Kamar luas bermaterial kayu hangat dengan balkon pribadi yang menghadap langsung ke lautan luas. Dilengkapi AC, Smart TV, dan Kamar Mandi Dalam.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 750.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room 2 -->
+            <div class="room-card"
+                 data-harga="1500000"
+                 data-nama="Vila Family 2 Kamar"
+                 data-kategori="vila"
+                 data-rating="4.8"
+                 data-kapasitas="5 Dewasa"
+                 data-luas="78 m²"
+                 data-img="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070"
+                 data-desc="Sangat ideal untuk liburan keluarga (4-5 orang). Memiliki 2 kamar tidur, dapur lengkap, serta ruang tamu keluarga yang nyaman."
+                 data-fasilitas="2 Kamar Tidur,Dapur Lengkap,Ruang Tamu,AC Setiap Kamar,2 Kamar Mandi,Parkir Pribadi"
+                 data-aos="fade-up" data-aos-delay="120">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag">Family</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070" alt="Vila Family" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 4-5 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 78 m²</span>
+                    </div>
+                    <h3>Vila Family 2 Kamar</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>4.8 (164 ulasan)</span>
+                    </div>
+                    <p>Sangat ideal untuk liburan keluarga (4-5 orang). Memiliki 2 kamar tidur, dapur lengkap, serta ruang tamu keluarga yang nyaman.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 1.500.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room 3 -->
+            <div class="room-card"
+                 data-harga="2800000"
+                 data-nama="Vila Private Pool"
+                 data-kategori="vila"
+                 data-rating="5.0"
+                 data-kapasitas="4 Dewasa"
+                 data-luas="120 m²"
+                 data-img="https://images.unsplash.com/photo-1582719478250-247d8b8c3d6d?q=80&w=2070"
+                 data-desc="Pengalaman kemewahan tertinggi. Vila eksklusif dengan kolam renang pribadi, Jacuzzi hangat, layanan butler, dan sarapan spesial."
+                 data-fasilitas="Private Pool,Jacuzzi Hangat,Butler 24 Jam,Sarapan Spesial,Smart TV 55 Inch,Terrace Laut"
+                 data-aos="fade-up" data-aos-delay="180">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag hot">Premium</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1582719478250-247d8b8c3d6d?q=80&w=2070" alt="Vila Private Pool" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 2-4 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 120 m²</span>
+                    </div>
+                    <h3>Vila Private Pool</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>5.0 (97 ulasan)</span>
+                    </div>
+                    <p>Pengalaman kemewahan tertinggi. Vila eksklusif dengan kolam renang pribadi, Jacuzzi hangat, layanan butler, dan sarapan spesial.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 2.800.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room 4 -->
+            <div class="room-card"
+                 data-harga="550000"
+                 data-nama="Superior Garden View"
+                 data-kategori="kamar"
+                 data-rating="4.7"
+                 data-kapasitas="2 Dewasa"
+                 data-luas="26 m²"
+                 data-img="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070"
+                 data-desc="Pilihan hemat dengan pemandangan taman tropis yang asri. Cocok untuk pasangan atau solo traveler yang ingin bersantai."
+                 data-fasilitas="Taman Tropis,AC & Air Panas,Smart TV,Kamar Mandi Dalam,Air Mineral Gratis,Resepsionis 24 Jam"
+                 data-aos="fade-up" data-aos-delay="240">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag">Hemat</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070" alt="Superior Garden View" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 2 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 26 m²</span>
+                    </div>
+                    <h3>Superior Garden View</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>4.7 (301 ulasan)</span>
+                    </div>
+                    <p>Pilihan hemat dengan pemandangan taman tropis yang asri. Cocok untuk pasangan atau solo traveler yang ingin bersantai.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 550.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room 5 -->
+            <div class="room-card"
+                 data-harga="1950000"
+                 data-nama="Suite Sunset Panorama"
+                 data-kategori="kamar"
+                 data-rating="4.9"
+                 data-kapasitas="3 Dewasa"
+                 data-luas="54 m²"
+                 data-img="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070"
+                 data-desc="Suite mezzanine dengan jendela kaca panorama menghadap barat, tempat terbaik menikmati matahari terbenam Sawarna."
+                 data-fasilitas="Jendela Panorama,Bathtub,Smart TV 50 Inch,AC & Air Panas,Ruang Kerja,Welcome Drink"
+                 data-aos="fade-up" data-aos-delay="300">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag">Sunset</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070" alt="Suite Sunset Panorama" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 2-3 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 54 m²</span>
+                    </div>
+                    <h3>Suite Sunset Panorama</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>4.9 (142 ulasan)</span>
+                    </div>
+                    <p>Suite mezzanine dengan jendela kaca panorama menghadap barat, tempat terbaik menikmati matahari terbenam Sawarna.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 1.950.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room 6 -->
+            <div class="room-card"
+                 data-harga="900000"
+                 data-nama="Glamping Beach Dome"
+                 data-kategori="glamping"
+                 data-rating="4.8"
+                 data-kapasitas="2 Dewasa"
+                 data-luas="30 m²"
+                 data-img="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2070"
+                 data-desc="Kubah kaca transparan tepat di atas pasir pantai. Tidur ditemani suara ombak dan langit penuh bintang sepanjang malam."
+                 data-fasilitas="Kubah Kaca Transparan,Queen Bed,AC Portabel,Outdoor Deck,Api Unggun,Toilet Pribadi"
+                 data-aos="fade-up" data-aos-delay="360">
+                <span class="badge-selected"><i class="fa-solid fa-check"></i> Terpilih</span>
+                <span class="badge-tag">Unik</span>
+                <button class="fav-btn" data-fav aria-label="Tambah ke favorit"><i class="fa-regular fa-heart"></i></button>
+                <div class="room-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2070" alt="Glamping Beach Dome" loading="lazy">
+                </div>
+                <div class="room-info">
+                    <div class="room-meta">
+                        <span><i class="fa-solid fa-user-group"></i> 2 Orang</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 30 m²</span>
+                    </div>
+                    <h3>Glamping Beach Dome</h3>
+                    <div class="room-rating">
+                        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span>4.8 (188 ulasan)</span>
+                    </div>
+                    <p>Kubah kaca transparan tepat di atas pasir pantai. Tidur ditemani suara ombak dan langit penuh bintang sepanjang malam.</p>
+                    <div class="room-footer">
+                        <div class="price">Rp 900.000 <span>/malam</span></div>
+                        <div class="room-actions">
+                            <button class="btn-icon" data-detail aria-label="Lihat detail"><i class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn-select-room">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section id="booking" style="margin-top:100px;">
+        <div class="booking-section" data-aos="fade-up">
+            <div class="section-header" style="margin-bottom:32px;">
+                <span class="section-subtitle">Reservasi Mudah</span>
+                <h2 class="section-title">Form Booking Instant</h2>
+                <p class="section-desc">Isi data di bawah ini, total biaya akan dihitung otomatis dan dikirim langsung ke WhatsApp kami.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nama"><i class="fa-regular fa-user"></i> Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama Anda" autocomplete="name">
+                    <div class="field-hint" id="hintNama"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wa"><i class="fa-brands fa-whatsapp"></i> No WhatsApp</label>
+                    <input type="tel" id="wa" placeholder="08xxxxxxxxxx" autocomplete="tel" inputmode="numeric">
+                    <div class="field-hint" id="hintWa"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkin"><i class="fa-regular fa-calendar-plus"></i> Check-in</label>
+                    <input type="date" id="checkin">
+                    <div class="field-hint" id="hintCheckin"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkout"><i class="fa-regular fa-calendar-minus"></i> Check-out</label>
+                    <input type="date" id="checkout">
+                    <div class="field-hint" id="hintCheckout"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="kamarSelect"><i class="fa-solid fa-bed"></i> Tipe Kamar</label>
+                    <select id="kamarSelect">
+                        <option value="">-- Pilih Kamar --</option>
+                    </select>
+                    <div class="field-hint" id="hintKamar"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tamu"><i class="fa-solid fa-users"></i> Jumlah Tamu</label>
+                    <input type="number" id="tamu" value="2" min="1" max="15">
+                    <div class="field-hint" id="hintTamu"></div>
+                </div>
+            </div>
+
+            <!-- Promo -->
+            <div class="form-grid" style="margin-top:18px;">
+                <div class="form-group" style="grid-column:1/-1;">
+                    <label for="promo"><i class="fa-solid fa-tags"></i> Kode Promo (Opsional)</label>
+                    <div class="promo-row">
+                        <input type="text" id="promo" placeholder="Masukkan kode promo" maxlength="18">
+                        <button class="btn-apply" id="btnApplyPromo" type="button">Terapkan</button>
+                    </div>
+                    <div class="promo-chips">
+                        <button class="promo-chip" type="button" data-promo="SAWARNA20">SAWARNA20 — 20%</button>
+                        <button class="promo-chip" type="button" data-promo="LANZZ10">LANZZ10 — 10%</button>
+                        <button class="promo-chip" type="button" data-promo="WEEKEND15">WEEKEND15 — 15%</button>
+                    </div>
+                    <div class="field-hint" id="hintPromo"></div>
+                </div>
+
+                <div class="form-group" style="grid-column:1/-1;">
+                    <label for="catatan"><i class="fa-regular fa-note-sticky"></i> Catatan Tambahan (Opsional)</label>
+                    <textarea id="catatan" placeholder="Contoh: minta kamar lantai atas, tambahan extra bed, dekorasi ulang tahun..."></textarea>
+                </div>
+            </div>
+
+            <!-- Total -->
+            <div class="total-box">
+                <div class="total-line"><span>Tipe Kamar</span><b id="sumRoom">Belum dipilih</b></div>
+                <div class="total-line"><span>Durasi Menginap</span><b id="sumNights">-</b></div>
+                <div class="total-line"><span>Subtotal</span><b id="sumSubtotal">Rp 0</b></div>
+                <div class="total-line discount" id="rowDiskon" style="display:none;"><span>Diskon Promo</span><b id="sumDiskon">- Rp 0</b></div>
+                <div class="total-line"><span>Pajak &amp; Layanan (10%)</span><b id="sumTax">Rp 0</b></div>
+                <div class="total-line grand">
+                    <span>Total Estimasi</span>
+                    <h4 id="totalText">Rp 0</h4>
+                </div>
+                <div class="total-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Harga belum termasuk biaya tambahan di luar paket. Konfirmasi akhir via WhatsApp.</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-submit-wa" id="btnKirimWA" type="button">
+                    <i class="fa-brands fa-whatsapp" style="font-size:19px;"></i>
+                    Konfirmasi via WhatsApp
+                </button>
+                <button class="btn-reset" id="btnReset" type="button">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Form
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALERI ============ -->
+    <section id="galeri" style="margin-top:100px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Visual Experience</span>
+            <h2 class="section-title">Galeri Vila</h2>
+            <p class="section-desc">Klik gambar untuk melihat versi resolusi penuh.</p>
+        </div>
+
+        <div class="filter-bar" data-aos="fade-up" data-aos-delay="80">
+            <button class="filter-btn active" data-gfilter="all"><i class="fa-solid fa-images"></i> Semua</button>
+            <button class="filter-btn" data-gfilter="resort"><i class="fa-solid fa-hotel"></i> Resort</button>
+            <button class="filter-btn" data-gfilter="kolam"><i class="fa-solid fa-water-ladder"></i> Kolam</button>
+            <button class="filter-btn" data-gfilter="pantai"><i class="fa-solid fa-umbrella-beach"></i> Pantai</button>
+            <button class="filter-btn" data-gfilter="kamar"><i class="fa-solid fa-bed"></i> Kamar</button>
+        </div>
+
+        <div class="galeri-grid" id="galeriGrid" data-aos="fade-up" data-aos-delay="120">
+            <a href="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="resort"
+               data-glightbox="title: Area Resort Vila Sawarna">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070" alt="Resort View" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Area Resort</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2069"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="kolam"
+               data-glightbox="title: Kolam Renang Utama">
+                <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2069" alt="Swimming Pool" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Kolam Renang</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="pantai"
+               data-glightbox="title: Pantai Sawarna">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070" alt="Sawarna Beach" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Pantai Sawarna</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="kamar"
+               data-glightbox="title: Interior Kamar Deluxe">
+                <img src="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?q=80&w=2070" alt="Interior Room" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Interior Kamar</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="resort"
+               data-glightbox="title: Lobi & Resepsionis">
+                <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070" alt="Lobby" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Lobi Utama</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2074"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="kamar"
+               data-glightbox="title: Kamar Suite">
+                <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2074" alt="Suite Room" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Kamar Suite</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="kolam"
+               data-glightbox="title: Private Pool">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070" alt="Private Pool" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Private Pool</span>
+                </div>
+            </a>
+
+            <a href="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070"
+               class="galeri-item glightbox" data-gallery="vila" data-kategori="pantai"
+               data-glightbox="title: Sunset Sawarna">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070" alt="Sunset Sawarna" loading="lazy">
+                <div class="galeri-overlay">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <span class="galeri-cap">Sunset Sawarna</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+    <section id="testimoni" style="margin-top:100px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Kata Mereka</span>
+            <h2 class="section-title">Testimoni Tamu</h2>
+            <p class="section-desc">Pengalaman nyata dari tamu yang telah menginap di Your Name Vila.</p>
+        </div>
+
+        <div class="testi-wrap" data-aos="fade-up" data-aos-delay="100">
+            <div class="testi-track" id="testiTrack">
+
+                <div class="testi-slide">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Pemandangan laut dari balkon benar-benar luar biasa. Bangun pagi disambut suara ombak dan sarapan yang lezat. Pelayanan stafnya ramah dan cepat tanggap. Pasti akan kembali lagi!"</p>
+                    <div class="testi-person">
+                        <img class="testi-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Andini Rahmawati" loading="lazy">
+                        <div class="testi-info">
+                            <h5>Andini Rahmawati</h5>
+                            <span>Jakarta • Deluxe Ocean View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-slide">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Bawa keluarga besar dan semua puas. Vila 2 kamar sangat bersih, dapurnya lengkap, dan anak-anak betah main di kolam. Harga sebanding dengan kualitas yang didapat."</p>
+                    <div class="testi-person">
+                        <img class="testi-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Bagas Prasetyo" loading="lazy">
+                        <div class="testi-info">
+                            <h5>Bagas Prasetyo</h5>
+                            <span>Bandung • Vila Family 2 Kamar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-slide">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Vila Private Pool-nya mewah banget! Jacuzzi hangat, butler responsif, dan sarapannya juara. Momen honeymoon kami jadi sempurna. Recommended pol!"</p>
+                    <div class="testi-person">
+                        <img class="testi-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Clara Wijaya" loading="lazy">
+                        <div class="testi-info">
+                            <h5>Clara Wijaya</h5>
+                            <span>Surabaya • Vila Private Pool</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-slide">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Glamping dome-nya unik dan romantis. Tidur sambil lihat bintang, pagi-pagi langsung turun ke pantai. Pengalaman yang tidak akan kami lupakan."</p>
+                    <div class="testi-person">
+                        <img class="testi-avatar" src="https://randomuser.me/api/portraits/men/76.jpg" alt="Dimas Anggara" loading="lazy">
+                        <div class="testi-info">
+                            <h5>Dimas Anggara</h5>
+                            <span>Yogyakarta • Glamping Beach Dome</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="testi-nav">
+                <button class="testi-arrow" id="testiPrev" aria-label="Testimoni sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="testi-dots" id="testiDots"></div>
+                <button class="testi-arrow" id="testiNext" aria-label="Testimoni berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" style="margin-top:100px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Pertanyaan Umum</span>
+            <h2 class="section-title">FAQ</h2>
+            <p class="section-desc">Belum menemukan jawaban? Hubungi kami langsung via WhatsApp.</p>
+        </div>
+
+        <div class="faq-list" data-aos="fade-up" data-aos-delay="80">
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Jam berapa saya bisa check-in dan check-out?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Check-in dimulai pukul 14.00 WIB dan check-out maksimal pukul 12.00 WIB. Early check-in atau late check-out dapat diminta sesuai ketersediaan unit dengan biaya tambahan.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Apakah harga sudah termasuk sarapan?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Ya, seluruh tipe kamar dan vila sudah termasuk sarapan gratis untuk jumlah tamu sesuai kapasitas unit. Menu sarapan disajikan setiap pagi mulai pukul 07.00 hingga 10.00 WIB.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Bagaimana cara pembayarannya?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Setelah formulir dikirim melalui WhatsApp, tim kami akan mengirimkan detail rekening untuk DP sebesar 50%. Pelunasan dilakukan saat check-in. Kami menerima transfer bank dan e-wallet.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Apakah bisa refund jika saya membatalkan pesanan?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Pembatalan lebih dari 7 hari sebelum check-in akan dikembalikan penuh. Pembatalan 3–7 hari sebelum check-in dikenakan potongan 30%. Kurang dari 3 hari, DP tidak dapat dikembalikan namun bisa dialihkan ke tanggal lain maksimal 30 hari.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Apakah vila ramah anak dan tersedia extra bed?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Tentu. Vila kami ramah anak dan tersedia extra bed dengan biaya tambahan Rp 150.000 per malam. Silakan tuliskan permintaan tersebut pada kolom catatan saat melakukan booking.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" type="button">
+                    <span>Apakah ada area parkir dan akses kendaraan besar?</span>
+                    <span class="faq-ico"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Kami menyediakan area parkir pribadi gratis dengan pengawasan CCTV 24 jam. Bus sedang dan minibus dapat masuk hingga area parkir depan, sedangkan akses ke unit vila menggunakan shuttle kami.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ KONTAK / LOKASI ============ -->
+    <section id="kontak" style="margin-top:100px;">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Petunjuk Arah</span>
+            <h2 class="section-title">Lokasi Kami</h2>
+            <p class="section-desc">Berada tepat di garis pantai Sawarna dengan akses mudah dari jalan utama.</p>
+        </div>
+
+        <div class="location-card" data-aos="fade-up">
+            <div class="location-info">
+                <div class="loc-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>
+                        <b>Alamat Utama</b>
+                        Jl. Pantai Sawarna, Desa Sawarna, Bayah, Lebak, Banten 42393
+                    </span>
+                </div>
+                <div class="loc-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>
+                        <b>Layanan Telepon / WA</b>
+                        0812-3456-7890
+                    </span>
+                </div>
+                <div class="loc-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>
+                        <b>Waktu Check-in / Out</b>
+                        Check-in: 14.00 WIB &nbsp;|&nbsp; Check-out: 12.00 WIB
+                    </span>
+                </div>
+                <div class="loc-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>
+                        <b>Email Reservasi</b>
+                        booking@vilasawarnaparadise.id
+                    </span>
+                </div>
+            </div>
+
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.1!2d106.123!3d-6.123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4221!2sPantai%20Sawarna!5e0!3m2!1sen!2sid!4v1"
+                    allowfullscreen="" loading="lazy" title="Peta Lokasi Your Name Vila"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <div class="cta-home" data-aos="zoom-in">
+        <h3>Siap Merasakan Liburan Impian Anda?</h3>
+        <p>Amankan unit favorit Anda sekarang. Kuota terbatas terutama untuk akhir pekan dan hari libur nasional.</p>
+        <div class="cta-btns">
+            <a href="#booking" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Booking Sekarang</a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-whatsapp"></i> Tanya via WhatsApp</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="#home" class="logo">
+                <span class="logo-mark"><i class="fa-solid fa-umbrella-beach"></i></span>
+                <span class="logo-text">
+                    YOUR NAME VILA
+                    <small>PARADISE</small>
+                </span>
+            </a>
+            <p>Resort &amp; accommodation mewah di tepi Pantai Sawarna, Banten. Menyediakan kamar, vila, dan glamping dengan pemandangan laut terbaik.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h6>Navigasi</h6>
+            <a href="#home">Home</a>
+            <a href="#fasilitas">Fasilitas</a>
+            <a href="#kamar">Kamar &amp; Vila</a>
+            <a href="#galeri">Galeri</a>
+        </div>
+
+        <div class="footer-col">
+            <h6>Informasi</h6>
+            <a href="#booking">Booking</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#faq">FAQ</a>
+            <a href="#kontak">Lokasi</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        Copyright © 2026 Lanzz Project. All Rights Reserved. <br>Developed &amp; Designed by <b>Lanzz Project</b>
+    </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-stack">
+    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="float-btn" id="waFloat" aria-label="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="float-tip">Chat WhatsApp</span>
+    </a>
+    <button class="float-btn" id="backToTop" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+        <span class="float-tip">Ke Atas</span>
+    </button>
+</div>
+
+<!-- ============ ROOM DETAIL MODAL ============ -->
+<div class="modal" id="roomModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+        <button class="modal-close" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-img">
+            <img id="modalImg" src="" alt="Detail Kamar">
+        </div>
+        <div class="modal-body">
+            <h3 id="modalTitle">Nama Kamar</h3>
+            <div class="modal-price" id="modalPrice">Rp 0 <span>/malam</span></div>
+            <p id="modalDesc">Deskripsi kamar.</p>
+            <ul class="modal-features" id="modalFeatures"></ul>
+            <div class="modal-cta">
+                <button class="btn btn-primary" id="modalBookBtn">
+                    <i class="fa-solid fa-calendar-check"></i> Pesan Kamar Ini
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+
+<script>
+/* ============================================================
+   HELPERS
+============================================================ */
+const $  = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+const rupiah = n => 'Rp ' + Math.round(Number(n) || 0).toLocaleString('id-ID');
+const WA_NUMBER = '6281234567890';
+
+/* ============================================================
+   TOAST
+============================================================ */
+let toastTimer = null;
+function showToast(msg, type = 'info') {
+    const toast = $('#toast');
+    const icon  = $('#toastIcon');
+    $('#toastMsg').textContent = msg;
+
+    toast.classList.remove('success', 'error');
+    if (type === 'success') {
+        toast.classList.add('success');
+        icon.className = 'fa-solid fa-circle-check';
+    } else if (type === 'error') {
+        toast.classList.add('error');
+        icon.className = 'fa-solid fa-circle-exclamation';
+    } else {
+        icon.className = 'fa-solid fa-bell';
+    }
+
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3600);
+}
+
+/* ============================================================
+   AOS
+============================================================ */
+AOS.init({ duration: 900, once: true, offset: 60, easing: 'ease-out-cubic' });
+
+/* ============================================================
+   PARTICLES
+============================================================ */
+if (typeof particlesJS === 'function') {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 42, density: { enable: true, value_area: 900 } },
+            size: { value: 2.4, random: true },
+            color: { value: ['#D4AF37', '#8B4513', '#F4E8C1'] },
+            line_linked: { enable: true, color: '#8B4513', opacity: 0.14, distance: 150, width: 1 },
+            move: { speed: 0.85, direction: 'none', random: true, out_mode: 'out' },
+            opacity: { value: 0.55, random: true }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: { enable: true, mode: 'grab' },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
+            },
+            modes: {
+                grab: { distance: 150, line_linked: { opacity: 0.35 } },
+                push: { particles_nb: 3 }
+            }
+        },
+        retina_detect: true
+    });
+}
+
+/* ============================================================
+   LIGHTBOX
+============================================================ */
+let lightbox = null;
+function initLightbox() {
+    try {
+        if (lightbox && typeof lightbox.destroy === 'function') lightbox.destroy();
+    } catch (e) { /* noop */ }
+    try {
+        lightbox = GLightbox({
+            selector: '.glightbox:not(.hide)',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true,
+            draggable: true,
+            openEffect: 'zoom',
+            closeEffect: 'fade'
+        });
+    } catch (e) { /* noop */ }
+}
+initLightbox();
+
+/* ============================================================
+   NAVBAR / SCROLL
+============================================================ */
+const navbar       = $('#navbar');
+const backToTop    = $('#backToTop');
+const menuToggle   = $('#menuToggle');
+const menuIcon     = $('#menuIcon');
+const navLinks     = $('#navLinks');
+const navBackdrop  = $('#navBackdrop');
+const scrollBar    = $('#scrollProgress');
+
+function onScroll() {
+    const y = window.scrollY || document.documentElement.scrollTop;
+
+    if (y > 50) {
+        navbar.classList.add('scrolled');
+        backToTop.classList.add('show');
+    } else {
+        navbar.classList.remove('scrolled');
+        backToTop.classList.remove('show');
+    }
+
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? (y / docH) * 100 : 0;
+    scrollBar.style.width = pct + '%';
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+function openMenu() {
+    navLinks.classList.add('active');
+    navBackdrop.classList.add('show');
+    if (menuIcon) menuIcon.className = 'fa-solid fa-xmark';
+    document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+    navLinks.classList.remove('active');
+    navBackdrop.classList.remove('show');
+    if (menuIcon) menuIcon.className = 'fa-solid fa-bars';
+    document.body.style.overflow = '';
+}
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.contains('active') ? closeMenu() : openMenu();
+});
+navBackdrop.addEventListener('click', closeMenu);
+$$('.nav-links a').forEach(link => link.addEventListener('click', closeMenu));
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 992 && navLinks.classList.contains('active')) closeMenu();
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ============================================================
+   SCROLLSPY
+============================================================ */
+const spyLinks = $$('.nav-links a[href^="#"]').filter(a => !a.classList.contains('btn-booking-nav'));
+const spyMap = {};
+spyLinks.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) spyMap[id] = a;
+});
+
+if ('IntersectionObserver' in window) {
+    const spyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                spyLinks.forEach(a => a.classList.remove('active'));
+                const link = spyMap[entry.target.id];
+                if (link) link.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    Object.keys(spyMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) spyObserver.observe(el);
+    });
+}
+
+/* ============================================================
+   THEME TOGGLE
+============================================================ */
+const themeToggle = $('#themeToggle');
+const themeIcon   = $('#themeIcon');
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#070C17' : '#0F172A');
+    try { localStorage.setItem('vsp-theme', theme); } catch (e) { /* noop */ }
+}
+
+(function initTheme() {
+    let saved = 'light';
+    try { saved = localStorage.getItem('vsp-theme') || 'light'; } catch (e) { /* noop */ }
+    applyTheme(saved);
+})();
+
+themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+    showToast(current === 'dark' ? 'Mode terang diaktifkan' : 'Mode gelap diaktifkan');
+});
+
+/* ============================================================
+   CURSOR GLOW
+============================================================ */
+const cursorGlow = $('#cursorGlow');
+let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+let glowX = mouseX, glowY = mouseY;
+
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    window.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    (function animateGlow() {
+        glowX += (mouseX - glowX) * 0.10;
+        glowY += (mouseY - glowY) * 0.10;
+        cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animateGlow);
+    })();
+}
+
+/* ============================================================
+   HERO TYPING EFFECT
+============================================================ */
+(function typingEffect() {
+    const el = $('#typeWrap');
+    if (!el) return;
+
+    const phrases = [
+        'pemandangan laut spektakuler',
+        'kolam renang pribadi',
+        'sarapan gratis setiap hari',
+        'langit penuh bintang di malam hari',
+        'pelayanan butler 24 jam'
+    ];
+
+    let pIdx = 0, cIdx = 0, deleting = false;
+
+    function tick() {
+        const current = phrases[pIdx];
+
+        if (!deleting) {
+            cIdx++;
+            el.textContent = current.slice(0, cIdx);
+            if (cIdx >= current.length) {
+                deleting = true;
+                setTimeout(tick, 1700);
+                return;
+            }
+        } else {
+            cIdx--;
+            el.textContent = current.slice(0, cIdx);
+            if (cIdx <= 0) {
+                deleting = false;
+                pIdx = (pIdx + 1) % phrases.length;
+            }
+        }
+        setTimeout(tick, deleting ? 34 : 68);
+    }
+    setTimeout(tick, 700);
+})();
+
+/* ============================================================
+   STAT COUNTER
+============================================================ */
+(function statCounters() {
+    const nums = $$('[data-count]');
+    if (!nums.length) return;
+
+    function animate(el) {
+        const target  = parseFloat(el.dataset.count) || 0;
+        const divide  = parseFloat(el.dataset.divide) || 1;
+        const suffix  = el.dataset.suffix || '';
+        const duration = 1700;
+        const start = performance.now();
+
+        function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = (target / divide) * eased;
+            const display = divide > 1 ? value.toFixed(1) : Math.floor(value).toLocaleString('id-ID');
+            el.textContent = display + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else {
+                const finalVal = divide > 1 ? (target / divide).toFixed(1) : target.toLocaleString('id-ID');
+                el.textContent = finalVal + suffix;
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        nums.forEach(n => io.observe(n));
+    } else {
+        nums.forEach(animate);
+    }
+})();
+
+/* ============================================================
+   BUTTON RIPPLE
+============================================================ */
+document.addEventListener('click', e => {
+    const btn = e.target.closest('.btn, .btn-submit-wa, .btn-booking-nav, .btn-hero');
+    if (!btn) return;
+
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top  = (e.clientY - rect.top  - size / 2) + 'px';
+
+    if (getComputedStyle(btn).position === 'static') btn.style.position = 'relative';
+    btn.style.overflow = 'hidden';
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+});
+
+/* ============================================================
+   ROOM DATA & BOOKING STATE
+============================================================ */
+const roomCards   = $$('.room-card');
+const roomGrid    = $('#roomGrid');
+const kamarSelect = $('#kamarSelect');
+
+let selectedRoomPrice = 0;
+let selectedRoomName  = '';
+let promoRate         = 0;
+let appliedPromoCode  = '';
+
+/* Build select options dari kartu kamar */
+roomCards.forEach(card => {
+    const opt = document.createElement('option');
+    opt.value = card.dataset.harga;
+    opt.dataset.nama = card.dataset.nama;
+    opt.textContent = card.dataset.nama + ' - ' + rupiah(card.dataset.harga);
+    kamarSelect.appendChild(opt);
+});
+
+/* ---- Pilih kamar dari kartu ---- */
+function selectRoom(card) {
+    roomCards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    selectedRoomPrice = parseInt(card.dataset.harga, 10) || 0;
+    selectedRoomName  = card.dataset.nama || '';
+    kamarSelect.value = card.dataset.harga;
+
+    clearHint('hintKamar');
+    hitungTotal();
+}
+
+roomCards.forEach(card => {
+    card.addEventListener('click', e => {
+        if (e.target.closest('[data-detail]') || e.target.closest('[data-fav]')) return;
+        selectRoom(card);
+    });
+});
+
+/* ---- Pilih dari dropdown ---- */
+kamarSelect.addEventListener('change', () => {
+    const val = parseInt(kamarSelect.value, 10) || 0;
+    selectedRoomPrice = val;
+
+    const opt = kamarSelect.options[kamarSelect.selectedIndex];
+    selectedRoomName = opt ? (opt.dataset.nama || '') : '';
+
+    roomCards.forEach(card => {
+        if (parseInt(card.dataset.harga, 10) === val) card.classList.add('active');
+        else card.classList.remove('active');
+    });
+
+    clearHint('hintKamar');
+    hitungTotal();
+});
+
+/* ============================================================
+   ROOM FILTER
+============================================================ */
+$$('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        $$('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+
+        roomCards.forEach(card => {
+            const match = filter === 'all' || card.dataset.kategori === filter;
+            card.classList.toggle('hide', !match);
+            if (match) visible++;
+        });
+
+        let empty = $('#roomEmpty');
+        if (visible === 0) {
+            if (!empty) {
+                empty = document.createElement('div');
+                empty.id = 'roomEmpty';
+                empty.className = 'empty-state';
+                empty.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i><p>Belum ada unit pada kategori ini.</p>';
+                roomGrid.appendChild(empty);
+            }
+        } else if (empty) {
+            empty.remove();
+        }
+    });
+});
+
+/* ============================================================
+   GALLERY FILTER
+============================================================ */
+$$('[data-gfilter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        $$('[data-gfilter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.gfilter;
+        $$('.galeri-item').forEach(item => {
+            const match = filter === 'all' || item.dataset.kategori === filter;
+            item.classList.toggle('hide', !match);
+        });
+
+        initLightbox();
+    });
+});
+
+/* ============================================================
+   FAVORITES (localStorage)
+============================================================ */
+let favorites = [];
+try { favorites = JSON.parse(localStorage.getItem('vsp-fav') || '[]'); } catch (e) { favorites = []; }
+
+function saveFavorites() {
+    try { localStorage.setItem('vsp-fav', JSON.stringify(favorites)); } catch (e) { /* noop */ }
+}
+
+roomCards.forEach(card => {
+    const favBtn = card.querySelector('[data-fav]');
+    if (!favBtn) return;
+    const name = card.dataset.nama;
+
+    if (favorites.includes(name)) {
+        favBtn.classList.add('active');
+        favBtn.querySelector('i').className = 'fa-solid fa-heart';
+    }
+
+    favBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const idx = favorites.indexOf(name);
+        const icon = favBtn.querySelector('i');
+
+        if (idx > -1) {
+            favorites.splice(idx, 1);
+            favBtn.classList.remove('active');
+            icon.className = 'fa-regular fa-heart';
+            showToast(name + ' dihapus dari favorit');
+        } else {
+            favorites.push(name);
+            favBtn.classList.add('active');
+            icon.className = 'fa-solid fa-heart';
+            showToast(name + ' ditambahkan ke favorit', 'success');
+        }
+        saveFavorites();
+    });
+});
+
+/* ============================================================
+   ROOM DETAIL MODAL
+============================================================ */
+const roomModal   = $('#roomModal');
+const modalImg    = $('#modalImg');
+const modalTitle  = $('#modalTitle');
+const modalPrice  = $('#modalPrice');
+const modalDesc   = $('#modalDesc');
+const modalFeats  = $('#modalFeatures');
+const modalBookBtn= $('#modalBookBtn');
+let modalCurrentCard = null;
+
+function openModal(card) {
+    modalCurrentCard = card;
+    modalImg.src = card.dataset.img || '';
+    modalImg.alt = card.dataset.nama || '';
+    modalTitle.textContent = card.dataset.nama || '';
+    modalPrice.innerHTML = rupiah(card.dataset.harga) + ' <span>/malam</span>';
+    modalDesc.textContent = card.dataset.desc || '';
+
+    modalFeats.innerHTML = '';
+    const list = (card.dataset.fasilitas || '').split(',').filter(Boolean);
+    list.forEach(f => {
+        const li = document.createElement('li');
+        li.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + f.trim();
+        modalFeats.appendChild(li);
+    });
+
+    roomModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    roomModal.classList.remove('show');
+    document.body.style.overflow = '';
+    modalCurrentCard = null;
+}
+
+$$('[data-detail]').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const card = btn.closest('.room-card');
+        if (card) openModal(card);
+    });
+});
+
+$$('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        if (roomModal.classList.contains('show')) closeModal();
+        if (navLinks.classList.contains('active')) closeMenu();
+    }
+});
+
+modalBookBtn.addEventListener('click', () => {
+    if (modalCurrentCard) selectRoom(modalCurrentCard);
+    closeModal();
+    const booking = $('#booking');
+    if (booking) booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast('Kamar dipilih. Lengkapi formulir booking Anda.', 'success');
+});
+
+/* ============================================================
+   FORM VALIDATION HELPERS
+============================================================ */
+function setHint(id, msg, isError) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg || '';
+    el.classList.toggle('error', !!isError);
+}
+function clearHint(id) { setHint(id, '', false); }
+
+function markInvalid(input, invalid) {
+    if (!input) return;
+    input.classList.toggle('invalid', !!invalid);
+}
+function clearAllInvalid() {
+    $$('.invalid').forEach(el => el.classList.remove('invalid'));
+}
+
+/* ============================================================
+   PROMO CODE
+============================================================ */
+const PROMOS = {
+    'SAWARNA20': 0.20,
+    'LANZZ10':   0.10,
+    'WEEKEND15': 0.15
+};
+
+const promoInput = $('#promo');
+const btnApply   = $('#btnApplyPromo');
+
+function applyPromo(code) {
+    const key = (code || '').trim().toUpperCase();
+    if (!key) {
+        promoRate = 0;
+        appliedPromoCode = '';
+        setHint('hintPromo', 'Masukkan kode promo terlebih dahulu.', true);
+        hitungTotal();
+        return;
+    }
+    if (PROMOS[key]) {
+        promoRate = PROMOS[key];
+        appliedPromoCode = key;
+        promoInput.value = key;
+        setHint('hintPromo', 'Kode "' + key + '" berhasil diterapkan — diskon ' + (promoRate * 100) + '%!', false);
+        showToast('Promo ' + key + ' berhasil diterapkan!', 'success');
+    } else {
+        promoRate = 0;
+        appliedPromoCode = '';
+        setHint('hintPromo', 'Kode promo tidak valid atau sudah kedaluwarsa.', true);
+        showToast('Kode promo tidak valid', 'error');
+    }
+    hitungTotal();
+}
+
+btnApply.addEventListener('click', () => applyPromo(promoInput.value));
+
+promoInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); applyPromo(promoInput.value); }
+});
+
+promoInput.addEventListener('input', () => {
+    promoInput.value = promoInput.value.toUpperCase();
+});
+
+$$('[data-promo]').forEach(chip => {
+    chip.addEventListener('click', () => {
+        promoInput.value = chip.dataset.promo;
+        applyPromo(chip.dataset.promo);
+    });
+});
+
+/* ============================================================
+   TOTAL CALCULATION
+============================================================ */
+function getNights() {
+    const ci = $('#checkin').value;
+    const co = $('#checkout').value;
+    if (!ci || !co) return 0;
+    const d1 = new Date(ci + 'T00:00:00');
+    const d2 = new Date(co + 'T00:00:00');
+    const diff = Math.round((d2 - d1) / 86400000);
+    return diff > 0 ? diff : 0;
+}
+
+function hitungTotal() {
+    const nights = getNights();
+    const price  = selectedRoomPrice;
+
+    $('#sumRoom').textContent = selectedRoomName || 'Belum dipilih';
+    $('#sumNights').textContent = nights > 0 ? nights + ' Malam' : '-';
+
+    const rowDiskon = $('#rowDiskon');
+
+    if (!price) {
+        $('#sumSubtotal').textContent = 'Rp 0';
+        $('#sumTax').textContent = 'Rp 0';
+        rowDiskon.style.display = 'none';
+        $('#totalText').textContent = 'Rp 0';
+        return;
+    }
+
+    if (nights <= 0) {
+        $('#sumSubtotal').textContent = rupiah(price);
+        $('#sumTax').textContent = 'Rp 0';
+        rowDiskon.style.display = 'none';
+        $('#totalText').textContent = rupiah(price) + ' /malam';
+        return;
+    }
+
+    const subtotal = price * nights;
+    const diskon   = subtotal * promoRate;
+    const afterDisc= subtotal - diskon;
+    const tax      = afterDisc * 0.10;
+    const grand    = afterDisc + tax;
+
+    $('#sumSubtotal').textContent = rupiah(subtotal);
+
+    if (promoRate > 0) {
+        rowDiskon.style.display = 'flex';
+        $('#sumDiskon').textContent = '- ' + rupiah(diskon) + ' (' + (promoRate * 100) + '%)';
+    } else {
+        rowDiskon.style.display = 'none';
+    }
+
+    $('#sumTax').textContent = rupiah(tax);
+    $('#totalText').textContent = rupiah(grand) + ' (' + nights + ' Malam)';
+}
+
+/* ============================================================
+   FORM EVENTS
+============================================================ */
+['#checkin', '#checkout'].forEach(sel => {
+    const el = $(sel);
+    if (el) el.addEventListener('change', () => {
+        validateDates();
+        hitungTotal();
+    });
+});
+
+$('#tamu').addEventListener('input', () => {
+    const v = parseInt($('#tamu').value, 10);
+    if (v > 15) { $('#tamu').value = 15; }
+    if (v < 1 && $('#tamu').value !== '') { $('#tamu').value = 1; }
+});
+
+$('#nama').addEventListener('input', e => {
+    if (e.target.value.trim().length >= 3) {
+        clearHint('hintNama');
+        markInvalid(e.target, false);
+    }
+});
+
+$('#wa').addEventListener('input', e => {
+    e.target.value = e.target.value.replace(/[^\d+\-\s]/g, '');
+    const clean = e.target.value.replace(/\D/g, '');
+    if (clean.length >= 9) {
+        clearHint('hintWa');
+        markInvalid(e.target, false);
+    }
+});
+
+function validateDates() {
+    const ci = $('#checkin').value;
+    const co = $('#checkout').value;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+
+    let ok = true;
+
+    if (ci) {
+        const d1 = new Date(ci + 'T00:00:00');
+        if (d1 < today) {
+            setHint('hintCheckin', 'Tanggal check-in tidak boleh di masa lalu.', true);
+            markInvalid($('#checkin'), true);
+            ok = false;
+        } else {
+            clearHint('hintCheckin');
+            markInvalid($('#checkin'), false);
+        }
+    }
+
+    if (ci && co) {
+        const d1 = new Date(ci + 'T00:00:00');
+        const d2 = new Date(co + 'T00:00:00');
+        if (d2 <= d1) {
+            setHint('hintCheckout', 'Tanggal check-out harus setelah check-in.', true);
+            markInvalid($('#checkout'), true);
+            ok = false;
+        } else {
+            clearHint('hintCheckout');
+            markInvalid($('#checkout'), false);
+        }
+    }
+    return ok;
+}
+
+/* ============================================================
+   VALIDATION SEBELUM KIRIM
+============================================================ */
+function validateForm() {
+    let valid = true;
+
+    const nama = $('#nama');
+    const wa   = $('#wa');
+    const ci   = $('#checkin');
+    const co   = $('#checkout');
+    const tamu = $('#tamu');
+
+    if (nama.value.trim().length < 3) {
+        setHint('hintNama', 'Nama minimal 3 karakter.', true);
+        markInvalid(nama, true); valid = false;
+    } else { clearHint('hintNama'); markInvalid(nama, false); }
+
+    const waClean = wa.value.replace(/\D/g, '');
+    if (waClean.length < 9) {
+        setHint('hintWa', 'Nomor WhatsApp tidak valid (min. 9 digit).', true);
+        markInvalid(wa, true); valid = false;
+    } else { clearHint('hintWa'); markInvalid(wa, false); }
+
+    if (!ci.value) {
+        setHint('hintCheckin', 'Pilih tanggal check-in.', true);
+        markInvalid(ci, true); valid = false;
+    } else { clearHint('hintCheckin'); markInvalid(ci, false); }
+
+    if (!co.value) {
+        setHint('hintCheckout', 'Pilih tanggal check-out.', true);
+        markInvalid(co, true); valid = false;
+    } else { clearHint('hintCheckout'); markInvalid(co, false); }
+
+    if (!validateDates()) valid = false;
+
+    if (!selectedRoomName || !selectedRoomPrice) {
+        setHint('hintKamar', 'Silakan pilih tipe kamar terlebih dahulu.', true);
+        markInvalid(kamarSelect, true); valid = false;
+    } else { clearHint('hintKamar'); markInvalid(kamarSelect, false); }
+
+    const tamuVal = parseInt(tamu.value, 10);
+    if (!tamuVal || tamuVal < 1) {
+        setHint('hintTamu', 'Jumlah tamu minimal 1 orang.', true);
+        markInvalid(tamu, true); valid = false;
+    } else { clearHint('hintTamu'); markInvalid(tamu, false); }
+
+    return valid;
+}
+
+/* ============================================================
+   KIRIM KE WHATSAPP
+============================================================ */
+function kirimWA() {
+    if (!validateForm()) {
+        showToast('Harap lengkapi semua data formulir dengan benar!', 'error');
+        const firstInvalid = $('.invalid');
+        if (firstInvalid) {
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => firstInvalid.focus(), 400);
+        }
+        return;
+    }
+
+    const nama     = $('#nama').value.trim();
+    const wa       = $('#wa').value.trim();
+    const checkin  = $('#checkin').value;
+    const checkout = $('#checkout').value;
+    const tamu     = $('#tamu').value;
+    const catatan  = $('#catatan').value.trim();
+    const totalText= $('#totalText').textContent;
+
+    const nights = getNights();
+    const subtotal = selectedRoomPrice * nights;
+    const diskon = subtotal * promoRate;
+    const afterDisc = subtotal - diskon;
+    const tax = afterDisc * 0.10;
+
+    let pesan =
+        'Halo *Your Name Vila*,\n\n' +
+        'Saya ingin konfirmasi booking penginapan:\n\n' +
+        '*DATA PEMESAN*\n' +
+        '- Nama: ' + nama + '\n' +
+        '- No WA: ' + wa + '\n\n' +
+        '*DETAIL MENGINAP*\n' +
+        '- Tipe Kamar: ' + selectedRoomName + '\n' +
+        '- Check-in: ' + checkin + '\n' +
+        '- Check-out: ' + checkout + '\n' +
+        '- Durasi: ' + nights + ' malam\n' +
+        '- Jumlah Tamu: ' + tamu + ' orang\n\n' +
+        '*RINCIAN BIAYA*\n' +
+        '- Subtotal: ' + rupiah(subtotal) + '\n';
+
+    if (promoRate > 0) {
+        pesan += '- Diskon Promo (' + appliedPromoCode + ' ' + (promoRate * 100) + '%): -' + rupiah(diskon) + '\n';
+    }
+    pesan +=
+        '- Pajak & Layanan (10%): ' + rupiah(tax) + '\n' +
+        '- *Total Estimasi: ' + totalText + '*\n\n';
+
+    if (catatan) {
+        pesan += '*CATATAN TAMBAHAN*\n' + catatan + '\n\n';
+    }
+
+    pesan += 'Mohon bantuan mengenai ketersediaan unit dan metode pembayarannya. Terima kasih!';
+
+    const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(pesan);
+
+    showToast('Mengarahkan ke WhatsApp...', 'success');
+
+    const win = window.open(url, '_blank');
+    if (!win) {
+        window.location.href = url;
+    }
+}
+
+$('#btnKirimWA').addEventListener('click', kirimWA);
+
+/* ============================================================
+   RESET FORM
+============================================================ */
+$('#btnReset').addEventListener('click', () => {
+    $('#nama').value = '';
+    $('#wa').value = '';
+    $('#catatan').value = '';
+    $('#tamu').value = 2;
+    $('#promo').value = '';
+    promoRate = 0;
+    appliedPromoCode = '';
+
+    kamarSelect.value = '';
+    selectedRoomPrice = 0;
+    selectedRoomName = '';
+
+    roomCards.forEach(c => c.classList.remove('active'));
+
+    clearAllInvalid();
+    ['hintNama','hintWa','hintCheckin','hintCheckout','hintKamar','hintTamu','hintPromo']
+        .forEach(clearHint);
+
+    setDefaultDates();
+    hitungTotal();
+    showToast('Formulir booking berhasil direset');
+});
+
+/* ============================================================
+   DEFAULT DATES
+============================================================ */
+function setDefaultDates() {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const fmt = d => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + dd;
+    };
+
+    const ci = $('#checkin');
+    const co = $('#checkout');
+
+    ci.value = fmt(today);
+    co.value = fmt(tomorrow);
+
+    ci.min = fmt(today);
+    co.min = fmt(tomorrow);
+}
+setDefaultDates();
+hitungTotal();
+
+/* ============================================================
+   TESTIMONIAL SLIDER
+============================================================ */
+(function testimonialSlider() {
+    const track = $('#testiTrack');
+    const dotsWrap = $('#testiDots');
+    const prevBtn = $('#testiPrev');
+    const nextBtn = $('#testiNext');
+    if (!track) return;
+
+    const slides = $$('.testi-slide', track);
+    const total = slides.length;
+    if (!total) return;
+
+    let index = 0;
+    let autoTimer = null;
+
+    for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Testimoni ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+    }
+
+    const dots = $$('.testi-dot', dotsWrap);
+
+    function goTo(i) {
+        index = (i + total) % total;
+        track.style.transform = 'translateX(' + (-index * 100) + '%)';
+        dots.forEach((d, di) => d.classList.toggle('active', di === index));
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    nextBtn.addEventListener('click', () => { next(); restartAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
+
+    function startAuto() {
+        autoTimer = setInterval(next, 6000);
+    }
+    function restartAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+    startAuto();
+
+    /* Swipe support */
+    let startX = 0, isDown = false;
+    track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX; isDown = true;
+    }, { passive: true });
+    track.addEventListener('touchend', e => {
+        if (!isDown) return;
+        isDown = false;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) > 50) {
+            diff < 0 ? next() : prev();
+            restartAuto();
+        }
+    }, { passive: true });
+
+    /* Pause saat hover */
+    track.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    track.addEventListener('mouseleave', startAuto);
+})();
+
+/* ============================================================
+   FAQ ACCORDION
+============================================================ */
+$$('.faq-item').forEach(item => {
+    const btn = $('.faq-q', item);
+    const panel = $('.faq-a', item);
+
+    btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        /* Tutup semua */
+        $$('.faq-item').forEach(other => {
+            other.classList.remove('open');
+            const p = $('.faq-a', other);
+            if (p) p.style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+            item.classList.add('open');
+            panel.style.maxHeight = panel.scrollHeight + 40 + 'px';
+        }
+    });
+});
+
+/* Pastikan tinggi FAQ benar setelah resize */
+window.addEventListener('resize', () => {
+    const open = $('.faq-item.open .faq-a');
+    if (open) open.style.maxHeight = open.scrollHeight + 40 + 'px';
+});
+
+/* ============================================================
+   PARALLAX HERO (subtle)
+============================================================ */
+(function heroParallax() {
+    const hero = $('.hero');
+    if (!hero) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const y = window.scrollY;
+            if (y < window.innerHeight) {
+                hero.style.backgroundPositionY = (y * 0.35) + 'px';
+            }
+            ticking = false;
+        });
+    }, { passive: true });
+})();
+
+/* ============================================================
+   WELCOME TOAST
+============================================================ */
+window.addEventListener('load', () => {
+    setTimeout(() => showToast('Selamat Datang di Your Name Vila', 'info'), 900);
+    setTimeout(() => showToast('Diskon Promo 20% — Gunakan kode SAWARNA20', 'success'), 4800);
+});
+
+/* Refresh AOS setelah semua render */
+setTimeout(() => { if (window.AOS && AOS.refresh) AOS.refresh(); }, 800);
+</script>
+<svg id="fa-inline-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-fa-brands-fa-facebook-f" viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"></path></symbol><symbol id="icon-fa-brands-fa-instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></symbol><symbol id="icon-fa-brands-fa-tiktok" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></symbol><symbol id="icon-fa-brands-fa-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></symbol><symbol id="icon-fa-brands-fa-youtube" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></symbol><symbol id="icon-fa-regular-fa-calendar-minus" viewBox="0 0 448 512"><path d="M128 0c13.3 0 24 10.7 24 24l0 40 144 0 0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40 40 0c35.3 0 64 28.7 64 64l0 16 0 48 0 256c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 192l0-48 0-16C0 92.7 28.7 64 64 64l40 0 0-40c0-13.3 10.7-24 24-24zM400 192L48 192l0 256c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-256zM296 352l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24z"></path></symbol><symbol id="icon-fa-regular-fa-calendar-plus" viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256zm176 40c-13.3 0-24 10.7-24 24l0 48-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l48 0 0 48c0 13.3 10.7 24 24 24s24-10.7 24-24l0-48 48 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-48c0-13.3-10.7-24-24-24z"></path></symbol><symbol id="icon-fa-regular-fa-clock" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></symbol><symbol id="icon-fa-regular-fa-envelope" viewBox="0 0 512 512"><path d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"></path></symbol><symbol id="icon-fa-regular-fa-heart" viewBox="0 0 512 512"><path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8l0-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5l0 3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20-.1-.1s0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5l0 3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2l0-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path></symbol><symbol id="icon-fa-regular-fa-note-sticky" viewBox="0 0 448 512"><path d="M64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l224 0 0-80c0-17.7 14.3-32 32-32l80 0 0-224c0-8.8-7.2-16-16-16L64 80zM288 480L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 224 0 5.5c0 17-6.7 33.3-18.7 45.3l-90.5 90.5c-12 12-28.3 18.7-45.3 18.7l-5.5 0z"></path></symbol><symbol id="icon-fa-regular-fa-user" viewBox="0 0 448 512"><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z"></path></symbol><symbol id="icon-fa-solid-fa-arrow-up" viewBox="0 0 384 512"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></symbol><symbol id="icon-fa-solid-fa-award" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"></path></symbol><symbol id="icon-fa-solid-fa-bars" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"></path></symbol><symbol id="icon-fa-solid-fa-bed" viewBox="0 0 640 512"><path d="M32 32c17.7 0 32 14.3 32 32l0 256 224 0 0-160c0-17.7 14.3-32 32-32l224 0c53 0 96 43 96 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-224 0-32 0L64 416l0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32L0 64C0 46.3 14.3 32 32 32zm144 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"></path></symbol><symbol id="icon-fa-solid-fa-bell" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32l0 19.2C119 66 64 130.6 64 208l0 18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416l384 0c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8l0-18.8c0-77.4-55-142-128-156.8L256 32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3l-64 0-64 0c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"></path></symbol><symbol id="icon-fa-solid-fa-calendar-check" viewBox="0 0 448 512"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z"></path></symbol><symbol id="icon-fa-solid-fa-campground" viewBox="0 0 576 512"><path d="M377 52c11-13.8 8.8-33.9-5-45s-33.9-8.8-45 5L288 60.8 249 12c-11-13.8-31.2-16-45-5s-16 31.2-5 45l48 60L12.3 405.4C4.3 415.4 0 427.7 0 440.4L0 464c0 26.5 21.5 48 48 48l240 0 240 0c26.5 0 48-21.5 48-48l0-23.6c0-12.7-4.3-25.1-12.3-35L329 112l48-60zM288 448l-119.5 0L288 291.7 407.5 448 288 448z"></path></symbol><symbol id="icon-fa-solid-fa-check" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></symbol><symbol id="icon-fa-solid-fa-chevron-left" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></symbol><symbol id="icon-fa-solid-fa-chevron-right" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></symbol><symbol id="icon-fa-solid-fa-circle-check" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></symbol><symbol id="icon-fa-solid-fa-circle-exclamation" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></symbol><symbol id="icon-fa-solid-fa-circle-info" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol><symbol id="icon-fa-solid-fa-face-smile" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM164.1 325.5C182 346.2 212.6 368 256 368s74-21.8 91.9-42.5c5.8-6.7 15.9-7.4 22.6-1.6s7.4 15.9 1.6 22.6C349.8 372.1 311.1 400 256 400s-93.8-27.9-116.1-53.5c-5.8-6.7-5.1-16.8 1.6-22.6s16.8-5.1 22.6 1.6zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol><symbol id="icon-fa-solid-fa-fire-flame-curved" viewBox="0 0 384 512"><path d="M153.6 29.9l16-21.3C173.6 3.2 180 0 186.7 0C198.4 0 208 9.6 208 21.3V43.5c0 13.1 5.4 25.7 14.9 34.7L307.6 159C356.4 205.6 384 270.2 384 337.7C384 434 306 512 209.7 512H192C86 512 0 426 0 320v-3.8c0-48.8 19.4-95.6 53.9-130.1l3.5-3.5c4.2-4.2 10-6.6 16-6.6C85.9 176 96 186.1 96 198.6V288c0 35.3 28.7 64 64 64s64-28.7 64-64v-3.9c0-18-7.2-35.3-19.9-48l-38.6-38.6c-24-24-37.5-56.7-37.5-90.7c0-27.7 9-54.8 25.6-76.9z"></path></symbol><symbol id="icon-fa-solid-fa-heart" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol><symbol id="icon-fa-solid-fa-hotel" viewBox="0 0 512 512"><path d="M0 32C0 14.3 14.3 0 32 0L480 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l0 384c17.7 0 32 14.3 32 32s-14.3 32-32 32l-176 0 0-48c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 48L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32L32 64C14.3 64 0 49.7 0 32zm96 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8l144 0z"></path></symbol><symbol id="icon-fa-solid-fa-house-chimney" viewBox="0 0 576 512"><path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185l0-121c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32l0 36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1l32 0 0 69.7c-.1 .9-.1 1.8-.1 2.8l0 112c0 22.1 17.9 40 40 40l16 0c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2l31.9 0 24 0c22.1 0 40-17.9 40-40l0-24 0-64c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 64 0 24c0 22.1 17.9 40 40 40l24 0 32.5 0c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1l16 0c22.1 0 40-17.9 40-40l0-16.2c.3-2.6 .5-5.3 .5-8.1l-.7-160.2 32 0z"></path></symbol><symbol id="icon-fa-solid-fa-images" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64l0 224c0 35.3 28.7 64 64 64l352 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L160 32zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320l-144 0-48 0-80 0c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120L0 344c0 75.1 60.9 136 136 136l320 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-320 0c-48.6 0-88-39.4-88-88l0-224z"></path></symbol><symbol id="icon-fa-solid-fa-layer-group" viewBox="0 0 576 512"><path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"></path></symbol><symbol id="icon-fa-solid-fa-location-dot" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></symbol><symbol id="icon-fa-solid-fa-magnifying-glass" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></symbol><symbol id="icon-fa-solid-fa-magnifying-glass-plus" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z"></path></symbol><symbol id="icon-fa-solid-fa-moon" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></symbol><symbol id="icon-fa-solid-fa-motorcycle" viewBox="0 0 640 512"><path d="M280 32c-13.3 0-24 10.7-24 24s10.7 24 24 24l57.7 0 16.4 30.3L256 192l-45.3-45.3c-12-12-28.3-18.7-45.3-18.7L64 128c-17.7 0-32 14.3-32 32l0 32 96 0c88.4 0 160 71.6 160 160c0 11-1.1 21.7-3.2 32l70.4 0c-2.1-10.3-3.2-21-3.2-32c0-52.2 25-98.6 63.7-127.8l15.4 28.6C402.4 276.3 384 312 384 352c0 70.7 57.3 128 128 128s128-57.3 128-128s-57.3-128-128-128c-13.5 0-26.5 2.1-38.7 6L418.2 128l61.8 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-20.4 0c-7.5 0-14.7 2.6-20.5 7.4L391.7 78.9l-14-26c-7-12.9-20.5-21-35.2-21L280 32zM462.7 311.2l28.2 52.2c6.3 11.7 20.9 16 32.5 9.7s16-20.9 9.7-32.5l-28.2-52.2c2.3-.3 4.7-.4 7.1-.4c35.3 0 64 28.7 64 64s-28.7 64-64 64s-64-28.7-64-64c0-15.5 5.5-29.7 14.7-40.8zM187.3 376c-9.5 23.5-32.5 40-59.3 40c-35.3 0-64-28.7-64-64s28.7-64 64-64c26.9 0 49.9 16.5 59.3 40l66.4 0C242.5 268.8 190.5 224 128 224C57.3 224 0 281.3 0 352s57.3 128 128 128c62.5 0 114.5-44.8 125.8-104l-66.4 0zM128 384a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></symbol><symbol id="icon-fa-solid-fa-plus" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"></path></symbol><symbol id="icon-fa-solid-fa-rotate-left" viewBox="0 0 512 512"><path d="M48.5 224L40 224c-13.3 0-24-10.7-24-24L16 72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185 183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8L48.5 224z"></path></symbol><symbol id="icon-fa-solid-fa-ruler-combined" viewBox="0 0 512 512"><path d="M.2 468.9C2.7 493.1 23.1 512 48 512l96 0 320 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-48 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-64 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-64 0 0 80c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-80-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-64-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-64-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 368l0 96c0 1.7 .1 3.3 .2 4.9z"></path></symbol><symbol id="icon-fa-solid-fa-shield-halved" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"></path></symbol><symbol id="icon-fa-solid-fa-snowflake" viewBox="0 0 448 512"><path d="M224 0c17.7 0 32 14.3 32 32l0 30.1 15-15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-49 49 0 70.3 61.4-35.8 17.7-66.1c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4l-5.2 19.3 23.6-13.8c15.3-8.9 34.9-3.7 43.8 11.5s3.8 34.9-11.5 43.8l-25.3 14.8 21.7 5.8c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-67.7-18.1L287.5 256l60.9 35.5 67.7-18.1c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4l-21.7 5.8 25.3 14.8c15.3 8.9 20.4 28.5 11.5 43.8s-28.5 20.4-43.8 11.5l-23.6-13.8 5.2 19.3c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-17.7-66.1L256 311.7l0 70.3 49 49c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15 0 30.1c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-30.1-15 15c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l49-49 0-70.3-61.4 35.8-17.7 66.1c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4l5.2-19.3L48.1 395.6c-15.3 8.9-34.9 3.7-43.8-11.5s-3.7-34.9 11.5-43.8l25.3-14.8-21.7-5.8c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l67.7 18.1L160.5 256 99.6 220.5 31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4l21.7-5.8L15.9 171.6C.6 162.7-4.5 143.1 4.4 127.9s28.5-20.4 43.8-11.5l23.6 13.8-5.2-19.3c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l17.7 66.1L192 200.3l0-70.3L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l15 15L192 32c0-17.7 14.3-32 32-32z"></path></symbol><symbol id="icon-fa-solid-fa-spa" viewBox="0 0 576 512"><path d="M183.1 235.3c33.7 20.7 62.9 48.1 85.8 80.5c7 9.9 13.4 20.3 19.1 31c5.7-10.8 12.1-21.1 19.1-31c22.9-32.4 52.1-59.8 85.8-80.5C437.6 207.8 490.1 192 546 192l9.9 0c11.1 0 20.1 9 20.1 20.1C576 360.1 456.1 480 308.1 480L288 480l-20.1 0C119.9 480 0 360.1 0 212.1C0 201 9 192 20.1 192l9.9 0c55.9 0 108.4 15.8 153.1 43.3zM301.5 37.6c15.7 16.9 61.1 71.8 84.4 164.6c-38 21.6-71.4 50.8-97.9 85.6c-26.5-34.8-59.9-63.9-97.9-85.6c23.2-92.8 68.6-147.7 84.4-164.6C278 33.9 282.9 32 288 32s10 1.9 13.5 5.6z"></path></symbol><symbol id="icon-fa-solid-fa-square-parking" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM192 256l48 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-48 0 0 64zm48 64l-48 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64 0-120c0-22.1 17.9-40 40-40l72 0c53 0 96 43 96 96s-43 96-96 96z"></path></symbol><symbol id="icon-fa-solid-fa-star" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></symbol><symbol id="icon-fa-solid-fa-sun" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path></symbol><symbol id="icon-fa-solid-fa-tags" viewBox="0 0 512 512"><path d="M345 39.1L472.8 168.4c52.4 53 52.4 138.2 0 191.2L360.8 472.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L438.6 325.9c33.9-34.3 33.9-89.4 0-123.7L310.9 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM0 229.5L0 80C0 53.5 21.5 32 48 32l149.5 0c17 0 33.3 6.7 45.3 18.7l168 168c25 25 25 65.5 0 90.5L277.3 442.7c-25 25-65.5 25-90.5 0l-168-168C6.7 262.7 0 246.5 0 229.5zM144 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></symbol><symbol id="icon-fa-solid-fa-umbrella-beach" viewBox="0 0 576 512"><path d="M346.3 271.8l-60.1-21.9L214 448 32 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l512 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-261.9 0 64.1-176.2zm121.1-.2l-3.3 9.1 67.7 24.6c18.1 6.6 38-4.2 39.6-23.4c6.5-78.5-23.9-155.5-80.8-208.5c2 8 3.2 16.3 3.4 24.8l.2 6c1.8 57-7.3 113.8-26.8 167.4zM462 99.1c-1.1-34.4-22.5-64.8-54.4-77.4c-.9-.4-1.9-.7-2.8-1.1c-33-11.7-69.8-2.4-93.1 23.8l-4 4.5C272.4 88.3 245 134.2 226.8 184l-3.3 9.1L434 269.7l3.3-9.1c18.1-49.8 26.6-102.5 24.9-155.5l-.2-6zM107.2 112.9c-11.1 15.7-2.8 36.8 15.3 43.4l71 25.8 3.3-9.1c19.5-53.6 49.1-103 87.1-145.5l4-4.5c6.2-6.9 13.1-13 20.5-18.2c-79.6 2.5-154.7 42.2-201.2 108z"></path></symbol><symbol id="icon-fa-solid-fa-user-group" viewBox="0 0 640 512"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM609.3 512l-137.8 0c5.4-9.4 8.6-20.3 8.6-32l0-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2l61.4 0C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"></path></symbol><symbol id="icon-fa-solid-fa-users" viewBox="0 0 640 512"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"></path></symbol><symbol id="icon-fa-solid-fa-utensils" viewBox="0 0 448 512"><path d="M416 0C400 0 288 32 288 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 0-112 0-208c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7L80 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16l0 134.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8L64 16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"></path></symbol><symbol id="icon-fa-solid-fa-water-ladder" viewBox="0 0 576 512"><path d="M128 127.7C128 74.9 170.9 32 223.7 32c48.3 0 89 36 95 83.9l1 8.2c2.2 17.5-10.2 33.5-27.8 35.7s-33.5-10.2-35.7-27.8l-1-8.2c-2-15.9-15.5-27.8-31.5-27.8c-17.5 0-31.7 14.2-31.7 31.7l0 96.3 192 0 0-96.3C384 74.9 426.9 32 479.7 32c48.3 0 89 36 95 83.9l1 8.2c2.2 17.5-10.2 33.5-27.8 35.7s-33.5-10.2-35.7-27.8l-1-8.2c-2-15.9-15.5-27.8-31.5-27.8c-17.5 0-31.7 14.2-31.7 31.7L448 361c-1.6 1-3.3 2-4.8 3.1c-18 12.4-40.1 20.3-59.2 20.3c0 0 0 0 0 0l0-96.5-192 0 0 96.5c-19 0-41.2-7.9-59.1-20.3c-1.6-1.1-3.2-2.2-4.9-3.1l0-233.3zM306.5 389.9C329 405.4 356.5 416 384 416c26.9 0 55.4-10.8 77.4-26.1c0 0 0 0 0 0c11.9-8.5 28.1-7.8 39.2 1.7c14.4 11.9 32.5 21 50.6 25.2c17.2 4 27.9 21.2 23.9 38.4s-21.2 27.9-38.4 23.9c-24.5-5.7-44.9-16.5-58.2-25C449.5 469.7 417 480 384 480c-31.9 0-60.6-9.9-80.4-18.9c-5.8-2.7-11.1-5.3-15.6-7.7c-4.5 2.4-9.7 5.1-15.6 7.7c-19.8 9-48.5 18.9-80.4 18.9c-33 0-65.5-10.3-94.5-25.8c-13.4 8.4-33.7 19.3-58.2 25c-17.2 4-34.4-6.7-38.4-23.9s6.7-34.4 23.9-38.4c18.1-4.2 36.2-13.3 50.6-25.2c11.1-9.4 27.3-10.1 39.2-1.7c0 0 0 0 0 0C136.7 405.2 165.1 416 192 416c27.5 0 55-10.6 77.5-26.1c11.1-7.9 25.9-7.9 37 0z"></path></symbol><symbol id="icon-fa-solid-fa-wifi" viewBox="0 0 640 512"><path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"></path></symbol><symbol id="icon-fa-solid-fa-xmark" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></symbol></svg>
+</body>
+</html>
